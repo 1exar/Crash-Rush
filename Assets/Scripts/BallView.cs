@@ -15,6 +15,8 @@ public class BallView: MonoBehaviour
 
     private bool _isMine;
 
+    private Coroutine _waitDeselect;
+    
     private void Awake()
     {
         _movment.OnMoved += CancleChoising;
@@ -55,11 +57,20 @@ public class BallView: MonoBehaviour
 
     public void SelectBall()
     {
+        StopAllCoroutines();
         _circle.color = _select;
+        _waitDeselect = StartCoroutine(WaitBeforeDeselect());
     }
 
     public void DeselectBall()
     {
         SetCircleColor(_isMine);
     }
+
+    private IEnumerator WaitBeforeDeselect()
+    {
+        yield return new WaitForSeconds(.1f);
+        DeselectBall();
+    }
+    
 }

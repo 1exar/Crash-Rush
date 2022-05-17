@@ -17,6 +17,14 @@ public class BallAttack : MonoBehaviour
     [SerializeField]
     private Weapon[] _weapons;
 
+    public int Damage
+    {
+        get {
+            return _damage;
+        }
+        protected set {}
+    }
+    
     public void Init(bool isMine)
     {
         _isMine = isMine;

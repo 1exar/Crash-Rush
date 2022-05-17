@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8078882114073100878}
   - component: {fileID: 6259699814676164691}
   - component: {fileID: 4548129164350149895}
+  - component: {fileID: 9146323983739085242}
   m_Layer: 3
   m_Name: Sphere
   m_TagString: Untagged
@@ -226,3 +227,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 8078882114073100878}
   _trailRenderer: {fileID: 6259699814676164691}
+--- !u!135 &9146323983739085242
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3969415922631790132}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

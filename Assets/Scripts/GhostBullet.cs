@@ -8,15 +8,7 @@ public class GhostBullet : MonoBehaviour
     [SerializeField]
     private Rigidbody _rigidbody;
     private TrajectoryRendererAdvanced _trajectory;
-    [SerializeField]
-    private TrailRenderer _trailRenderer;
 
-    public TrailRenderer TrailRenderer
-    {
-        get { return _trailRenderer; }
-        protected set {}
-    }
-    
     private bool _savePoints = false;
 
     private List<Vector3> _collisionPoints = new List<Vector3>();
@@ -25,8 +17,6 @@ public class GhostBullet : MonoBehaviour
     {
         _savePoints = true;
         yield return new WaitForSeconds(.2f);
-        Vector3[] _points = new Vector3[_trailRenderer.positionCount];
-        _trailRenderer.GetPositions(_points);
         _trajectory.ShowLine(_collisionPoints);
         Destroy(gameObject);
     }

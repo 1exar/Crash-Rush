@@ -83,7 +83,7 @@ public class BallsContainer : MonoBehaviour
         return result;
     }
 
-    public void SelectBall(Ball _ball, bool _isMine)
+    public void SelectBall(Ball _ball, bool _isMine, int _damage)
     {
         DeselectAll();
         if (!_isMine)
@@ -93,6 +93,7 @@ public class BallsContainer : MonoBehaviour
                 if (_ball == ball)
                 {
                     _ball.View.SelectBall();
+                    _ball.Health.PreviewDamage(_damage);
                     break;
                 }
             }
@@ -103,6 +104,7 @@ public class BallsContainer : MonoBehaviour
             {
                 if (_ball == ball)
                 {
+                    _ball.Health.PreviewDamage(_damage);
                     _ball.View.SelectBall();
                     break;
                 }
@@ -110,16 +112,18 @@ public class BallsContainer : MonoBehaviour
         }
     }
 
-    private void DeselectAll()
+    public void DeselectAll()
     {
         foreach (var ball in _myBalls)
         {
             ball.View.DeselectBall();
+            ball.Health.CancelPreview();
         }
 
         foreach (var ball in _enemyBalls)
         {
             ball.View.DeselectBall();
+            ball.Health.CancelPreview();
         }
     }
     

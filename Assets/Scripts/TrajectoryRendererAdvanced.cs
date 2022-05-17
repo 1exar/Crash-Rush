@@ -30,6 +30,8 @@ public class TrajectoryRendererAdvanced : MonoBehaviour
 
     public void ShowLine(List<Vector3> points)
     {
+      //  _container.DeselectAll();
+        
         points.Insert(0, transform.position);
 
         Vector3 dir = _arrowDirection.transform.position - transform.position;
@@ -41,7 +43,7 @@ public class TrajectoryRendererAdvanced : MonoBehaviour
                 points.Add(hit.point);
             if (hit.collider.TryGetComponent<Ball>(out Ball _ball))
             {
-                _container.SelectBall(_ball, _isMine);
+                _container.SelectBall(_ball, _isMine, _ball.Attack.Damage);
             }
         }
         
