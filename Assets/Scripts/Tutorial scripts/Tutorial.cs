@@ -12,52 +12,48 @@ public class Tutorial : MonoBehaviour
     [SerializeField]
     private TutorialText _tutorialText;
 
-    private int _currentStage = 0;
-
     private void Start()
     {
-        Invoke(nameof(ShowTutorialPanel), 1f);
-        Invoke(nameof(ShowFinger), 1f);
+        StartCoroutine(ShowTutorialPanel(1f));
+        StartCoroutine(ShowFinger(1f));
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (_currentStage == 0)
-            {
-                Destroy(_fingerImage);
-                HideTutorialPanel();
-            }
+            Destroy(_fingerImage);
+            StartCoroutine(HideTutorialPanel(0f));
         }
 
         else if (Input.GetMouseButtonUp(0))
         {
-            if (_currentStage == 0)
-            {
-                _tutorialText.ChangeText("Превосходно! Добей оставшихся противников.");
-                Invoke(nameof(ShowTutorialPanel), 5f);
-                Invoke(nameof(HideTutorialPanel), 8f);
+            _tutorialText.ChangeText("Превосходно! Добей оставшихся противников.");
+            StartCoroutine(ShowTutorialPanel(5f));
+            StartCoroutine(HideTutorialPanel(8f));
 
-                _currentStage += 1;
-            }
+            this.enabled = false;
         }
     }
 
-    private void ShowFinger()
+    private IEnumerator HideTutorialPanel(float delay)
     {
-        _fingerImage.SetActive(true);
+        yield return new WaitForSeconds(delay);
+        _tutorialTextPanel.SetActive(false);
     }
 
-    private void ShowTutorialPanel()
+    private IEnumerator ShowTutorialPanel(float delay)
     {
+        yield return new WaitForSeconds(delay);
+
         _tutorialTextPanel.SetActive(true);
         _tutorialTextPanel.transform.localScale = Vector3.one * 0.5f;
         _tutorialTextPanel.transform.DOScale(1, 0.5f).SetEase(Ease.OutBack);
     }
 
-    private void HideTutorialPanel()
+    private IEnumerator ShowFinger(float delay)
     {
-        _tutorialTextPanel.SetActive(false);
+        yield return new WaitForSeconds(delay);
+        _fingerImage.SetActive(true);
     }
 }

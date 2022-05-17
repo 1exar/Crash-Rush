@@ -10,13 +10,11 @@ public class TurnChoiser : MonoBehaviour
     [SerializeField]
     private UINotification _uiNotification;
     [SerializeField]
+    private EndGamePanel _endGamePanel;
+    [SerializeField]
     private int _lastMyBall = 0;
     [SerializeField]
     private int _lastEnemyBall = 0;
-    [SerializeField]
-    private int _playerTurns = 10;
-    [SerializeField]
-    private int _enemyTurns = 10;
 
     private bool _choiseNewTurn;
     private bool _lastTurn;
@@ -50,7 +48,6 @@ public class TurnChoiser : MonoBehaviour
         _uiNotification.ShowTurn(isMine);
         if (isMine)
         {
-            _playerTurns -= 1;
             if (_lastMyBall >= _balls.MyBall.Count)
             {
                 _lastMyBall = 0;
@@ -76,7 +73,6 @@ public class TurnChoiser : MonoBehaviour
         }
         else
         {
-            _enemyTurns -= 1;
             if (_lastEnemyBall >= _balls.EnemyBalls.Count)
             {
                 _lastEnemyBall = 0;
@@ -110,9 +106,20 @@ public class TurnChoiser : MonoBehaviour
 
     private void LateUpdate()
     {
-        if(_choiseNewTurn == false) return;
+        if (_choiseNewTurn == false) return;
         if (_balls.isEnemyBallsMoving() == false && _balls.isMyBallsMoving() == false)
         {
+            if (_balls.EnemyBalls.Count == 0)
+            {
+                _endGamePanel.ShowWinPanel();
+                return;
+            }
+            else if (_balls.MyBall.Count == 0)
+            {
+                _endGamePanel.ShowFailPanel();
+                return;
+            }
+
             _choiseNewTurn = false;
             StartCoroutine(WaiteBeforeNetTurn(_lastTurn));
         }
