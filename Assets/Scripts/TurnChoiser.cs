@@ -13,6 +13,10 @@ public class TurnChoiser : MonoBehaviour
     private int _lastMyBall = 0;
     [SerializeField]
     private int _lastEnemyBall = 0;
+    [SerializeField]
+    private int _playerTurns = 10;
+    [SerializeField]
+    private int _enemyTurns = 10;
 
     private bool _choiseNewTurn;
     private bool _lastTurn;
@@ -46,7 +50,7 @@ public class TurnChoiser : MonoBehaviour
         _uiNotification.ShowTurn(isMine);
         if (isMine)
         {
-
+            _playerTurns -= 1;
             if (_lastMyBall >= _balls.MyBall.Count)
             {
                 _lastMyBall = 0;
@@ -72,7 +76,7 @@ public class TurnChoiser : MonoBehaviour
         }
         else
         {
-            
+            _enemyTurns -= 1;
             if (_lastEnemyBall >= _balls.EnemyBalls.Count)
             {
                 _lastEnemyBall = 0;

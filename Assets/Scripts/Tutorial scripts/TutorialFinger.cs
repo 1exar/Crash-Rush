@@ -7,6 +7,12 @@ public class TutorialFinger : MonoBehaviour
 {
     private void Start()
     {
+        GetComponent<SpriteRenderer>().DOFade(1, 0.2f).OnComplete(() =>
+            Invoke(nameof(SetTweening), 0));
+    }
+
+    private void SetTweening()
+    {
         Sequence mySequence = DOTween.Sequence();
 
         mySequence.Append(transform.DOMoveZ(-12, 1f).SetEase(Ease.OutSine));
