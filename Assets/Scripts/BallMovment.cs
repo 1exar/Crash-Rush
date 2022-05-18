@@ -150,6 +150,34 @@ public class BallMovment : MonoBehaviour
         }
     }
 
+    private Vector3 CalculateEnemyAttackTrajectory()
+    {
+        Vector3 originPoint = transform.position;
+        Vector3 direction = transform.forward.normalized;
+
+        for (int i = 0; i < 2; i++)
+        {
+            direction.y = 0;
+            Ray ray = new Ray(originPoint, direction);
+
+            if (Physics.SphereCast(ray, 1.5f, out RaycastHit hit, 999f, ~LayerMask.GetMask("Ignore Raycast")))
+            {
+                Debug.DrawLine(originPoint, hit.point, Color.red, 999f);
+                Debug.DrawRay(hit.point, hit.normal, Color.yellow, 999f);
+
+                if (hit.collider.TryGetComponent(out Ball ball) && ball.IsMine)
+                {
+                    return hit.point;
+                }
+                else
+                {
+                    direction = Vector3.Reflect(hit.point, direction).normalized;
+                    originPoint = hit.point;
+                }
+            }
+        }
+        return Vector3.zero;
+    }
     private IEnumerator ProccesMyTurn()
     {
         _powerIndicator.gameObject.SetActive(true);
@@ -157,18 +185,52 @@ public class BallMovment : MonoBehaviour
         
         yield return new WaitForSeconds(.3f);
 
-        Vector3 _enemyPos = _container.FindClosestBall(transform.position);
+        Vector3 targetPoint = Vector3.zero;
+        foreach (Ball ball in _container.MyBall)
+        {
+            targetPoint = ball.transform.position;
+            Ray ray = new Ray(transform.position, targetPoint - transform.position);
 
-        Vector3 _direction = Vector3.zero;
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                if (!hit.collider.GetComponent<Ball>())
+                {
+                    targetPoint = Vector3.zero;
+                    continue;
+                }
+                else
+                {
+                    targetPoint = ball.transform.position;
+                    transform.DOLookAt(targetPoint, .5f);
+                    break;
+                }
+            }
+        }
 
-        _strength = Vector3.Distance(transform.position, _enemyPos * 7);
+        if (targetPoint == Vector3.zero)
+        {
+            int fullRotation = 360;
+            targetPoint = CalculateEnemyAttackTrajectory();
+            while (targetPoint == Vector3.zero)
+            {
+                if (fullRotation == 0)
+                {
+                    targetPoint = _container.FindClosestBall(transform.position);
+                    transform.DOLookAt(targetPoint, .5f);
+                    break;
+                }
 
-        _direction = transform.position - _enemyPos;
+                transform.Rotate(Vector3.up * 5);
+                fullRotation -= 5;
 
-        _direction = new Vector3(_direction.x, 0, _direction.z);
+                targetPoint = CalculateEnemyAttackTrajectory();
+            }
+        }
 
-        transform.DOLookAt(_enemyPos, 1.5f);
-        
+        _strength = Vector3.Distance(transform.position, targetPoint * 7);
+        Vector3 _direction = transform.position - targetPoint;
+        _direction.y = 0;
+
         yield return new WaitForSeconds(1.5f);
         
         _powerIndicator.transform.DOScale(new Vector3(_powerIndicator.transform.localScale.x, _strength / 20,
@@ -181,7 +243,7 @@ public class BallMovment : MonoBehaviour
         /*_powerIndicator.transform.localPosition = new Vector3(_powerIndicator.transform.localPosition.x,
             _powerIndicator.transform.localPosition.y, _powerIndicator.transform.localScale.y / 2);*/
         
-        _rigidbody.AddForce(-_direction * _strength * 4); 
+        _rigidbody.AddForce(transform.forward * _strength * 4); 
                 
         _powerIndicator.transform.localScale = Vector3.one;
         _powerIndicator.transform.localPosition = Vector3.zero;

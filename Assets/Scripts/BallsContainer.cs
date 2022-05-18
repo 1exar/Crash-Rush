@@ -66,6 +66,11 @@ public class BallsContainer : MonoBehaviour
         }
     }
 
+    public Vector3 GetRandomBall(Vector3 _myPosition)
+    {
+        return _myBalls[Random.Range(0, _myBalls.Count)].transform.position;
+    }
+
     public Vector3 FindClosestBall(Vector3 _myPosition)
     {
         Vector3 result = Vector3.zero;
