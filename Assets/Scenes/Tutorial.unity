@@ -2007,6 +2007,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1060124484}
     m_Modifications:
+    - target: {fileID: 3105306716711297672, guid: a715f93005bad8749bf4c38ddf812aee, type: 3}
+      propertyPath: m_Text
+      value: "\u0412\u041F\u0415\u0420\u0401\u0414"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738749391446580855, guid: a715f93005bad8749bf4c38ddf812aee, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToGameScene
+      objectReference: {fileID: 0}
     - target: {fileID: 6987392635367593181, guid: a715f93005bad8749bf4c38ddf812aee, type: 3}
       propertyPath: m_Camera
       value: 

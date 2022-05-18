@@ -71,6 +71,14 @@ public class TrajectoryRendererAdvanced : MonoBehaviour
             _thirdLine.SetPosition(0, points[1]);
             _thirdLine.SetPosition(1, points[2]);
         }
+        
+        if (Physics.Raycast(transform.position, points[1] - transform.position, out RaycastHit _hit, Mathf.Infinity))
+        {
+            if (_hit.collider.TryGetComponent<Ball>(out Ball _ball))
+            {
+                _container.SelectBall(_ball, _isMine, _ball.Attack.Damage);
+            }
+        }
     }
 
     public void EnableLines()

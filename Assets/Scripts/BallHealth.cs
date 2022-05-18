@@ -68,9 +68,10 @@ public class BallHealth : MonoBehaviour
 
     public void PreviewDamage(int dmg)
     {
+        CancelInvoke("CancelPreview");
         _beforePreviewDamage = _health;
         _healthSlider.value = _health - dmg;
-        Invoke(nameof(CancelPreview), 1f);
+        Invoke(nameof(CancelPreview), .5f);
     }
 
     public void CancelPreview()
