@@ -40,6 +40,7 @@ public class BallHealth : MonoBehaviour
     public void GetDamage(int dmg)
     {
         _health -= dmg;
+        _beforePreviewDamage = _health;
         ShowDamage(dmg);
         if (_health <= 0)
         {
@@ -69,6 +70,7 @@ public class BallHealth : MonoBehaviour
     {
         _beforePreviewDamage = _health;
         _healthSlider.value = _health - dmg;
+        Invoke(nameof(CancelPreview), 1f);
     }
 
     public void CancelPreview()
