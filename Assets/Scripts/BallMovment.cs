@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -149,34 +148,46 @@ public class BallMovment : MonoBehaviour
             StartCoroutine(ProccesMyTurn());
         }
     }
+    private Vector3 _farthestPoint = Vector3.zero;
 
     private Vector3 CalculateEnemyAttackTrajectory()
     {
-        Vector3 originPoint = transform.position;
-        Vector3 direction = transform.forward.normalized;
-
-        for (int i = 0; i < 2; i++)
+        transform.Rotate(Vector3.up * Random.Range(0, 360));
+        for (int i = 360; i > 0; i -= 5)
         {
-            direction.y = 0;
-            Ray ray = new Ray(originPoint, direction);
+            Vector3 originPoint = transform.position;
+            Vector3 direction = transform.forward;
+            _farthestPoint = transform.position;
 
-            if (Physics.SphereCast(ray, 1.5f, out RaycastHit hit, 999f, ~LayerMask.GetMask("Ignore Raycast")))
+            for (int j = 0; j < 4; j++)
             {
-                Debug.DrawLine(originPoint, hit.point, Color.red, 999f);
-                Debug.DrawRay(hit.point, hit.normal, Color.yellow, 999f);
+                direction.y = 0;
+                Ray ray = new Ray(originPoint, direction);
 
-                if (hit.collider.TryGetComponent(out Ball ball) && ball.IsMine)
+                if (Physics.SphereCast(ray, 1.5f, out RaycastHit hit, 999f, ~LayerMask.GetMask("Ignore Raycast")))
                 {
-                    return hit.point;
-                }
-                else
-                {
-                    direction = Vector3.Reflect(hit.point, direction).normalized;
-                    originPoint = hit.point;
+                    Debug.DrawLine(originPoint, hit.point, Color.black, 20f);
+                    if (hit.collider.TryGetComponent(out Ball ball) && ball.IsMine)
+                    {
+                        return hit.point;
+                    }
+                    else
+                    {
+                        direction = Vector3.Reflect(direction, hit.normal);
+                        originPoint = hit.point;
+
+                        if (Vector3.Distance(transform.position, originPoint) > Vector3.Distance(transform.position, _farthestPoint))
+                        {
+                            _farthestPoint = originPoint;
+                        }
+                    }
                 }
             }
+
+            transform.Rotate(Vector3.up * 5f);
         }
-        return Vector3.zero;
+
+        return _farthestPoint;
     }
     private IEnumerator ProccesMyTurn()
     {
@@ -191,7 +202,7 @@ public class BallMovment : MonoBehaviour
             targetPoint = ball.transform.position;
             Ray ray = new Ray(transform.position, targetPoint - transform.position);
 
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            if (Physics.SphereCast(ray, 1.5f, out RaycastHit hit))
             {
                 if (!hit.collider.GetComponent<Ball>())
                 {
@@ -209,22 +220,10 @@ public class BallMovment : MonoBehaviour
 
         if (targetPoint == Vector3.zero)
         {
-            int fullRotation = 360;
             targetPoint = CalculateEnemyAttackTrajectory();
-            while (targetPoint == Vector3.zero)
-            {
-                if (fullRotation == 0)
-                {
-                    targetPoint = _container.FindClosestBall(transform.position);
-                    transform.DOLookAt(targetPoint, .5f);
-                    break;
-                }
-
-                transform.Rotate(Vector3.up * 5);
-                fullRotation -= 5;
-
-                targetPoint = CalculateEnemyAttackTrajectory();
-            }
+            Vector3 newEulers = transform.eulerAngles;
+            transform.rotation = Quaternion.Euler(Vector3.zero);
+            transform.DORotate(newEulers, 0.5f, RotateMode.FastBeyond360);
         }
 
         _strength = Vector3.Distance(transform.position, targetPoint * 7);
@@ -257,5 +256,25 @@ public class BallMovment : MonoBehaviour
         yield return new WaitForSeconds(3.5f);
         
         OnMoved?.Invoke(_isMine);
+    }
+
+    private void OnDrawGizmos()
+    {
+        RaycastHit hit;
+
+        Physics.SphereCast(transform.position, 1.5f, transform.forward, out hit, 999f, ~LayerMask.GetMask("Ignore Raycast"));
+        
+        Gizmos.DrawLine(transform.position, hit.point);
+        Vector3 direction = Vector3.Reflect(transform.forward, hit.normal);
+        Vector3 point = hit.point;
+
+        Physics.SphereCast(point, 1.5f, direction, out hit, 999f, ~LayerMask.GetMask("Ignore Raycast"));
+        
+        Gizmos.DrawLine(point, hit.point);
+        direction = Vector3.Reflect(direction, hit.point);
+        point = hit.point;
+
+        Physics.SphereCast(point, 1.5f, direction, out hit, 999f, ~LayerMask.GetMask("Ignore Raycast"));
+        Gizmos.DrawLine(point, hit.point);
     }
 }
