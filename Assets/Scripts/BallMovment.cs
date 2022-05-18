@@ -10,6 +10,7 @@ public class BallMovment : MonoBehaviour
     private Rigidbody _rigidbody;
     private bool _isMouseDowned;
     private Vector3 _mouseDownPos;
+    [SerializeField]
     private float _strength;
     [SerializeField]
     private GameObject _powerIndicator;
@@ -191,7 +192,7 @@ public class BallMovment : MonoBehaviour
     }
     private IEnumerator ProccesMyTurn()
     {
-        _powerIndicator.gameObject.SetActive(true);
+      //  _powerIndicator.gameObject.SetActive(true);
         _arrowDirection.gameObject.SetActive(true);
         
         yield return new WaitForSeconds(.3f);
@@ -226,7 +227,7 @@ public class BallMovment : MonoBehaviour
             transform.DORotate(newEulers, 0.5f, RotateMode.FastBeyond360);
         }
 
-        _strength = Vector3.Distance(transform.position, targetPoint * 7);
+        _strength = 1000;
         Vector3 _direction = transform.position - targetPoint;
         _direction.y = 0;
 
