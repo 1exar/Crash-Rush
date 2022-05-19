@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="19baa3f4-e448-4a80-9d9c-4ed235dcb4b4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Crash-Rush/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Crash-Rush/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BallMovment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BallMovment.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Flour.physicMaterial" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Flour.physicMaterial" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Walls.physicMaterial" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Walls.physicMaterial" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +64,8 @@
       <workItem from="1652855159537" duration="25000" />
       <workItem from="1652880098933" duration="635000" />
       <workItem from="1652889698619" duration="324000" />
+      <workItem from="1652960489911" duration="735000" />
+      <workItem from="1652962716963" duration="1194000" />
     </task>
     <servers />
   </component>
