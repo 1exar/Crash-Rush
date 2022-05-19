@@ -36,7 +36,7 @@ public class TrajectoryRendererAdvanced : MonoBehaviour
 
         Vector3 dir = _arrowDirection.transform.position - transform.position;
         dir = new Vector3(dir.x, 0, dir.z);
-        Debug.DrawRay(transform.position, dir * 1000, Color.green, 10);
+        //Debug.DrawRay(transform.position, dir * 1000, Color.green, 10);
         if (Physics.Raycast(transform.position, dir * 100, out RaycastHit hit, Mathf.Infinity))
         {
             if(points.Count == 1)

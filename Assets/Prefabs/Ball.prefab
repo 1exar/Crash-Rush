@@ -696,8 +696,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 2952059600679733402}
+  _strength: 0
   _powerIndicator: {fileID: 2952059600889137176}
   _arrowDirection: {fileID: 2952059599449932855}
+  _ballCanvas: {fileID: 237521945497412632}
   _ortSizeMax: 100
   _trajectory: {fileID: 7620316914479142695}
 --- !u!114 &2952059600679733405
