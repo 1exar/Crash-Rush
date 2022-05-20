@@ -7,8 +7,8 @@ public class TurnSwitcher : MonoBehaviour
     [SerializeField] private EntityContainer _entityContainer;
     [SerializeField] private PlayerInputs _playerInputs;
 
-    private Entity _currentEntity = null;
-    private int _currentEntityNumber = 0;
+    private Entity _currentEntity;
+    private int _currentEntityNumber;
 
     public Entity CurrentEntity
     {
@@ -17,6 +17,16 @@ public class TurnSwitcher : MonoBehaviour
 
     public void SwitchTurn()
     {
+        foreach (var entity in _entityContainer.EnemyEntities)
+        {
+            entity._circleSprite.color = Color.white;
+        }
+        
+        foreach (var entity in _entityContainer.PlayerEntities)
+        {
+            entity._circleSprite.color = Color.white;
+        }
+        
         bool isPlayerNextTurn = true;
 
         if (_currentEntity != null)
@@ -36,12 +46,14 @@ public class TurnSwitcher : MonoBehaviour
         if (isPlayerNextTurn)
         {
             _currentEntity = _entityContainer.PlayerEntities[_currentEntityNumber];
+            _currentEntity._circleSprite.color = Color.yellow;
             _playerInputs.CanAim = true;
         }
         else
         {
             _currentEntity = _entityContainer.EnemyEntities[_currentEntityNumber];
             _currentEntity.GetComponent<EnemyEntityAim>().Aim();
+            _currentEntity._circleSprite.color = Color.yellow;
         }
     }
 

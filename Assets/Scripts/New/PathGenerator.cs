@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class PathGenerator : MonoBehaviour
 {
-    private LineRenderer _lineRenderer = null;
-    private int _layermask = 0;
+    private LineRenderer _lineRenderer;
+    private int _layermask;
 
     private void Awake()
     {

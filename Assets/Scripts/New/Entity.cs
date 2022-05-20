@@ -12,6 +12,8 @@ public class Entity : MonoBehaviour
     private EntityMovement _movement = null;
     private EntityContainer _container = null;
 
+    public SpriteRenderer _circleSprite;
+    
     public EntityMovement Movement
     {
         get { return _movement; }
@@ -30,6 +32,8 @@ public class Entity : MonoBehaviour
     {
         healthSlider.maxValue = health;
 
+        healthSlider.value = health;
+        
         _pathGenerator = FindObjectOfType<PathGenerator>();
         _movement = GetComponent<EntityMovement>();
         _container = FindObjectOfType<EntityContainer>();
@@ -44,6 +48,7 @@ public class Entity : MonoBehaviour
             Destroy(gameObject);
         }
         health -= damage;
+        healthSlider.value = health;
     }
 
     public void PreviewDamage(float damage)

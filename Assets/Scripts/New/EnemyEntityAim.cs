@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class EnemyEntityAim : MonoBehaviour
 {
-    private EntityMovement _movement = null;
-    private EntityContainer _container = null;
-    private TurnSwitcher _turnSwitcher = null;
-
+    private EntityMovement _movement;
+    private EntityContainer _container;
+    private TurnSwitcher _turnSwitcher;
+    
     private void Awake()
     {
         _movement = GetComponent<EntityMovement>();
