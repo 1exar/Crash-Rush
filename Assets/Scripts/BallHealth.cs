@@ -13,7 +13,7 @@ public class BallHealth : MonoBehaviour
 
     private int _health;
 
-    private BallsContainer _balls;
+    private BallsContainer_old _balls;
     [SerializeField]
     private Ball _ball;
     [SerializeField]
@@ -31,7 +31,7 @@ public class BallHealth : MonoBehaviour
         _beforePreviewDamage = _maxHealth;
     }
     
-    public void Init(Ball ball, BallsContainer _container)
+    public void Init(Ball ball, BallsContainer_old _container)
     {
         _ball = ball;
         _balls = _container;

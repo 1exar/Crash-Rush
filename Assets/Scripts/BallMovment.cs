@@ -19,7 +19,7 @@ public class BallMovment : MonoBehaviour
     [SerializeField]
     private float _ortSizeMax;
 
-    private BallsContainer _container;
+    private BallsContainer_old _container;
     private Rigidbody _rb;
     private Vector3 _mouseDownPos;
     private Vector3 _direction;
@@ -40,7 +40,7 @@ public class BallMovment : MonoBehaviour
         _ortSizeStart = Camera.main.fieldOfView;
     }
 
-    public void Init(bool isMine, BallsContainer _container)
+    public void Init(bool isMine, BallsContainer_old _container)
     {
         _isMine = isMine;
         this._container = _container;

@@ -42,7 +42,7 @@ public class Ball : MonoBehaviour
         protected set {}
     }
     
-    public void Init(bool _isMine, BallsContainer _container)
+    public void Init(bool _isMine, BallsContainer_old _container)
     {
         _view.SetCircleColor(_isMine);
         _movment.Init(_isMine, _container);

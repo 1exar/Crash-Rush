@@ -5,7 +5,7 @@ using UnityEngine;
 public class TutorialBallSpawner : MonoBehaviour
 {
     [SerializeField]
-    private BallsContainer _balls;
+    private BallsContainer_old _balls;
     [SerializeField]
     private GameObject _myBallPrefab;
     [SerializeField]

@@ -11,10 +11,10 @@ public class TrajectoryRendererAdvanced : MonoBehaviour
     [SerializeField]
     private GameObject _arrowDirection;
 
-    private BallsContainer _container;
+    private BallsContainer_old _container;
     private bool _isMine;
     
-    public void InitContrainer(BallsContainer _container, bool _isMine)
+    public void InitContrainer(BallsContainer_old _container, bool _isMine)
     {
         this._container = _container;
         this._isMine = _isMine;

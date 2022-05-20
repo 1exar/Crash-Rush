@@ -44,7 +44,7 @@ public class TrajectoryViewer : MonoBehaviour
             points.Add(originPoint);
 
             Ray ray = new Ray(originPoint, direction);
-            if (Physics.SphereCast(ray, 1.5f, out hit))
+            if (Physics.SphereCast(ray, 0.75f, out hit))
             {
                 if (Vector3.Distance(transform.position, hit.point) > trajectoryLength)
                 {
@@ -54,20 +54,8 @@ public class TrajectoryViewer : MonoBehaviour
 
                 trajectoryLength -= Vector3.Distance(originPoint, hit.point);
 
-                if (hit.collider.TryGetComponent(out Ball ball))
-                {
-                    caughtBall = true;
-                    if (!ball.IsMine)
-                    {
-                        if (_damagePreviewBall == null)
-                        {
-                            _damagePreviewBall = ball;
-                            _damagePreviewBall.Health.PreviewDamage(_ballAttack.Damage);
-                        }
-                    }
-                }
 
-                originPoint = hit.point;
+                originPoint = hit.point + hit.normal * 0.75f;
                 direction = Vector3.Reflect(direction, hit.normal);
             }
         }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class BallsSpawner : MonoBehaviour
 {
     [SerializeField]
-    private BallsContainer _balls;
+    private BallsContainer_old _balls;
     [SerializeField]
     private GameObject _ballPrefab;
     [SerializeField]
