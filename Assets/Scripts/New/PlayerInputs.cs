@@ -58,6 +58,7 @@ public class PlayerInputs : MonoBehaviour
         {
             _currentEntityAim.CancelAiming();
             _canAim = false;
+            _currentEntityAim = null;
         }
     }
 

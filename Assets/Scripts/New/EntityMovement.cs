@@ -96,7 +96,7 @@ public class EntityMovement : MonoBehaviour
                 {
                     if (hit.collider.TryGetComponent(out Entity entity))
                     {
-                        if (_turnSwitcher.CurrentEntity.IsMine == _thisEntity.IsMine)
+                        if (_turnSwitcher.CurrentEntity.IsMine == _thisEntity.IsMine != entity.IsMine)
                         {
                             entity.TakeDamage(_thisEntity.Damage);
                         }

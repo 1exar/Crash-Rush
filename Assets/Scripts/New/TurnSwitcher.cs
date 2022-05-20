@@ -5,7 +5,7 @@ using UnityEngine;
 public class TurnSwitcher : MonoBehaviour
 {
     [SerializeField] private EntityContainer _entityContainer;
-    private PlayerInputs _playerInputs = null;
+    [SerializeField] private PlayerInputs _playerInputs;
 
     private Entity _currentEntity = null;
     private int _currentEntityNumber = 0;
@@ -15,18 +15,17 @@ public class TurnSwitcher : MonoBehaviour
         get { return _currentEntity;  }
     }
 
-    private void Start()
-    {
-        _playerInputs = FindObjectOfType<PlayerInputs>();
-    }
-
     public void SwitchTurn()
     {
         bool isPlayerNextTurn = true;
 
         if (_currentEntity != null)
         {
-            if (_currentEntity.IsMine) isPlayerNextTurn = false;
+            if (_currentEntity.IsMine)
+            {
+                isPlayerNextTurn = false;
+                if (_currentEntityNumber >= _entityContainer.EnemyEntities.Count) _currentEntityNumber = 0;
+            }
             else
             {
                 _currentEntityNumber += 1;

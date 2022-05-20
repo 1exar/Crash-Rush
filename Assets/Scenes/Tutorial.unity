@@ -443,7 +443,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff7979ba7ecf3445ae73c474b327ec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleAnimationDuration: 0.2
 --- !u!1 &353865812
 GameObject:
   m_ObjectHideFlags: 0
@@ -1832,6 +1831,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LiteFPSCounter
       objectReference: {fileID: 0}
+    - target: {fileID: 1813224598300294, guid: 95354847711d363408aebd57a0dc92ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4679105028047868, guid: 95354847711d363408aebd57a0dc92ae, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -2892,6 +2895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityContainer: {fileID: 889965653}
+  _playerInputs: {fileID: 316595848}
 --- !u!1001 &6987392635249316798
 PrefabInstance:
   m_ObjectHideFlags: 0
