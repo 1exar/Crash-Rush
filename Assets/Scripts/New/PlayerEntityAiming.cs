@@ -6,17 +6,17 @@ using System.Linq;
 
 public class PlayerEntityAiming : MonoBehaviour
 {
-    private InputMaster _inputMaster = null;
-    private InputAction _mousePosition = null;
-    private Coroutine _aimingCoroutine = null;
-    private PathGenerator _pathGenerator = null;
-    private EntityMovement _movement = null;
-    private TurnSwitcher _turnSwitcher = null;
+    private InputMaster _inputMaster;
+    private InputAction _mousePosition;
+    private Coroutine _aimingCoroutine;
+    private PathGenerator _pathGenerator;
+    private EntityMovement _movement;
+    private TurnSwitcher _turnSwitcher;
 
-    private Transform _thisObjectTransform = null;
-    private Vector3[] _attackingPath = null;
+    private Transform _thisObjectTransform;
+    private Vector3[] _attackingPath;
     private Vector2 _lastMousePos = Vector2.zero;
-    private float _pathLength = 0;
+    private float _pathLength;
 
     private void Awake()
     {

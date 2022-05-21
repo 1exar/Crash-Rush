@@ -1,15 +1,16 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
 
 public class PlayerInputs : MonoBehaviour
 {
-    private InputMaster _inputMaster = null;
-    private InputAction _mousePosition = null;
-    private TurnSwitcher _turnSwitcher = null;
-    private Camera _mainCamera = null;
+    private InputMaster _inputMaster;
+    private InputAction _mousePosition;
+    private TurnSwitcher _turnSwitcher;
+    private Camera _mainCamera;
 
-    private PlayerEntityAiming _currentEntityAim = null;
+    private PlayerEntityAiming _currentEntityAim;
 
     private bool _canAim = false;
 
