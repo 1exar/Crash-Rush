@@ -24,7 +24,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""id"": ""0e6e2671-197f-44aa-9210-bb5df42642bb"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Hold(duration=0.25)""
+                    ""interactions"": """"
                 },
                 {
                     ""name"": ""MousePosition"",
@@ -50,7 +50,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6c596c92-a13b-42bb-b3bc-f6acfc605269"",
-                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""path"": ""<Touchscreen>/primaryTouch/press"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -72,7 +72,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""5c0b2148-4f9b-4ab4-9953-ba7b69213157"",
-                    ""path"": ""<Pointer>/position"",
+                    ""path"": ""<Touchscreen>/primaryTouch/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
