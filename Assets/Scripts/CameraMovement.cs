@@ -82,6 +82,8 @@ public class CameraMovement : MonoBehaviour
             _cam.fieldOfView = _mainFov + mouseDistance * 5f;
 
             yield return new WaitForEndOfFrame();
+
+            var a = 0;
         }
     }
 }
