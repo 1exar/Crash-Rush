@@ -22,11 +22,6 @@ public class EnemyEntityAim : MonoBehaviour
     public void Aim()
     {
         Vector3[] path = CalculatePath();
-        foreach (Vector3 point in path)
-        {
-            Debug.Log(point);
-            Debug.DrawRay(point, Vector3.up, Color.red, 10f);
-        }
 
         float pathLength = 0;
         for (int i = 0; i < path.Length - 1; i++)
@@ -34,7 +29,9 @@ public class EnemyEntityAim : MonoBehaviour
             pathLength += Vector3.Distance(path[i], path[i + 1]);
         }
 
-        _movement.MoveAlongPath(path, pathLength / 30);
+        Vector3 direction = path[1] - transform.position;
+        _movement.Move(pathLength / 30, direction);
+
         _turnSwitcher.PrepareToSwitch();
     }
 
@@ -46,7 +43,7 @@ public class EnemyEntityAim : MonoBehaviour
             Ray ray = new Ray(transform.position, entityTransform.position - transform.position);
             if (Physics.SphereCast(ray, 1.5f, out RaycastHit hit))
             {
-                if (hit.collider.TryGetComponent<Entity>(out Entity detectedEntity) == false)
+                if (hit.collider.TryGetComponent(out Entity detectedEntity) == false)
                 {
                     return CalculateAdvancedPath();
                 }
@@ -62,7 +59,7 @@ public class EnemyEntityAim : MonoBehaviour
                     }
                 }
             }
-            else return null;
+            return new Vector3[2] { transform.position, entityTransform.position };
         }
         return null;
     }

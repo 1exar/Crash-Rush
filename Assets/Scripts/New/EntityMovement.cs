@@ -8,7 +8,7 @@ using DG.Tweening.Core;
 
 public class EntityMovement : MonoBehaviour
 {
-    [SerializeField] private float speedLimit = 10f;
+    [SerializeField] private float speedLimit = 5f;
     [SerializeField] private float collisionDistance = 0.75f;
 
     private Transform _thisObjectTransform;
@@ -18,6 +18,8 @@ public class EntityMovement : MonoBehaviour
     private PathGenerator _pathGenerator;
     private TweenerCore<float, float, FloatOptions> _changeSpeedTween;
     private TurnSwitcher _turnSwitcher;
+
+    private Vector3 _motionDirection;
 
     private float _currentSpeed = 0;
 
@@ -30,29 +32,52 @@ public class EntityMovement : MonoBehaviour
     {
         _thisObjectTransform = transform;
         _thisEntity = GetComponent<Entity>();
-
-        _collisionHandleCoroutine = StartCoroutine(CollisionHandle());
     }
 
     private void Start()
     {
         _pathGenerator = FindObjectOfType<PathGenerator>();
         _turnSwitcher = FindObjectOfType<TurnSwitcher>();
+
+        _collisionHandleCoroutine = StartCoroutine(CollisionHandle());
     }
 
-    public void Bounce(Vector3 normal)
+    /*public void Bounce(Vector3 normal)
     {
         Vector3[] path = _pathGenerator.GeneratePath(transform.position, normal, 100f, 30);
         _pathGenerator.DebugDrawPath(path);
         MoveAlongPath(path, _currentSpeed / 1.05f);
-    }
+    }*/
 
-    public void MoveAlongPath(Vector3[] path, float speed)
+    /*public void MoveAlongPath(Vector3[] path, float speed)
     {
         if (_movementCoroutine == null) _movementCoroutine = StartCoroutine(MovementCoroutine(path, speed));
+    }*/
+
+    public void Move(float speed, Vector3 direction)
+    {
+        _changeSpeedTween.Kill();
+        float speedChangingDuration = 2;
+        _currentSpeed = Mathf.Clamp(speed, 0, speedLimit);
+        _changeSpeedTween = DOTween.To(() => _currentSpeed, x => _currentSpeed = x, 0f, speedChangingDuration);
+        _motionDirection = direction;
+        _motionDirection.y = 0;
+        if (_movementCoroutine == null) _movementCoroutine = StartCoroutine(MovementCoroutine());
     }
 
-    private IEnumerator MovementCoroutine(Vector3[] path, float speed)
+    private IEnumerator MovementCoroutine()
+    {
+        while (_currentSpeed > 0.001f)
+        {
+            transform.position = Vector3.MoveTowards(_thisObjectTransform.position, _thisObjectTransform.position + _motionDirection, _currentSpeed);
+            yield return new WaitForFixedUpdate();
+        }
+        _currentSpeed = 0;
+
+        _movementCoroutine = null;
+    }
+
+    /*private IEnumerator MovementCoroutine(Vector3[] path, float speed)
     {
         _thisObjectTransform.position = new Vector3(_thisObjectTransform.position.x, 0, _thisObjectTransform.position.z);
         _currentSpeed = Mathf.Clamp(speed, 0, speedLimit);
@@ -76,12 +101,14 @@ public class EntityMovement : MonoBehaviour
 
             gameObject.layer = 0;
         }
-    }
+    }*/
 
     private IEnumerator CollisionHandle()
     {
         while (true)
         {
+            bool isThisEntityTurn = _turnSwitcher.CurrentEntity.IsMine == _thisEntity.IsMine;
+            Debug.Log(name + " - collision detection");
             Vector3 averageDirection = Vector3.zero;
             int directionsCount = 0;
 
@@ -93,39 +120,35 @@ public class EntityMovement : MonoBehaviour
                 Debug.DrawLine(_thisObjectTransform.position, _thisObjectTransform.position + (_thisObjectTransform.forward * collisionDistance), Color.yellow);
                 if (Physics.Raycast(ray, out RaycastHit hit, collisionDistance))
                 {
+                    Vector3 direction = Vector3.Reflect(_motionDirection, hit.normal);
                     if (hit.collider.TryGetComponent(out Entity entity))
                     {
-                        if (_turnSwitcher.CurrentEntity.IsMine == _thisEntity.IsMine != entity.IsMine)
+                        if (isThisEntityTurn)
                         {
-                            entity.TakeDamage(_thisEntity.Damage);
-                        }
+                            entity.Movement.Move(_currentSpeed / 1.05f, -hit.normal);
 
-                        if (_currentSpeed == 0)
-                        {
-                            if (_movementCoroutine != null)
+                            if (_thisEntity.IsMine != entity.IsMine)
                             {
-                                StopCoroutine(_movementCoroutine);
-                                _movementCoroutine = null;
+                                entity.TakeDamage(_thisEntity.Damage);
                             }
-                            _currentSpeed = entity.Movement.CurrentSpeed;
                         }
 
-                        directionsCount += 1;
-                        averageDirection += hit.normal;
+                        direction = hit.normal;
                     }
+
+                    directionsCount += 1;
+                    averageDirection += direction;
                 }
             }
 
             if (averageDirection != Vector3.zero)
             {
-                if (_movementCoroutine != null) StopCoroutine(_movementCoroutine);
-                _movementCoroutine = null;
-
                 _changeSpeedTween.Kill();
 
                 averageDirection /= directionsCount;
-                _thisEntity.Movement.Bounce(averageDirection);
+                Move(_currentSpeed / 1.05f, averageDirection);
             }
+
             yield return new WaitForFixedUpdate();
         }
     }
