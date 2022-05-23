@@ -11,13 +11,13 @@ public class EntityMovement : MonoBehaviour
     [SerializeField] private float speedLimit = 10f;
     [SerializeField] private float collisionDistance = 0.75f;
 
-    private Transform _thisObjectTransform = null;
-    private Entity _thisEntity = null;
-    private Coroutine _movementCoroutine = null;
-    private Coroutine _collisionHandleCoroutine = null;
-    private PathGenerator _pathGenerator = null;
-    private TweenerCore<float, float, FloatOptions> _changeSpeedTween = null;
-    private TurnSwitcher _turnSwitcher = null;
+    private Transform _thisObjectTransform;
+    private Entity _thisEntity;
+    private Coroutine _movementCoroutine;
+    private Coroutine _collisionHandleCoroutine;
+    private PathGenerator _pathGenerator;
+    private TweenerCore<float, float, FloatOptions> _changeSpeedTween;
+    private TurnSwitcher _turnSwitcher;
 
     private float _currentSpeed = 0;
 
@@ -44,8 +44,7 @@ public class EntityMovement : MonoBehaviour
     {
         Vector3[] path = _pathGenerator.GeneratePath(transform.position, normal, 100f, 30);
         _pathGenerator.DebugDrawPath(path);
-        _changeSpeedTween.Kill();
-        MoveAlongPath(path, _currentSpeed / 2);
+        MoveAlongPath(path, _currentSpeed / 1.05f);
     }
 
     public void MoveAlongPath(Vector3[] path, float speed)
@@ -57,7 +56,7 @@ public class EntityMovement : MonoBehaviour
     {
         _thisObjectTransform.position = new Vector3(_thisObjectTransform.position.x, 0, _thisObjectTransform.position.z);
         _currentSpeed = Mathf.Clamp(speed, 0, speedLimit);
-        float speedChangingDuration = 2f;
+        float speedChangingDuration = 3;
         _changeSpeedTween = DOTween.To(() => _currentSpeed, x => _currentSpeed = x, 0f, speedChangingDuration);
 
 
@@ -121,6 +120,8 @@ public class EntityMovement : MonoBehaviour
             {
                 if (_movementCoroutine != null) StopCoroutine(_movementCoroutine);
                 _movementCoroutine = null;
+
+                _changeSpeedTween.Kill();
 
                 averageDirection /= directionsCount;
                 _thisEntity.Movement.Bounce(averageDirection);
