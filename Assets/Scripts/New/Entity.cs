@@ -9,12 +9,12 @@ public class Entity : MonoBehaviour
     [SerializeField] private bool isMine = false;
 
     private PathGenerator _pathGenerator = null;
-    private EntityMovement _movement = null;
+    private EntityMovement_noRB _movement = null;
     private EntityContainer _container = null;
 
     public SpriteRenderer _circleSprite;
     
-    public EntityMovement Movement
+    public EntityMovement_noRB Movement
     {
         get { return _movement; }
     }
@@ -35,7 +35,7 @@ public class Entity : MonoBehaviour
         healthSlider.value = health;
         
         _pathGenerator = FindObjectOfType<PathGenerator>();
-        _movement = GetComponent<EntityMovement>();
+        _movement = GetComponent<EntityMovement_noRB>();
         _container = FindObjectOfType<EntityContainer>();
     }
 

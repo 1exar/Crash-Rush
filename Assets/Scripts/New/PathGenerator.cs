@@ -12,7 +12,7 @@ public class PathGenerator : MonoBehaviour
         _layermask = ~LayerMask.GetMask("Ignore Raycast");
     }
 
-    public Vector3[] GeneratePath(Vector3 originPosition, Vector3 originDirection, float pathLength, int maxReflections = 10)
+    public Vector3[] GenerateComplexPath(Vector3 originPosition, Vector3 originDirection, float pathLength, int maxReflections = 10)
     {
         List<Vector3> pathPoints = new List<Vector3>();
 
@@ -32,7 +32,7 @@ public class PathGenerator : MonoBehaviour
             Physics.SphereCast(ray, radius, out RaycastHit sphereCastHit, 100f, _layermask);
 
             RaycastHit finalHit = sphereCastHit;
-            if (raycastHit.point != sphereCastHit.point) finalHit = raycastHit;
+            //if (raycastHit.point != sphereCastHit.point && Vector3.Distance(originPoint, raycastHit.point) < Vector3.Distance(originPoint, sphereCastHit.point)) finalHit = raycastHit;
 
             Vector3 point = finalHit.point + finalHit.normal * (radius / 2);
             float currentDistance = Vector3.Distance(originPoint, point);
@@ -56,6 +56,20 @@ public class PathGenerator : MonoBehaviour
         }
 
         return pathPoints.ToArray();
+    }
+
+    public Vector3[] GeneratePath(Vector3 position, Vector3 direction, float pathLength)
+    {
+        float radius = 0.5f;
+        Ray ray = new Ray(position, direction);
+        Physics.SphereCast(ray, radius, out RaycastHit hit, 100f, _layermask);
+
+        Vector3 lastPoint = position + (direction * pathLength);
+        if (Vector3.Distance(position, hit.point) <= Vector3.Distance(position, lastPoint))
+        {
+            lastPoint = hit.point + (hit.normal * radius / 2);
+        }
+        return new Vector3[2] { position, lastPoint };
     }
 
     public void DebugDrawPath(Vector3[] path)

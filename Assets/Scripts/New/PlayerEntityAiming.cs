@@ -14,7 +14,6 @@ public class PlayerEntityAiming : MonoBehaviour
     private TurnSwitcher _turnSwitcher;
 
     private Transform _thisObjectTransform;
-    private Vector3[] _attackingPath;
     private Vector2 _lastMousePos = Vector2.zero;
     private float _pathLength;
 
@@ -47,9 +46,8 @@ public class PlayerEntityAiming : MonoBehaviour
 
         gameObject.layer = 0;
         _pathGenerator.ClearPathDrawing();
-        //_movement.MoveAlongPath(_attackingPath, _pathLength/30);
-        Vector3 direction = _attackingPath[1] - _thisObjectTransform.position;
-        _movement.Move(_pathLength/30, direction);
+
+        _movement.Move(_pathLength, _thisObjectTransform.forward);
         _turnSwitcher.PrepareToSwitch();
     }
 
@@ -74,10 +72,8 @@ public class PlayerEntityAiming : MonoBehaviour
         Vector3 tempPos = transform.position + transform.forward * (attackPower * attackPower) / 2f;
         _pathLength = Vector3.Distance(_thisObjectTransform.position, tempPos);
 
-        _attackingPath = _pathGenerator.GeneratePath(_thisObjectTransform.position, _thisObjectTransform.forward, 100, 20);
-        Vector3[] drawingPath = _pathGenerator.GeneratePath(_thisObjectTransform.position, _thisObjectTransform.forward, _pathLength, 4);
-        _pathGenerator.DrawPath(drawingPath);
-        _pathGenerator.DebugDrawPath(_attackingPath);
+        Vector3[] previewPath = _pathGenerator.GeneratePath(_thisObjectTransform.position, _thisObjectTransform.forward, _pathLength);
+        _pathGenerator.DrawPath(previewPath);
     }
 
     private void OnEnable()

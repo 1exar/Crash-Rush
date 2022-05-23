@@ -64,20 +64,22 @@ public class TurnSwitcher : MonoBehaviour
 
     private IEnumerator CheckIfReadyToSwitch()
     {
+        yield return new WaitForSeconds(0.5f);
         while (true)
         {
             bool ready = true;
             foreach (Entity entity in _entityContainer.PlayerEntities)
             {
-                if (entity.GetComponent<EntityMovement>().CurrentSpeed != 0)
+                if (entity.GetComponent<Rigidbody>().velocity != Vector3.zero)
                 {
                     ready = false;
                     break;
                 }
             }
+
             foreach (Entity entity in _entityContainer.EnemyEntities)
             {
-                if (entity.GetComponent<EntityMovement>().CurrentSpeed != 0)
+                if (entity.GetComponent<Rigidbody>().velocity != Vector3.zero)
                 {
                     ready = false;
                     break;
@@ -87,6 +89,7 @@ public class TurnSwitcher : MonoBehaviour
             if (ready)
             {
                 SwitchTurn();
+                yield return new WaitForSeconds(1.5f);
                 yield break;
             }
 

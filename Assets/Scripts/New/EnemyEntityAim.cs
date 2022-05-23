@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class EnemyEntityAim : MonoBehaviour
 {
+    private Transform _thisObjectTransform;
     private EntityMovement _movement;
     private EntityContainer _container;
     private TurnSwitcher _turnSwitcher;
     
     private void Awake()
     {
+        _thisObjectTransform = transform;
         _movement = GetComponent<EntityMovement>();
     }
 
@@ -29,8 +31,8 @@ public class EnemyEntityAim : MonoBehaviour
             pathLength += Vector3.Distance(path[i], path[i + 1]);
         }
 
-        Vector3 direction = path[1] - transform.position;
-        _movement.Move(pathLength / 30, direction);
+        Vector3 direction = path[1] - _thisObjectTransform.position;
+        _movement.Move(pathLength / 10, direction);
 
         _turnSwitcher.PrepareToSwitch();
     }
