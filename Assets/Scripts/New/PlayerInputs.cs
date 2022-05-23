@@ -46,6 +46,10 @@ public class PlayerInputs : MonoBehaviour
             {
                 if (detectedEntity == _turnSwitcher.CurrentEntity)
                 {
+                    if (_mainCamera.TryGetComponent(out CameraMovement _camera))
+                    {
+                        _camera.EnableMoving();
+                    }
                     _currentEntityAim = detectedEntity.GetComponent<PlayerEntityAiming>();
                     _currentEntityAim.StartAiming();
                 }

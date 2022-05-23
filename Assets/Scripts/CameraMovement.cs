@@ -38,7 +38,7 @@ public class CameraMovement : MonoBehaviour
         StopCoroutine(_scalingFovCoroutine);
 
         _canMove = false;
-        transform.DOMove(_mainPosition, 0.2f);
+        transform.DOMove(_mainPosition, 1f);
         DOTween.To(() => _cam.fieldOfView, x => _cam.fieldOfView = x, _mainFov, 0.2f);
     }
 
@@ -68,7 +68,7 @@ public class CameraMovement : MonoBehaviour
             Vector3 translatedPos = (transform.right * newPos.x) + (transform.up * newPos.y);
             Vector3 finalPos = _mainPosition + translatedPos;
 
-            transform.localPosition = Vector3.Slerp(transform.position, finalPos, 0.7f);
+            transform.localPosition = Vector3.Slerp(transform.position, finalPos, 0.5f);
 
             yield return new WaitForEndOfFrame();
         }

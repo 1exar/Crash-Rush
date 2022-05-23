@@ -68,7 +68,7 @@ public class PathGenerator : MonoBehaviour
 
     public void DrawPath(Vector3[] path)
     {
-        _lineRenderer.positionCount = path.Length;
+        _lineRenderer.positionCount = Mathf.Clamp(path.Length, 0, 3);
         _lineRenderer.SetPositions(path);
     }
 
