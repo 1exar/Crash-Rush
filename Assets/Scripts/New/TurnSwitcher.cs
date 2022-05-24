@@ -88,7 +88,6 @@ public class TurnSwitcher : MonoBehaviour
 
             if (ready)
             {
-                yield return new WaitForSeconds(1f);
                 SwitchTurn();
                 yield break;
             }

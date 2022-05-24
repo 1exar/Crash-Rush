@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class EnemyEntityAim : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class EnemyEntityAim : MonoBehaviour
     private EntityMovement _movement;
     private EntityContainer _container;
     private TurnSwitcher _turnSwitcher;
+    private PathGenerator _pathGenerator;
     
     private void Awake()
     {
@@ -19,6 +21,7 @@ public class EnemyEntityAim : MonoBehaviour
     {
         _container = FindObjectOfType<EntityContainer>();
         _turnSwitcher = FindObjectOfType<TurnSwitcher>();
+        _pathGenerator = FindObjectOfType<PathGenerator>();
     }
 
     public void Aim()
@@ -32,8 +35,18 @@ public class EnemyEntityAim : MonoBehaviour
         }
 
         Vector3 direction = path[1] - _thisObjectTransform.position;
-        _movement.Move(pathLength / 10, direction);
+        StartCoroutine(AimingSimulation(pathLength, direction, path));
+    }
 
+    private IEnumerator AimingSimulation(float pathLength, Vector3 direction, Vector3[] path)
+    {
+        yield return new WaitForSeconds(0.5f);
+        _pathGenerator.DrawPath(path);
+
+        yield return new WaitForSeconds(1f);
+
+        _pathGenerator.ClearPathDrawing();
+        _movement.Move(pathLength / 10, direction);
         _turnSwitcher.PrepareToSwitch();
     }
 
