@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +6,7 @@ public class TurnSwitcher : MonoBehaviour
 {
     [SerializeField] private EntityContainer _entityContainer;
     [SerializeField] private PlayerInputs _playerInputs;
+    [SerializeField] private CurrentTurnLabel _currentTurnLabel;
 
     private Entity _currentEntity;
     private int _currentEntityNumber;
@@ -45,16 +46,20 @@ public class TurnSwitcher : MonoBehaviour
 
         if (isPlayerNextTurn)
         {
+            _currentTurnLabel.SetText("ТВОЙ ХОД");
             _currentEntity = _entityContainer.PlayerEntities[_currentEntityNumber];
             _currentEntity._circleSprite.color = Color.white;
             _playerInputs.CanAim = true;
         }
         else
         {
+            _currentTurnLabel.SetText("ХОД ПРОТИВНИКА");
             _currentEntity = _entityContainer.EnemyEntities[_currentEntityNumber];
-            _currentEntity.GetComponent<EnemyEntityAim>().Aim();
+            _currentEntity.GetComponent<EnemyEntityAiming>().Aim();
             _currentEntity._circleSprite.color = Color.white;
         }
+
+        _currentTurnLabel.Show();
     }
 
     public void PrepareToSwitch()

@@ -47,7 +47,7 @@ public class PlayerEntityAiming : MonoBehaviour
         gameObject.layer = 0;
         _pathGenerator.ClearPathDrawing();
 
-        _movement.Move(_pathLength, _thisObjectTransform.forward);
+        _movement.Move(_pathLength / 3, _thisObjectTransform.forward);
         _turnSwitcher.PrepareToSwitch();
     }
 

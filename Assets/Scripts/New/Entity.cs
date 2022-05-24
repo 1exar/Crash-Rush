@@ -4,13 +4,12 @@ using UnityEngine.UI;
 public class Entity : MonoBehaviour
 {
     [SerializeField] private Slider healthSlider;
-    [SerializeField] private float health = 10;
-    [SerializeField] private float damage = 5;
-    [SerializeField] private bool isMine = false;
+    [SerializeField] private float health;
+    [SerializeField] private float damage;
+    [SerializeField] private bool isMine;
 
-    private PathGenerator _pathGenerator = null;
-    private EntityMovement_noRB _movement = null;
-    private EntityContainer _container = null;
+    private EntityMovement_noRB _movement;
+    private EntityContainer _container;
 
     public SpriteRenderer _circleSprite;
     
@@ -23,6 +22,7 @@ public class Entity : MonoBehaviour
     {
         get { return damage; }
     }
+
     public bool IsMine
     {
         get { return isMine; }
@@ -30,13 +30,10 @@ public class Entity : MonoBehaviour
 
     private void Start()
     {
-        healthSlider.maxValue = health;
-
-        healthSlider.value = health;
-        
-        _pathGenerator = FindObjectOfType<PathGenerator>();
         _movement = GetComponent<EntityMovement_noRB>();
         _container = FindObjectOfType<EntityContainer>();
+
+        healthSlider.maxValue = healthSlider.value = health;
     }
 
     public void TakeDamage(float damage)
@@ -47,14 +44,8 @@ public class Entity : MonoBehaviour
             else _container.EnemyEntities.Remove(this);
             Destroy(gameObject);
         }
+
         health -= damage;
         healthSlider.value = health;
-    }
-
-    public void PreviewDamage(float damage)
-    {
-        float mainValue = healthSlider.value;
-        healthSlider.value = health - damage;
-        healthSlider.value = mainValue;
     }
 }

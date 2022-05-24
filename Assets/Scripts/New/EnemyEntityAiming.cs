@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class EnemyEntityAim : MonoBehaviour
+public class EnemyEntityAiming : MonoBehaviour
 {
     private Transform _thisObjectTransform;
     private EntityMovement _movement;
@@ -31,6 +31,7 @@ public class EnemyEntityAim : MonoBehaviour
         float pathLength = 0;
         for (int i = 0; i < path.Length - 1; i++)
         {
+            Debug.DrawRay(path[i], Vector3.up, Color.red, 10f);
             pathLength += Vector3.Distance(path[i], path[i + 1]);
         }
 
