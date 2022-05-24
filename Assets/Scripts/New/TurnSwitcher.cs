@@ -19,12 +19,12 @@ public class TurnSwitcher : MonoBehaviour
     {
         foreach (var entity in _entityContainer.EnemyEntities)
         {
-            entity._circleSprite.color = Color.white;
+            entity._circleSprite.color = new Color(0, 0, 0, 0);
         }
         
         foreach (var entity in _entityContainer.PlayerEntities)
         {
-            entity._circleSprite.color = Color.white;
+            entity._circleSprite.color = new Color(0, 0, 0, 0);
         }
         
         bool isPlayerNextTurn = true;
@@ -46,14 +46,14 @@ public class TurnSwitcher : MonoBehaviour
         if (isPlayerNextTurn)
         {
             _currentEntity = _entityContainer.PlayerEntities[_currentEntityNumber];
-            _currentEntity._circleSprite.color = Color.yellow;
+            _currentEntity._circleSprite.color = Color.white;
             _playerInputs.CanAim = true;
         }
         else
         {
             _currentEntity = _entityContainer.EnemyEntities[_currentEntityNumber];
             _currentEntity.GetComponent<EnemyEntityAim>().Aim();
-            _currentEntity._circleSprite.color = Color.yellow;
+            _currentEntity._circleSprite.color = Color.white;
         }
     }
 

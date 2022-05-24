@@ -19,7 +19,7 @@ public class EntityMovement : MonoBehaviour
 
     public void Move(float speed, Vector3 direction)
     {
-        _rb.AddForce(direction * Mathf.Clamp(speed, 0, speedLimit) * 150);
+        _rb.AddForce(direction * Mathf.Clamp(speed, 0, speedLimit) * 200);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -29,6 +29,8 @@ public class EntityMovement : MonoBehaviour
         {
             if (_lastVelocity == Vector3.zero) return;
 
+            FindObjectOfType<CameraShake>().Shake(1f,.1f);
+            
             ContactPoint contact = collision.GetContact(0);
             Vector3 newDirection = Vector3.Reflect(_lastVelocity.normalized, contact.normal);
             float magnitude = _rb.velocity.magnitude;
