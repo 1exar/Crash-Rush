@@ -129,7 +129,7 @@ public class EntityMovement_noRB : MonoBehaviour
 
                             if (_thisEntity.IsMine != entity.IsMine)
                             {
-                                entity.TakeDamage(_thisEntity.Damage);
+                                //entity.TakeDamage(_thisEntity.Damage);
                             }
                         }
 

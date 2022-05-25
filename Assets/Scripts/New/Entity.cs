@@ -6,15 +6,21 @@ public class Entity : MonoBehaviour
     [SerializeField] private GameObject deathParticle;
     [SerializeField] private Slider healthSlider;
     [SerializeField] private float health;
-    [SerializeField] private float damage;
+    [SerializeField] private float minDamage;
+    [SerializeField] private float maxDamage;
     [SerializeField] private bool isMine;
     [SerializeField] private SpriteRenderer circleSprite;
 
     private EntityContainer _container;
 
-    public float Damage
+    public float MinDamage
     {
-        get { return damage; }
+        get { return minDamage; }
+    }
+
+    public float MaxDamage
+    {
+        get { return maxDamage; }
     }
 
     public bool IsMine

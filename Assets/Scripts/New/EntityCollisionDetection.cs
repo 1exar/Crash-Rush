@@ -46,9 +46,11 @@ public class EntityCollisionDetection : MonoBehaviour
 
         else if (obj.TryGetComponent(out Entity entity))
         {
-            if (_turnSwitcher.CurrentEntity.IsMine != entity.IsMine)
+            if (_turnSwitcher.CurrentEntity.IsMine == _thisEntity.IsMine != entity.IsMine)
             {
-                entity.TakeDamage(_thisEntity.Damage);
+                float damage = Mathf.RoundToInt(_thisEntity.GetComponent<Rigidbody>().velocity.magnitude);
+                damage = Mathf.Clamp(damage, _thisEntity.MinDamage, _thisEntity.MaxDamage);
+                entity.TakeDamage(damage);
             }
 
             Instantiate(entityHitParticle, contact.point, Quaternion.identity);
