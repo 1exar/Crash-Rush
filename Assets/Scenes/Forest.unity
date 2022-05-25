@@ -7045,7 +7045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2256036075769795104
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7130,7 +7130,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1044681707634143213}
         m_TargetAssemblyTypeName: RestartButton, Assembly-CSharp
-        m_MethodName: ToGameScene
+        m_MethodName: Next
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

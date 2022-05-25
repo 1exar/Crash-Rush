@@ -15,11 +15,22 @@ public class LevelChoiser : MonoBehaviour
         forest, farm, egypt
     }
     [SerializeField]
+    private bool _testMode = false;
+    
+    [SerializeField]
     private Level _currentLevel;
 
     private void Start()
     {
-        ChoiseLevel(_currentLevel);
+        if (_testMode == true)
+        {
+            ChoiseLevel(_currentLevel);
+        }
+        else
+        {
+            int level = PlayerPrefs.GetInt("level", 0);
+            ChoiseLevel(_levels[level]);
+        }
     }
 
     private void ChoiseLevel(Level level)
@@ -39,6 +50,12 @@ public class LevelChoiser : MonoBehaviour
                 _spawner.SpawnEntity(_levels[2].mySpawnPos, _levels[2].enemySpawnPos);
                 break;
         }
+    }
+
+    private void ChoiseLevel(LevelSettings level)
+    {
+        level.gameObject.SetActive(true);
+        _spawner.SpawnEntity(level.mySpawnPos,level.enemySpawnPos);
     }
     
 }

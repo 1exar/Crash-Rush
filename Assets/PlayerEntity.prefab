@@ -255,7 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathParticle: {fileID: 119968, guid: e73000b12fb76244cbffd6abbf8bb6e4, type: 3}
   healthSlider: {fileID: 7024302074324641232}
-  health: 25
+  health: 50
   damage: 5
   isMine: 1
   circleSprite: {fileID: 8394178018409364002}
