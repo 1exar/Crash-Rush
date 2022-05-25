@@ -125,7 +125,7 @@ public class EntityMovement_noRB : MonoBehaviour
                     {
                         if (isThisEntityTurn)
                         {
-                            entity.Movement.Move(_currentSpeed / 1.05f, -hit.normal);
+                            //entity.Movement.Move(_currentSpeed / 1.05f, -hit.normal);
 
                             if (_thisEntity.IsMine != entity.IsMine)
                             {

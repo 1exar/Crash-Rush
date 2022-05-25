@@ -3,20 +3,14 @@ using UnityEngine.UI;
 
 public class Entity : MonoBehaviour
 {
+    [SerializeField] private GameObject deathParticle;
     [SerializeField] private Slider healthSlider;
     [SerializeField] private float health;
     [SerializeField] private float damage;
     [SerializeField] private bool isMine;
+    [SerializeField] private SpriteRenderer circleSprite;
 
-    private EntityMovement_noRB _movement;
     private EntityContainer _container;
-
-    public SpriteRenderer _circleSprite;
-    
-    public EntityMovement_noRB Movement
-    {
-        get { return _movement; }
-    }
 
     public float Damage
     {
@@ -28,9 +22,13 @@ public class Entity : MonoBehaviour
         get { return isMine; }
     }
 
+    public SpriteRenderer CircleSprite
+    {
+        get { return circleSprite; }
+    }
+
     private void Start()
     {
-        _movement = GetComponent<EntityMovement_noRB>();
         _container = FindObjectOfType<EntityContainer>();
 
         healthSlider.maxValue = health;
@@ -43,6 +41,7 @@ public class Entity : MonoBehaviour
         {
             if (isMine) _container.PlayerEntities.Remove(this);
             else _container.EnemyEntities.Remove(this);
+            Instantiate(deathParticle, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
 

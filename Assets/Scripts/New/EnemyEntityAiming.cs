@@ -10,8 +10,9 @@ public class EnemyEntityAiming : MonoBehaviour
     private EntityContainer _container;
     private TurnSwitcher _turnSwitcher;
     private PathGenerator _pathGenerator;
-    [SerializeField]
-    private SpriteRenderer _circle;
+
+    [SerializeField] private AttackPowerViewer attackPowerViewer;
+    [SerializeField] private SpriteRenderer _circle;
     
     private void Awake()
     {
@@ -43,13 +44,22 @@ public class EnemyEntityAiming : MonoBehaviour
 
     private IEnumerator AimingSimulation(float pathLength, Vector3 direction, Vector3[] path)
     {
+        _thisObjectTransform.LookAt(path[1]);
         yield return new WaitForSeconds(0.5f);
         _pathGenerator.DrawPath(path);
 
-        yield return new WaitForSeconds(1f);
+        float attackPower = 0;
+        float finalAttackPower = pathLength * 2;
+        DOTween.To(() => attackPower, x => attackPower = x, finalAttackPower, 1f);
+        attackPowerViewer.EnablePreview();
+        while (attackPower != finalAttackPower)
+        {
+            attackPowerViewer.SetPreview(attackPower);
+            yield return new WaitForFixedUpdate();
+        }
 
-        _circle.color = new Color(0, 0, 0, 0);
-        
+        attackPowerViewer.DisablePreview();
+        _circle.color = Color.clear;
         _pathGenerator.ClearPathDrawing();
         _movement.Move(pathLength, direction);
         _turnSwitcher.PrepareToSwitch();

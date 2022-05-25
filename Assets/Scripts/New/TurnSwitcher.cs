@@ -7,9 +7,12 @@ public class TurnSwitcher : MonoBehaviour
     [SerializeField] private EntityContainer _entityContainer;
     [SerializeField] private PlayerInputs _playerInputs;
     [SerializeField] private CurrentTurnLabel _currentTurnLabel;
+    [SerializeField] private GameUI gameUI;
+    [SerializeField] private ConfettiBlast confettiBlast;
 
     private Entity _currentEntity;
-    private int _currentEntityNumber;
+    private int _lastPlayerEntity;
+    private int _lastEnemyEntity;
 
     public Entity CurrentEntity
     {
@@ -18,45 +21,57 @@ public class TurnSwitcher : MonoBehaviour
 
     public void SwitchTurn()
     {
+        if (_entityContainer.EnemyEntities.Count == 0)
+        {
+            confettiBlast.Blast();
+            gameUI.ShowWinPanel();
+            return;
+        }
+        else if (_entityContainer.PlayerEntities.Count == 0)
+        {
+            gameUI.ShowLosePanel();
+            return;
+        }
+
         foreach (var entity in _entityContainer.EnemyEntities)
         {
-            entity._circleSprite.color = new Color(0, 0, 0, 0);
+            entity.CircleSprite.color = Color.clear;
         }
         
         foreach (var entity in _entityContainer.PlayerEntities)
         {
-            entity._circleSprite.color = new Color(0, 0, 0, 0);
+            entity.CircleSprite.color = Color.clear;
         }
-        
-        bool isPlayerNextTurn = true;
 
+        bool isPlayerNextTurn = true;
         if (_currentEntity != null)
         {
             if (_currentEntity.IsMine)
             {
                 isPlayerNextTurn = false;
-                if (_currentEntityNumber >= _entityContainer.EnemyEntities.Count) _currentEntityNumber = 0;
+                _lastEnemyEntity += 1;
+                if (_lastEnemyEntity >= _entityContainer.EnemyEntities.Count) _lastEnemyEntity = 0;
             }
             else
             {
-                _currentEntityNumber += 1;
-                if (_currentEntityNumber >= _entityContainer.PlayerEntities.Count) _currentEntityNumber = 0;
+                _lastPlayerEntity += 1;
+                if (_lastPlayerEntity >= _entityContainer.PlayerEntities.Count) _lastPlayerEntity = 0;
             }
         }
 
         if (isPlayerNextTurn)
         {
-            _currentTurnLabel.SetText("ТВОЙ ХОД");
-            _currentEntity = _entityContainer.PlayerEntities[_currentEntityNumber];
-            _currentEntity._circleSprite.color = Color.white;
+            _currentTurnLabel.SetText("YOUR TURN");
+            _currentEntity = _entityContainer.PlayerEntities[_lastPlayerEntity];
+            _currentEntity.CircleSprite.color = Color.white;
             _playerInputs.CanAim = true;
         }
         else
         {
-            _currentTurnLabel.SetText("ХОД ПРОТИВНИКА");
-            _currentEntity = _entityContainer.EnemyEntities[_currentEntityNumber];
+            _currentTurnLabel.SetText("ENEMY'S TURN");
+            _currentEntity = _entityContainer.EnemyEntities[_lastEnemyEntity];
             _currentEntity.GetComponent<EnemyEntityAiming>().Aim();
-            _currentEntity._circleSprite.color = Color.white;
+            _currentEntity.CircleSprite.color = Color.white;
         }
 
         _currentTurnLabel.Show();
