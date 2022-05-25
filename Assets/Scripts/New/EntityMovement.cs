@@ -36,7 +36,7 @@ public class EntityMovement : MonoBehaviour
 
     public void Move(float speed, Vector3 direction)
     {
-        _rb.AddForce(direction * Mathf.Clamp(speed, 0, speedLimit) * 200);
+        _rb.AddForce(direction * Mathf.Clamp(speed, 0, speedLimit) * 100);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -44,6 +44,11 @@ public class EntityMovement : MonoBehaviour
         ContactPoint contact = collision.GetContact(0);
         GameObject obj = collision.gameObject;
         float magnitude = _lastVelocity.magnitude;
+        
+        if (_rb.velocity.magnitude > 6.5f)
+        {
+            FindObjectOfType<CameraShake>().Shake(1, .1f);
+        }
 
         if (obj.layer == LayerMask.NameToLayer("Wall"))
         {
@@ -57,7 +62,7 @@ public class EntityMovement : MonoBehaviour
 
         else if (obj.TryGetComponent(out Entity entity))
         {
-            if (_turnSwitcher.CurrentEntity.IsMine == _thisEntity.IsMine != entity.IsMine)
+            if (_turnSwitcher.CurrentEntity.IsMine != entity.IsMine)
             {
                 entity.TakeDamage(_thisEntity.Damage);
             }
@@ -65,6 +70,5 @@ public class EntityMovement : MonoBehaviour
             Instantiate(entityHitParticle, contact.point, Quaternion.identity);
         }
 
-        FindObjectOfType<CameraShake>().Shake(magnitude / 10, .1f);
     }
 }

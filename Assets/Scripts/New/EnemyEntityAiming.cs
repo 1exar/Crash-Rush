@@ -10,6 +10,8 @@ public class EnemyEntityAiming : MonoBehaviour
     private EntityContainer _container;
     private TurnSwitcher _turnSwitcher;
     private PathGenerator _pathGenerator;
+    [SerializeField]
+    private SpriteRenderer _circle;
     
     private void Awake()
     {
@@ -46,8 +48,10 @@ public class EnemyEntityAiming : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
+        _circle.color = new Color(0, 0, 0, 0);
+        
         _pathGenerator.ClearPathDrawing();
-        _movement.Move(pathLength / 10, direction);
+        _movement.Move(pathLength, direction);
         _turnSwitcher.PrepareToSwitch();
     }
 

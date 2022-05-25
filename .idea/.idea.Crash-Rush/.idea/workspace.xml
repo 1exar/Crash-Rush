@@ -3,8 +3,29 @@
   <component name="ChangeListManager">
     <list default="true" id="19baa3f4-e448-4a80-9d9c-4ed235dcb4b4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Crash-Rush/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Crash-Rush/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BackGround.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/BackGround.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blue.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Blue.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CameraShake.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CameraShake.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/EnemyEntity.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/EnemyEntity.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/New/TurnSwitcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/New/TurnSwitcher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Interactive/Sparkle/SparkleSolo/SparkleSoloWhite.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Interactive/Sparkle/SparkleSolo/SparkleSoloWhite.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Interactive/Sparkle/SparkleSolo/SparkleSoloYellow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Interactive/Sparkle/SparkleSolo/SparkleSoloYellow.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Ground.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Ground.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayerEntity.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerEntity.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Forest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Forest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/New/EnemyEntityAiming.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/New/EnemyEntityAiming.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/New/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/New/Entity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/New/EntityMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/New/EntityMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/New/EntitySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/New/EntitySpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/New/PlayerEntityAiming.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/New/PlayerEntityAiming.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/circle.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/circle.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StopMover.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StopMover.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yellow.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Yellow.mat.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +92,7 @@
       <workItem from="1653296313187" duration="5408000" />
       <workItem from="1653371988315" duration="1061000" />
       <workItem from="1653376690110" duration="7584000" />
+      <workItem from="1653459437374" duration="7441000" />
     </task>
     <servers />
   </component>

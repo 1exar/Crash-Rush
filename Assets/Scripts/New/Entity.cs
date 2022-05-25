@@ -33,7 +33,8 @@ public class Entity : MonoBehaviour
         _movement = GetComponent<EntityMovement_noRB>();
         _container = FindObjectOfType<EntityContainer>();
 
-        healthSlider.maxValue = healthSlider.value = health;
+        healthSlider.maxValue = health;
+        healthSlider.value = health;
     }
 
     public void TakeDamage(float damage)

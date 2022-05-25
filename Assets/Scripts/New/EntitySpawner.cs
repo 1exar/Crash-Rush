@@ -9,10 +9,8 @@ public class EntitySpawner : MonoBehaviour
 
     [SerializeField] private GameObject _enemyEntityPrefab;
     [SerializeField] private GameObject _playerEntityPrefab;
-    [SerializeField] private Transform[] _enemySpawnPositions;
-    [SerializeField] private Transform[] _playerSpawnPositions;
 
-    private void Start()
+    public void SpawnEntity(List<Transform> _playerSpawnPositions, List<Transform> _enemySpawnPositions)
     {
         foreach (Transform spawnPos in _playerSpawnPositions)
         {
