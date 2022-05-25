@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdec8ea32c184b8408e5ff8f5dda30f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathParticle: {fileID: 152634, guid: c816e04fdd948ef479558e37f6acc4ae, type: 3}
+  deathParticle: {fileID: 119968, guid: e73000b12fb76244cbffd6abbf8bb6e4, type: 3}
   healthSlider: {fileID: 7024302074324641232}
   health: 25
   damage: 5
@@ -5642,15 +5642,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 438562, guid: 36c40fe19a4447d468678ecd395846df, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 438562, guid: 36c40fe19a4447d468678ecd395846df, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 438562, guid: 36c40fe19a4447d468678ecd395846df, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 438562, guid: 36c40fe19a4447d468678ecd395846df, type: 3}
       propertyPath: m_LocalPosition.x
