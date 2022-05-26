@@ -2,16 +2,22 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
+using System.Collections;
 
 public class PlayerInputs : MonoBehaviour
 {
     [SerializeField] private GameObject touchPreview;
+    [SerializeField] private RectTransform aimPreview;
+
     private InputMaster _inputMaster;
     private InputAction _mousePosition;
     private TurnSwitcher _turnSwitcher;
     private PlayerEntityAiming _currentEntityAim;
 
+    private Coroutine _aimPreviewCoroutine;
+
     private Vector2 _lastMousePos;
+    private float distance;
     private bool _canAim = false;
 
     public bool CanAim
@@ -44,6 +50,18 @@ public class PlayerInputs : MonoBehaviour
 
         _currentEntityAim = _turnSwitcher.CurrentEntity.GetComponent<PlayerEntityAiming>();
         _currentEntityAim.StartAiming();
+        _aimPreviewCoroutine = StartCoroutine(AimPreview());
+    }
+
+    private IEnumerator AimPreview()
+    {
+        while (true)
+        {
+            distance = Vector3.Distance(_lastMousePos / Screen.width, _mousePosition.ReadValue<Vector2>() / Screen.width);
+            touchPreview.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -_currentEntityAim.transform.eulerAngles.y + 90));
+            aimPreview.sizeDelta = new Vector2(distance * 300, 50);
+            yield return new WaitForFixedUpdate();
+        }
     }
 
     private void CancelAiming()
@@ -52,7 +70,7 @@ public class PlayerInputs : MonoBehaviour
 
         if (_currentEntityAim != null)
         {
-            float distance = Vector3.Distance(_lastMousePos / Screen.width, _mousePosition.ReadValue<Vector2>() / Screen.width);
+            StopCoroutine(_aimPreviewCoroutine);
             if (distance <= 0.05f)
             {
                 _currentEntityAim.CancelAiming();

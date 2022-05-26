@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class Entity : MonoBehaviour
 {
-    [SerializeField] private AudioSource _audio;
     [SerializeField] private SpriteRenderer circleSprite;
     [SerializeField] private GameObject deathParticle;
     [SerializeField] private Slider healthSlider;
@@ -64,7 +63,6 @@ public class Entity : MonoBehaviour
             if (_isMine) _container.PlayerEntities.Remove(this);
             else _container.EnemyEntities.Remove(this);
             Instantiate(deathParticle, transform.position + Vector3.up, Quaternion.identity);
-            _audio.Play();
             Destroy(gameObject);
         }
 

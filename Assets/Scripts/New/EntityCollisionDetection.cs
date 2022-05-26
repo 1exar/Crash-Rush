@@ -6,6 +6,7 @@ public class EntityCollisionDetection : MonoBehaviour
 {
     [SerializeField] private GameObject wallHitParticle;
     [SerializeField] private GameObject entityHitParticle;
+    [SerializeField] private AudioSource hitAudioSource;
     [Header("Components")]
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Entity _thisEntity;
@@ -28,6 +29,9 @@ public class EntityCollisionDetection : MonoBehaviour
         ContactPoint contact = collision.GetContact(0);
         GameObject obj = collision.gameObject;
         float magnitude = _lastVelocity.magnitude;
+
+       /* hitAudioSource.Stop();
+        hitAudioSource.Play();*/
 
         if (rb.velocity.magnitude > 6.5f)
         {

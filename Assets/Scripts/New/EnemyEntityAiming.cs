@@ -129,7 +129,7 @@ public class EnemyEntityAiming : MonoBehaviour
                     }
                     else
                     {
-                        pathLength += Vector3.Distance(originPoint, hit.point);
+                        pathLength += Vector3.Distance(originPoint, hitPoint);
 
                         direction = Vector3.Reflect(direction, hit.normal);
                         direction.y = 0;
