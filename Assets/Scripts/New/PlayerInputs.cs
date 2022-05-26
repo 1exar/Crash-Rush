@@ -5,11 +5,13 @@ using DG.Tweening;
 
 public class PlayerInputs : MonoBehaviour
 {
+    [SerializeField] private GameObject touchPreview;
     private InputMaster _inputMaster;
+    private InputAction _mousePosition;
     private TurnSwitcher _turnSwitcher;
-
     private PlayerEntityAiming _currentEntityAim;
 
+    private Vector2 _lastMousePos;
     private bool _canAim = false;
 
     public bool CanAim
@@ -20,6 +22,7 @@ public class PlayerInputs : MonoBehaviour
     private void Awake()
     {
         _inputMaster = new InputMaster();
+        _mousePosition = _inputMaster.Inputs.MousePosition;
 
         InputAction _mouseButton = _inputMaster.Inputs.LeftMouseButton;
         _mouseButton.started += _ => StartAiming();
@@ -34,7 +37,11 @@ public class PlayerInputs : MonoBehaviour
     private void StartAiming()
     {
         if (!_canAim) return;
-        
+        _lastMousePos = _mousePosition.ReadValue<Vector2>();
+
+        touchPreview.SetActive(true);
+        touchPreview.transform.position = _lastMousePos;
+
         _currentEntityAim = _turnSwitcher.CurrentEntity.GetComponent<PlayerEntityAiming>();
         _currentEntityAim.StartAiming();
     }
@@ -45,8 +52,17 @@ public class PlayerInputs : MonoBehaviour
 
         if (_currentEntityAim != null)
         {
-            _currentEntityAim.CancelAiming();
-            _canAim = false;
+            float distance = Vector3.Distance(_lastMousePos / Screen.width, _mousePosition.ReadValue<Vector2>() / Screen.width);
+            if (distance <= 0.05f)
+            {
+                _currentEntityAim.CancelAiming();
+            }
+            else
+            {
+                _currentEntityAim.ProcessAiming();
+                _canAim = false;
+            }
+            touchPreview.SetActive(false);
         }
     }
 

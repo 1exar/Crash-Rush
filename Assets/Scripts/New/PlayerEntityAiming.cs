@@ -48,16 +48,19 @@ public class PlayerEntityAiming : MonoBehaviour
     public void CancelAiming()
     {
         StopCoroutine(_aimingCoroutine);
-
         gameObject.layer = 0;
         _pathGenerator.ClearPathDrawing();
+        attackPowerViewer.DisablePreview();
+    }
+
+    public void ProcessAiming()
+    {
+        CancelAiming();
 
         _movement.Move(_pathLength / 2, _thisObjectTransform.forward);
         _turnSwitcher.PrepareToSwitch();
 
         _circle.color = Color.clear;
-
-        attackPowerViewer.DisablePreview();
     }
 
     private IEnumerator AimingCoroutine()

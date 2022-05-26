@@ -117,11 +117,11 @@ public class EnemyEntityAiming : MonoBehaviour
             {
                 Ray ray = new Ray(originPoint, direction);
 
-                if (Physics.SphereCast(ray, 1.5f, out RaycastHit hit))
+                if (Physics.SphereCast(ray, 0.5f, out RaycastHit hit))
                 {
                     path[j] = hit.point;
-
-                    Debug.DrawLine(originPoint, hit.point, Color.black, 20f);
+                    Vector3 hitPoint = hit.point - direction * 0.5f;
+                    Debug.DrawLine(originPoint, hitPoint, Color.black, 20f);
                     if (hit.collider.TryGetComponent(out Entity entity))
                     {
                         if (entity.IsMine) return path;
@@ -134,7 +134,7 @@ public class EnemyEntityAiming : MonoBehaviour
                         direction = Vector3.Reflect(direction, hit.normal);
                         direction.y = 0;
 
-                        originPoint = hit.point;
+                        originPoint = hitPoint;
                     }
                 }
             }
