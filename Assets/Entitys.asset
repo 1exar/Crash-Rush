@@ -13,12 +13,21 @@ MonoBehaviour:
   m_Name: Entitys
   m_EditorClassIdentifier: 
   entitys:
-  - name: Default
+  - name: Player
     prefab: {fileID: 3387689592711736686, guid: 5c265231a8af3ef48bed10ef7ed319df, type: 3}
     settings:
       health: 25
-      weight: 2
+      weight: 1
+      drag: 0.5
+      maxSpeed: 7
+      maxDamage: 5
+      minDamage: 1
+  - name: Enemy
+    prefab: {fileID: 3387689592711736686, guid: 5c265231a8af3ef48bed10ef7ed319df, type: 3}
+    settings:
+      health: 25
+      weight: 1
       drag: 1
-      maxSpeed: 5
+      maxSpeed: 2
       maxDamage: 5
       minDamage: 1

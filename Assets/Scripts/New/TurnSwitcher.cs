@@ -30,6 +30,7 @@ public class TurnSwitcher : MonoBehaviour
         else if (_entityContainer.PlayerEntities.Count == 0)
         {
             gameUI.ShowLosePanel();
+            print("no players");
             return;
         }
 
