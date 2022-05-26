@@ -77,7 +77,7 @@ public class PlayerEntityAiming : MonoBehaviour
 
     private void DrawPath()
     {
-        float attackPower = Vector3.Distance(_lastMousePos, _mousePosition.ReadValue<Vector2>()) / Screen.width * 20;
+        float attackPower = Vector3.Distance(_lastMousePos, _mousePosition.ReadValue<Vector2>()) / Screen.width * 40;
         Vector3 tempPos = transform.position + transform.forward * (attackPower * attackPower) / 2f;
         _pathLength = Vector3.Distance(_thisObjectTransform.position, tempPos);
 
