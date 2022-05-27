@@ -61,7 +61,7 @@ public class EnemyEntityAiming : MonoBehaviour
         attackPowerViewer.DisablePreview();
         _circle.color = Color.clear;
         _pathGenerator.ClearPathDrawing();
-        _movement.Move(pathLength, direction);
+        _movement.Move(pathLength / 1.5f, direction);
         _turnSwitcher.PrepareToSwitch();
     }
 

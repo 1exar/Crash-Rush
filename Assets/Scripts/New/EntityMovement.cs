@@ -1,8 +1,10 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class EntityMovement : MonoBehaviour
 {
     [SerializeField] private Transform _canvasTransform;
+    [SerializeField] private Transform _skinTransform;
     [SerializeField] private float _speedLimit = 5f;
 
     [Header("Components")]
@@ -42,6 +44,9 @@ public class EntityMovement : MonoBehaviour
         {
             _rb.velocity = Vector3.zero;
         }
+
+        _skinTransform.localRotation = Quaternion.Euler(Vector3.zero);
+        _skinTransform.DORotate(Vector3.right * 40, 0, RotateMode.WorldAxisAdd);
     }
 
     public void Move(float speed, Vector3 direction)

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using DG.Tweening;
 using System.Collections;
@@ -7,6 +8,7 @@ using System.Collections;
 public class PlayerInputs : MonoBehaviour
 {
     [SerializeField] private GameObject touchPreview;
+    [SerializeField] private Image crossSign;
     [SerializeField] private RectTransform aimPreview;
 
     private InputMaster _inputMaster;
@@ -22,7 +24,13 @@ public class PlayerInputs : MonoBehaviour
 
     public bool CanAim
     {
-        set { _canAim = value; }
+        set { if (value) StartCoroutine(SetCanAimTrue()); }
+    }
+
+    private IEnumerator SetCanAimTrue()
+    {
+        yield return new WaitForSeconds(0.2f);
+        _canAim = true;
     }
 
     private void Awake()
@@ -71,9 +79,16 @@ public class PlayerInputs : MonoBehaviour
         if (_currentEntityAim != null)
         {
             StopCoroutine(_aimPreviewCoroutine);
-            if (distance <= 0.05f)
+            if (distance <= 0.25f)
             {
                 _currentEntityAim.CancelAiming();
+                crossSign.transform.position = touchPreview.transform.position;
+                crossSign.DOFade(1, 0.1f);
+                crossSign.transform.DOScale(1f, 0.2f).OnComplete(() =>
+                {
+                    crossSign.transform.DOScale(0.5f, 0.2f);
+                    crossSign.DOFade(0, 0.1f);
+                });
             }
             else
             {

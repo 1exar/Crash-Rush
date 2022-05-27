@@ -84,7 +84,7 @@ public class PlayerEntityAiming : MonoBehaviour
         Vector3 tempPos = transform.position + transform.forward * (attackPower * attackPower) / 2f;
         _pathLength = Vector3.Distance(_thisObjectTransform.position, tempPos);
 
-        attackPowerViewer.SetPreview(attackPower);
+        attackPowerViewer.SetPreview(attackPower/2);
         
         Vector3[] previewPath = _pathGenerator.GeneratePath(_thisObjectTransform.position, _thisObjectTransform.forward, _pathLength);
         _pathGenerator.DrawPath(previewPath);

@@ -30,8 +30,8 @@ public class EntityCollisionDetection : MonoBehaviour
         GameObject obj = collision.gameObject;
         float magnitude = _lastVelocity.magnitude;
 
-       /* hitAudioSource.Stop();
-        hitAudioSource.Play();*/
+        hitAudioSource.Stop();
+        hitAudioSource.Play();
 
         if (rb.velocity.magnitude > 6.5f)
         {

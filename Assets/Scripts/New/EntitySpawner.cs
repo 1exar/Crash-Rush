@@ -23,7 +23,7 @@ public class EntitySpawner : MonoBehaviour
 
         foreach (Transform spawnPos in _enemySpawnPositions)
         {
-            Entity entity = Instantiate(_enemyEntityPrefab, spawnPos.position, Quaternion.Euler(Vector3.up * 180)).GetComponent<Entity>();
+            Entity entity = Instantiate(_enemyEntityPrefab, spawnPos.position, Quaternion.identity).GetComponent<Entity>();
             entity.Init(_entitys.Entitys[1].settings, false);
             _container.AddEntityToList(entity);
         }

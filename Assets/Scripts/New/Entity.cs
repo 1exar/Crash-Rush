@@ -5,6 +5,7 @@ public class Entity : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer circleSprite;
     [SerializeField] private GameObject deathParticle;
+    [SerializeField] private Transform skin;
     [SerializeField] private Slider healthSlider;
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private EntityMovement _movement;
@@ -15,6 +16,11 @@ public class Entity : MonoBehaviour
     private float _minDamage;
     private float _maxDamage;
     private bool _isMine;
+
+    public Transform Skin
+    {
+        get { return skin; }
+    }
 
     public float MinDamage
     {
@@ -38,6 +44,7 @@ public class Entity : MonoBehaviour
 
     public void Init(EntitySettings settings, bool isMine)
     {
+        transform.Rotate(Vector3.up * 180);
         _isMine = isMine;
         
         _minDamage = settings.minDamage;

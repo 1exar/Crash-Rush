@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class TurnSwitcher : MonoBehaviour
 {
@@ -64,7 +65,7 @@ public class TurnSwitcher : MonoBehaviour
         {
             _currentTurnLabel.SetText("YOUR TURN");
             _currentEntity = _entityContainer.PlayerEntities[_lastPlayerEntity];
-            _currentEntity.CircleSprite.color = Color.white;
+            _currentEntity.CircleSprite.color = Color.green;
             _playerInputs.CanAim = true;
         }
         else
@@ -72,7 +73,7 @@ public class TurnSwitcher : MonoBehaviour
             _currentTurnLabel.SetText("ENEMY'S TURN");
             _currentEntity = _entityContainer.EnemyEntities[_lastEnemyEntity];
             _currentEntity.GetComponent<EnemyEntityAiming>().Aim();
-            _currentEntity.CircleSprite.color = Color.white;
+            _currentEntity.CircleSprite.color = Color.red;
         }
 
         _currentTurnLabel.Show();
@@ -109,6 +110,8 @@ public class TurnSwitcher : MonoBehaviour
 
             if (ready)
             {
+                foreach (Entity entity in _entityContainer.EnemyEntities) entity.transform.eulerAngles = Vector3.up * 180;
+                foreach (Entity entity in _entityContainer.PlayerEntities) entity.transform.eulerAngles = Vector3.up * 180;
                 SwitchTurn();
                 yield break;
             }
