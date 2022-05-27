@@ -38,8 +38,20 @@ public class EntityCollisionDetection : MonoBehaviour
             FindObjectOfType<CameraShake>().Shake(1, .1f);
         }
 
+        float damage = Mathf.RoundToInt(_thisEntity.GetComponent<Rigidbody>().velocity.magnitude);
+        damage = Mathf.Clamp(damage, _thisEntity.MinDamage, _thisEntity.MaxDamage);
+
         if (obj.layer == LayerMask.NameToLayer("Wall"))
         {
+            if (obj.TryGetComponent(out FragileProp prop))
+            {
+                prop.TakeDamage(damage);
+                if (prop.Health <= damage)
+                {
+                    rb.velocity = _lastVelocity / 1.5f;
+                    return;
+                }
+            }
             if (_lastVelocity == Vector3.zero) return;
 
             Vector3 newDirection = Vector3.Reflect(_lastVelocity.normalized, contact.normal);
@@ -52,8 +64,6 @@ public class EntityCollisionDetection : MonoBehaviour
         {
             if (_turnSwitcher.CurrentEntity.IsMine != entity.IsMine)
             {
-                float damage = Mathf.RoundToInt(_thisEntity.GetComponent<Rigidbody>().velocity.magnitude);
-                damage = Mathf.Clamp(damage, _thisEntity.MinDamage, _thisEntity.MaxDamage);
                 entity.TakeDamage(damage);
             }
 

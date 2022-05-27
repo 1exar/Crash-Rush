@@ -57,7 +57,7 @@ public class PlayerEntityAiming : MonoBehaviour
     {
         CancelAiming();
 
-        _movement.Move(_pathLength / 2, _thisObjectTransform.forward);
+        _movement.Move(_pathLength, _thisObjectTransform.forward);
         _turnSwitcher.PrepareToSwitch();
 
         _circle.color = Color.clear;

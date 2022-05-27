@@ -21,6 +21,7 @@ public class PlayerInputs : MonoBehaviour
     private Vector2 _lastMousePos;
     private float distance;
     private bool _canAim = false;
+    private bool _canCancelAiming = false;
 
     public bool CanAim
     {
@@ -66,6 +67,22 @@ public class PlayerInputs : MonoBehaviour
         while (true)
         {
             distance = Vector3.Distance(_lastMousePos / Screen.width, _mousePosition.ReadValue<Vector2>() / Screen.width);
+            if (distance <= 0.25f && _canCancelAiming)
+            {
+                crossSign.transform.position = touchPreview.transform.position;
+                crossSign.DOFade(1, 0.1f);
+                crossSign.transform.DOScale(1f, 0.2f);
+                _canCancelAiming = false;
+            }
+            else if (distance > 0.25f)
+            {
+                if (_canCancelAiming == false)
+                {
+                    crossSign.transform.DOScale(0.5f, 0.2f);
+                    crossSign.DOFade(0, 0.1f);
+                }
+                _canCancelAiming = true;
+            }
             touchPreview.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -_currentEntityAim.transform.eulerAngles.y + 90));
             aimPreview.sizeDelta = new Vector2(distance * 300, 50);
             yield return new WaitForFixedUpdate();
@@ -78,24 +95,19 @@ public class PlayerInputs : MonoBehaviour
 
         if (_currentEntityAim != null)
         {
-            StopCoroutine(_aimPreviewCoroutine);
-            if (distance <= 0.25f)
-            {
-                _currentEntityAim.CancelAiming();
-                crossSign.transform.position = touchPreview.transform.position;
-                crossSign.DOFade(1, 0.1f);
-                crossSign.transform.DOScale(1f, 0.2f).OnComplete(() =>
-                {
-                    crossSign.transform.DOScale(0.5f, 0.2f);
-                    crossSign.DOFade(0, 0.1f);
-                });
-            }
-            else
+            if (distance > 0.25f)
             {
                 _currentEntityAim.ProcessAiming();
                 _canAim = false;
             }
+            else
+            {
+                crossSign.transform.DOScale(0.5f, 0.2f);
+                crossSign.DOFade(0, 0.1f);
+                _currentEntityAim.CancelAiming();
+            }
             touchPreview.SetActive(false);
+            StopCoroutine(_aimPreviewCoroutine);
         }
     }
 

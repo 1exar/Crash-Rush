@@ -259,6 +259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   circleSprite: {fileID: 8394178018409364002}
   deathParticle: {fileID: 136450, guid: 75f06efdf4dffb64196a8a771986c0b8, type: 3}
+  damageStar: {fileID: 8890274256925980224, guid: 7ca35a14be22f15469d914a0e58750b3, type: 3}
   skin: {fileID: 5851046116367871980}
   healthSlider: {fileID: 7024302074324641232}
   _rigidbody: {fileID: 6304281749289878499}
@@ -1541,11 +1542,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d115fcac41a04ee39b894520d81b4eb, type: 3}
---- !u!212 &8394178018409364002 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 467140450462352671, guid: 9d115fcac41a04ee39b894520d81b4eb, type: 3}
-  m_PrefabInstance: {fileID: 8216115676220817213}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8394178018409364004 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 467140450462352665, guid: 9d115fcac41a04ee39b894520d81b4eb, type: 3}
@@ -1554,5 +1550,10 @@ GameObject:
 --- !u!4 &8394178018409364005 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 467140450462352664, guid: 9d115fcac41a04ee39b894520d81b4eb, type: 3}
+  m_PrefabInstance: {fileID: 8216115676220817213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &8394178018409364002 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 467140450462352671, guid: 9d115fcac41a04ee39b894520d81b4eb, type: 3}
   m_PrefabInstance: {fileID: 8216115676220817213}
   m_PrefabAsset: {fileID: 0}

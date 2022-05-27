@@ -5,6 +5,7 @@ public class Entity : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer circleSprite;
     [SerializeField] private GameObject deathParticle;
+    [SerializeField] private GameObject damageStar;
     [SerializeField] private Transform skin;
     [SerializeField] private Slider healthSlider;
     [SerializeField] private Rigidbody _rigidbody;
@@ -73,6 +74,8 @@ public class Entity : MonoBehaviour
             Destroy(gameObject);
         }
 
+        Transform star = Instantiate(damageStar, transform.position + Vector3.up * 2f, Quaternion.identity).transform;
+        star.SetParent(transform);
         _health -= damage;
         healthSlider.value = _health;
     }
