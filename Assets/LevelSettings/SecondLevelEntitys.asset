@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4080c710dd924d0dadb546c50ce7b63a, type: 3}
-  m_Name: Entitys
+  m_Name: SecondLevelEntitys
   m_EditorClassIdentifier: 
   entitys:
   - name: Player
-    prefab: {fileID: 3387689592711736686, guid: 5c265231a8af3ef48bed10ef7ed319df, type: 3}
+    prefab: {fileID: 3387689592711736686, guid: 657bb015051624ea5b7d92ff4f6e215e, type: 3}
     settings:
-      health: 25
+      health: 15
       weight: 1
-      drag: 0.5
-      maxSpeed: 7
-      maxDamage: 5
+      drag: 0.4
+      maxSpeed: 10
+      maxDamage: 9
       minDamage: 1
-  - name: Enemy
-    prefab: {fileID: 3387689592711736686, guid: 5c265231a8af3ef48bed10ef7ed319df, type: 3}
+  - name: EnemyEntity
+    prefab: {fileID: 4375608866915371030, guid: b5816797b8e5741719e6b2b0ea359692, type: 3}
     settings:
-      health: 25
+      health: 15
       weight: 1
-      drag: 1
-      maxSpeed: 2
-      maxDamage: 5
+      drag: 0.4
+      maxSpeed: 1
+      maxDamage: 9
       minDamage: 1

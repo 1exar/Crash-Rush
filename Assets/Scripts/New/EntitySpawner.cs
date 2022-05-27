@@ -12,6 +12,21 @@ public class EntitySpawner : MonoBehaviour
     
     [SerializeField] private EntityDataBase _entitys;
 
+    public void PrepareSpawn(LevelSettings level)
+    {
+        foreach (var spawnPos in level.mySpawnPos)
+        {
+            SpawnEntity(true, spawnPos, _playerEntityPrefab, level.EntityOnLevel.Entitys[0].settings);
+        }
+        foreach (var spawnPos in level.enemySpawnPos)
+        {
+            SpawnEntity(false, spawnPos, _enemyEntityPrefab, level.EntityOnLevel.Entitys[1].settings);
+        }
+        
+        _turnSwitcher.SwitchTurn();
+
+    }
+    
     public void SpawnEntity(List<Transform> _playerSpawnPositions, List<Transform> _enemySpawnPositions)
     {
         foreach (Transform spawnPos in _playerSpawnPositions)

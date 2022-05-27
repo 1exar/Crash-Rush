@@ -39,15 +39,15 @@ public class LevelChoiser : MonoBehaviour
         {
             case Level.forest:
                 _levels[0].gameObject.SetActive(true);
-                _spawner.SpawnEntity(_levels[0].mySpawnPos, _levels[0].enemySpawnPos);
+                _spawner.PrepareSpawn(_levels[0]);
                 break;
             case Level.farm:
                 _levels[1].gameObject.SetActive(true);
-                _spawner.SpawnEntity(_levels[1].mySpawnPos, _levels[1].enemySpawnPos);
+                _spawner.PrepareSpawn(_levels[1]);
                 break;
             case Level.egypt:
                 _levels[2].gameObject.SetActive(true);
-                _spawner.SpawnEntity(_levels[2].mySpawnPos, _levels[2].enemySpawnPos);
+                _spawner.PrepareSpawn(_levels[2]);
                 break;
         }
     }

@@ -10,7 +10,9 @@ public class LevelSettings : MonoBehaviour
     private List<Transform> _mySpawnPos = new List<Transform>();
     [SerializeField]
     private List<Transform> _enemySpawnPos = new List<Transform>();
-
+    [SerializeField]
+    private EntityDataBase _entitysOnLevel;
+    
     public List<Transform> mySpawnPos
     {
         get { return _mySpawnPos; }
@@ -22,4 +24,11 @@ public class LevelSettings : MonoBehaviour
         get { return _enemySpawnPos; }
         protected set {}
     }
+
+    public EntityDataBase EntityOnLevel
+    {
+        get { return _entitysOnLevel; }
+        protected set {}
+    }
+    
 }

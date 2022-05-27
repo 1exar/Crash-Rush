@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4080c710dd924d0dadb546c50ce7b63a, type: 3}
+  m_Name: FirstLevelEntitys
+  m_EditorClassIdentifier: 
+  entitys:
+  - name: Player
+    prefab: {fileID: 3387689592711736686, guid: 61d32228958ac944f9dea706db47420b, type: 3}
+    settings:
+      health: 15
+      weight: 1
+      drag: 0.4
+      maxSpeed: 10
+      maxDamage: 9
+      minDamage: 1
+  - name: EnemyEntity
+    prefab: {fileID: 4375608866915371030, guid: 980366c56548b66418e77ee6573b4dfa, type: 3}
+    settings:
+      health: 15
+      weight: 1
+      drag: 0.4
+      maxSpeed: 1
+      maxDamage: 9
+      minDamage: 1
