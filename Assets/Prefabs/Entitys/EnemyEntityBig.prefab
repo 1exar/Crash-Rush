@@ -409,7 +409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   circleSprite: {fileID: 7377549113621154193}
   deathParticle: {fileID: 136450, guid: 75f06efdf4dffb64196a8a771986c0b8, type: 3}
-  damageStar: {fileID: 8890274256925980224, guid: 7ca35a14be22f15469d914a0e58750b3, type: 3}
+  damageStar: {fileID: 109542, guid: 2ed06ab528b7c474eb9246421cd7c791, type: 3}
   skin: {fileID: 6257758042741773890}
   healthSlider: {fileID: 5137511193828846024}
   _rigidbody: {fileID: 8944566485155759419}
@@ -798,18 +798,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!114 &8815676553101478252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7377549113621154199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac832fa8602ca3a40b3f7f1a1c8719c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7424922486027247919
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,11 +1276,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 467140450462352664, guid: 9d115fcac41a04ee39b894520d81b4eb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.14
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 467140450462352664, guid: 9d115fcac41a04ee39b894520d81b4eb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 467140450462352664, guid: 9d115fcac41a04ee39b894520d81b4eb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1326,17 +1314,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: circle
       objectReference: {fileID: 0}
-    - target: {fileID: 467140450462352671, guid: 9d115fcac41a04ee39b894520d81b4eb, type: 3}
-      propertyPath: m_SortingOrder
-      value: 57
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d115fcac41a04ee39b894520d81b4eb, type: 3}
---- !u!1 &7377549113621154199 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 467140450462352665, guid: 9d115fcac41a04ee39b894520d81b4eb, type: 3}
-  m_PrefabInstance: {fileID: 6924790303167958158}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7377549113621154198 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 467140450462352664, guid: 9d115fcac41a04ee39b894520d81b4eb, type: 3}

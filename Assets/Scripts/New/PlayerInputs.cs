@@ -95,7 +95,7 @@ public class PlayerInputs : MonoBehaviour
 
         if (_currentEntityAim != null)
         {
-            if (distance > 0.25f)
+            if (distance > 0.18f)
             {
                 _currentEntityAim.ProcessAiming();
                 _canAim = false;

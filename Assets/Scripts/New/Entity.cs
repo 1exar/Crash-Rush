@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +19,8 @@ public class Entity : MonoBehaviour
     private float _maxDamage;
     private bool _isMine;
 
+    private Vector3 _startScale;
+    
     public Transform Skin
     {
         get { return skin; }
@@ -58,6 +61,8 @@ public class Entity : MonoBehaviour
     
     private void Start()
     {
+        _startScale = transform.localScale;
+        
         _container = FindObjectOfType<EntityContainer>();
 
         healthSlider.maxValue = _health;
@@ -76,7 +81,15 @@ public class Entity : MonoBehaviour
 
         Transform star = Instantiate(damageStar, transform.position + Vector3.up * 2f, Quaternion.identity).transform;
         star.SetParent(transform);
+        transform.DOShakeScale(.2f, .4f, 1);
         _health -= damage;
         healthSlider.value = _health;
+        
+        Invoke(nameof(ResetScaleToStart), .2f);
+    }
+
+    private void ResetScaleToStart()
+    {
+        transform.localScale = _startScale;
     }
 }

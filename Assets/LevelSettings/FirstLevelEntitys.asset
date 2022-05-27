@@ -18,7 +18,7 @@ MonoBehaviour:
     settings:
       health: 15
       weight: 1
-      drag: 0.4
+      drag: 0.7
       maxSpeed: 10
       maxDamage: 9
       minDamage: 1
@@ -27,7 +27,7 @@ MonoBehaviour:
     settings:
       health: 15
       weight: 1
-      drag: 0.4
+      drag: 0.7
       maxSpeed: 1
       maxDamage: 9
       minDamage: 1

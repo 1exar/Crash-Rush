@@ -2092,9 +2092,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -538912816529260321, guid: 5c2b3315fbe7aaa42809cb6c13be841d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.45
+      objectReference: {fileID: 0}
+    - target: {fileID: -538912816529260321, guid: 5c2b3315fbe7aaa42809cb6c13be841d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.59
+      objectReference: {fileID: 0}
     - target: {fileID: -516098083770646512, guid: 5c2b3315fbe7aaa42809cb6c13be841d, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -332846854573872999, guid: 5c2b3315fbe7aaa42809cb6c13be841d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: -332846854573872999, guid: 5c2b3315fbe7aaa42809cb6c13be841d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.14
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5c2b3315fbe7aaa42809cb6c13be841d, type: 3}
       propertyPath: m_Name
@@ -2119,6 +2135,18 @@ PrefabInstance:
     - target: {fileID: 1665468200230755334, guid: 5c2b3315fbe7aaa42809cb6c13be841d, type: 3}
       propertyPath: m_LocalPosition.z
       value: 5.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441772759626617197, guid: 5c2b3315fbe7aaa42809cb6c13be841d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441772759626617197, guid: 5c2b3315fbe7aaa42809cb6c13be841d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441772759626617197, guid: 5c2b3315fbe7aaa42809cb6c13be841d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.91
       objectReference: {fileID: 0}
     - target: {fileID: 4581395652601585900, guid: 5c2b3315fbe7aaa42809cb6c13be841d, type: 3}
       propertyPath: m_IsActive
@@ -6462,7 +6490,7 @@ MonoBehaviour:
   - {fileID: 960306940}
   _spawner: {fileID: 1514279031}
   _testMode: 1
-  _currentLevel: 1
+  _currentLevel: 0
 --- !u!1 &2038790319
 GameObject:
   m_ObjectHideFlags: 0

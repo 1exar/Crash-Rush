@@ -10,7 +10,7 @@ public class StopMover : MonoBehaviour
 
     private void Update()
     {
-        if (_rigidbody.velocity.magnitude < 1f)
+        if (_rigidbody.velocity.magnitude < 4f)
         {
             _rigidbody.velocity = Vector3.zero;
         }
