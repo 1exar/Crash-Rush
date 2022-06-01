@@ -8083,6 +8083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   losePanel: {fileID: 1046968043347247798}
   winPanel: {fileID: 1916172392562262226}
+  crossSign: {fileID: 1282597932}
 --- !u!1 &1060873814
 GameObject:
   m_ObjectHideFlags: 0
