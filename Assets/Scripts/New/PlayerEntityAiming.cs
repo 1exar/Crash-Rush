@@ -39,7 +39,7 @@ public class PlayerEntityAiming : MonoBehaviour
     {
         gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
 
-        _lastMousePos = pointerPosition;
+        _lastMousePos = Touchscreen.current.primaryTouch.position.ReadValue();
         _aimingCoroutine = StartCoroutine(AimingCoroutine());
 
         attackPowerViewer.EnablePreview();
