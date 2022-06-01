@@ -58,7 +58,7 @@ public class PlayerInputs : MonoBehaviour
         touchPreview.transform.position = _lastMousePos;
 
         _currentEntityAim = _turnSwitcher.CurrentEntity.GetComponent<PlayerEntityAiming>();
-        _currentEntityAim.StartAiming();
+        _currentEntityAim.StartAiming(_lastMousePos);
         _aimPreviewCoroutine = StartCoroutine(AimPreview());
     }
 

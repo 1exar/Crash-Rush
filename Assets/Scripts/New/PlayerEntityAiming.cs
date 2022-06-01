@@ -35,11 +35,11 @@ public class PlayerEntityAiming : MonoBehaviour
         _turnSwitcher = FindObjectOfType<TurnSwitcher>();
     }
 
-    public void StartAiming()
+    public void StartAiming(Vector2 pointerPosition)
     {
         gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
 
-        _lastMousePos = _mousePosition.ReadValue<Vector2>();
+        _lastMousePos = pointerPosition;
         _aimingCoroutine = StartCoroutine(AimingCoroutine());
 
         attackPowerViewer.EnablePreview();
