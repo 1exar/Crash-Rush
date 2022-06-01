@@ -16,7 +16,7 @@ MonoBehaviour:
   - name: Player
     prefab: {fileID: 3387689592711736686, guid: f53fd8250037b43bda15bafeff98dc03, type: 3}
     settings:
-      health: 15
+      health: 30
       weight: 1
       drag: 0.7
       maxSpeed: 10
@@ -25,7 +25,7 @@ MonoBehaviour:
   - name: EnemyEntity
     prefab: {fileID: 4375608866915371030, guid: e3d5f5aaa0f094f09beb609b529683ac, type: 3}
     settings:
-      health: 15
+      health: 30
       weight: 1
       drag: 0.7
       maxSpeed: 1

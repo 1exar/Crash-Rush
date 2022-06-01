@@ -2,27 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="19baa3f4-e448-4a80-9d9c-4ed235dcb4b4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/SoundButton.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/SoundButton.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Crash-Rush/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Crash-Rush/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Brawling/Stun/StunnedCirclingStars.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Brawling/Stun/StunnedCirclingStars.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Explosions/StarExplosion/StarExplosionOrange.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Explosions/StarExplosion/StarExplosionOrange.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Explosions/StarExplosion/StarExplosionPink.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Explosions/StarExplosion/StarExplosionPink.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Interactive/Stars/StarExplosion.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Interactive/Stars/StarExplosion.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Interactive/Stars/StarPoof.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Interactive/Stars/StarPoof.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Interactive/Stars/StarTrail.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Interactive/Stars/StarTrail.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/LevelSettings/FirstLevelEntitys.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSettings/FirstLevelEntitys.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelChoiser.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelChoiser.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSettings.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSettings.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/LevelSettings/SecondLevelEntitys.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSettings/SecondLevelEntitys.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/LevelSettings/ThirdLevelEntitys.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSettings/ThirdLevelEntitys.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Entitys/EnemyEntityBig.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Entitys/EnemyEntityBig.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Entitys/EnemyEntityDefault.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Entitys/EnemyEntityDefault.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Entitys/EnemyEntityNormal.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Entitys/EnemyEntityNormal.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Entitys/PlayerEntityDefaullBig.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Entitys/PlayerEntityDefaullBig.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Entitys/PlayerEntityDefaullNormal.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Entitys/PlayerEntityDefaullNormal.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Entitys/PlayerEntityDefault.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Entitys/PlayerEntityDefault.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/circle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/circle.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Forest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Forest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/New/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/New/Entity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/New/PlayerEntityAiming.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/New/PlayerEntityAiming.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StopMover.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StopMover.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TrailParticle.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TrailParticle.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/cross.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/cross.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,9 +35,6 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/LevelChoiser.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -107,7 +100,8 @@
       <workItem from="1653559262432" duration="2072000" />
       <workItem from="1653633599746" duration="655000" />
       <workItem from="1653641889604" duration="1984000" />
-      <workItem from="1653662827321" duration="1868000" />
+      <workItem from="1653662827321" duration="2620000" />
+      <workItem from="1654068439941" duration="1066000" />
     </task>
     <servers />
   </component>
