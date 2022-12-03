@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.InputSystem;
 using DG.Tweening;
 using System.Collections;
 
@@ -10,9 +9,7 @@ public class PlayerInputs : MonoBehaviour
     [SerializeField] private GameObject touchPreview;
     [SerializeField] private Image crossSign;
     [SerializeField] private RectTransform aimPreview;
-
-    private InputMaster _inputMaster;
-    private InputAction _mousePosition;
+    
     private TurnSwitcher _turnSwitcher;
     private PlayerEntityAiming _currentEntityAim;
 
@@ -23,6 +20,8 @@ public class PlayerInputs : MonoBehaviour
     private bool _canAim = false;
     private bool _canCancelAiming = false;
 
+    private bool _nowAiming;
+    
     public bool CanAim
     {
         set { if (value) StartCoroutine(SetCanAimTrue()); }
@@ -34,25 +33,30 @@ public class PlayerInputs : MonoBehaviour
         _canAim = true;
     }
 
-    private void Awake()
-    {
-        _inputMaster = new InputMaster();
-        _mousePosition = _inputMaster.Inputs.MousePosition;
-
-        InputAction _mouseButton = _inputMaster.Inputs.LeftMouseButton;
-        _mouseButton.started += _ => StartAiming();
-        _mouseButton.canceled += _ => CancelAiming();
-    }
-
     private void Start()
     {
         _turnSwitcher = FindObjectOfType<TurnSwitcher>();
     }
 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && _nowAiming == false)
+        {
+            _nowAiming = true;
+            StartAiming();
+        }
+
+        if (Input.GetMouseButtonUp(0) && _nowAiming == true)
+        {
+            _nowAiming = false;
+            CancelAiming();
+        }
+    }
+
     private void StartAiming()
     {
         if (!_canAim) return;
-        _lastMousePos = _mousePosition.ReadValue<Vector2>();
+        _lastMousePos = Input.mousePosition;
 
         touchPreview.SetActive(true);
         touchPreview.transform.position = _lastMousePos;
@@ -66,7 +70,7 @@ public class PlayerInputs : MonoBehaviour
     {
         while (true)
         {
-            distance = Vector3.Distance(_lastMousePos / Screen.width, _mousePosition.ReadValue<Vector2>() / Screen.width);
+            distance = Vector3.Distance(_lastMousePos / Screen.width, Input.mousePosition / Screen.width);
             if (distance <= 0.25f && _canCancelAiming)
             {
                 crossSign.transform.position = touchPreview.transform.position;
@@ -109,10 +113,5 @@ public class PlayerInputs : MonoBehaviour
             touchPreview.SetActive(false);
             StopCoroutine(_aimPreviewCoroutine);
         }
-    }
-
-    private void OnEnable()
-    {
-        _inputMaster.Enable();
     }
 }
