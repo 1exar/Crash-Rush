@@ -3,29 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="19baa3f4-e448-4a80-9d9c-4ed235dcb4b4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Crash-Rush/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Crash-Rush/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/magician (1).fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/magician (1).fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/magician.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/magician.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/star.blend" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/star.blend.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/star.blend1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/star.blend1.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/viking.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/viking.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Entitys/EnemyEntityBig.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Entitys/EnemyEntityBig.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Entitys/EnemyEntityDefault.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Entitys/EnemyEntityDefault.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Entitys/EnemyEntityNormal.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Entitys/EnemyEntityNormal.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Entitys/PlayerEntityDefaullBig.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Entitys/PlayerEntityDefaullBig.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Entitys/PlayerEntityDefaullNormal.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Entitys/PlayerEntityDefaullNormal.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Entitys/PlayerEntityDefault.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Entitys/PlayerEntityDefault.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CardAnimatorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CardAnimatorController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Fire.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Fire.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Star.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Star.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Forest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Forest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/New/EntityMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/New/EntityMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +27,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/CardsController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/PreviewRotateAnimation.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -122,6 +105,7 @@
       <workItem from="1654068439941" duration="1066000" />
       <workItem from="1670077591545" duration="643000" />
       <workItem from="1670102901309" duration="5803000" />
+      <workItem from="1670169845842" duration="2184000" />
     </task>
     <servers />
   </component>
