@@ -13,6 +13,8 @@ public class EntityMovement : MonoBehaviour
     private Transform _thisObjectTransform;
     private Vector3 _canvasMainPos;
 
+    private Vector3 _dir = new Vector3();
+    
     public float SpeedLimit
     {
         get { return _speedLimit; }
@@ -44,9 +46,10 @@ public class EntityMovement : MonoBehaviour
         {
             _rb.velocity = Vector3.zero;
         }
-
-        _skinTransform.localRotation = Quaternion.Euler(Vector3.zero);
-        _skinTransform.DORotate(Vector3.right * 40, 0, RotateMode.WorldAxisAdd);
+        else
+        {
+            _skinTransform.DORotate(_skinTransform.rotation.eulerAngles + _dir, 1, RotateMode.WorldAxisAdd);
+        }
     }
 
     public void Move(float speed, Vector3 direction)
