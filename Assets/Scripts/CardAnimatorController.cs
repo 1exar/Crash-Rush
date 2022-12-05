@@ -35,7 +35,6 @@ public class CardAnimatorController : MonoBehaviour
     private IEnumerator RoolCardsCycle()
     {
         var _cardPos = _cards[0].transform.localPosition;
-        yield return new WaitForFixedUpdate();
         _cards[2].transform.DOKill();
         _cards[2].transform.localPosition = new Vector3(_cardPos.x, _firstYpos * 2, _cardPos.z);
         _cards[0].transform.DOLocalMoveY(_firstYpos - (_step * 3), _cycleDuration).SetEase(_animationEase);
@@ -43,15 +42,13 @@ public class CardAnimatorController : MonoBehaviour
         yield return new WaitForSeconds(_cycleDuration);
         _cards[1].transform.DOLocalMoveY(_firstYpos - (_step * 3), _cycleDuration).SetEase(_animationEase);;
         _cards[2].transform.DOLocalMoveY(_firstYpos - (_step * 1), _cycleDuration).SetEase(_animationEase);;
-        yield return new WaitForFixedUpdate();
         _cards[0].transform.DOKill();
         _cards[0].transform.localPosition = new Vector3(_cardPos.x, _firstYpos * 2, _cardPos.z);
         yield return new WaitForSeconds(_cycleDuration);
         _cards[1].transform.DOKill();
         _cards[1].transform.localPosition = new Vector3(_cardPos.x, _firstYpos * 2, _cardPos.z);
-        yield return new WaitForFixedUpdate();
         _cards[2].transform.DOLocalMoveY(_firstYpos - (_step * 3), _cycleDuration).SetEase(_animationEase);;
-        _cards[0].transform.DOLocalMoveY(_firstYpos - (_step * 1), _cycleDuration).SetEase(_animationEase);;
+        _cards[0].transform.DOLocalMoveY(_firstYpos - (_step * 1), _cycleDuration).SetEase(_animationEase);; 
         yield return new WaitForSeconds(_cycleDuration);
         _animationCycle = StartCoroutine(RoolCardsCycle());
     }

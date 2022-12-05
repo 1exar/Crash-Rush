@@ -64,7 +64,7 @@ public class EntityCollisionDetection : MonoBehaviour
         {
             if (_turnSwitcher.CurrentEntity.IsMine != entity.IsMine)
             {
-                entity.TakeDamage(damage);
+                _thisEntity.AttackEntity(entity,damage);
             }
 
             Instantiate(entityHitParticle, contact.point, Quaternion.identity);

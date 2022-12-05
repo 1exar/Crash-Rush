@@ -1,16 +1,23 @@
+using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Entity : MonoBehaviour
+public class Entity : MonoBehaviour, IEffectsApplicator
 {
     [SerializeField] private SpriteRenderer circleSprite;
     [SerializeField] private GameObject deathParticle;
     [SerializeField] private GameObject damageStar;
-    [SerializeField] private Transform skin;
+    [SerializeField] private Transform model;
     [SerializeField] private Slider healthSlider;
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private EntityMovement _movement;
+
+    #region EffectCoroutines
+
+    private Coroutine _fireProcces;
+
+    #endregion
     
     private EntityContainer _container;
 
@@ -21,9 +28,9 @@ public class Entity : MonoBehaviour
 
     private Vector3 _startScale;
     
-    public Transform Skin
+    public Transform Model
     {
-        get { return skin; }
+        get { return model; }
     }
 
     public float MinDamage
@@ -88,8 +95,27 @@ public class Entity : MonoBehaviour
         Invoke(nameof(ResetScaleToStart), .2f);
     }
 
+    public virtual void AttackEntity(Entity _enemy, float dmg)
+    {
+        _enemy.TakeDamage(dmg);
+    }
+    
     private void ResetScaleToStart()
     {
         transform.localScale = _startScale;
+    }
+
+    public virtual void ApplyFireEffect(int dmg, int duration)
+    {
+        _fireProcces = StartCoroutine(FireProcces(dmg, duration));
+    }
+    
+    private IEnumerator FireProcces(int dmg, int duration)
+    {
+        for (int i = 0; i < duration; i++)
+        {
+            yield return new WaitForSeconds(1);
+            TakeDamage(dmg);
+        }
     }
 }

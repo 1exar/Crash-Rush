@@ -2298,10 +2298,10 @@ RectTransform:
   m_Father: {fileID: 814169859}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 541, y: -281}
+  m_SizeDelta: {x: 300, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &409087722
 MonoBehaviour:
@@ -2321,9 +2321,9 @@ MonoBehaviour:
   - {fileID: 1587076808}
   _step: 225
   _firstYpos: 225
-  _cycleDuration: 0.1
-  _stopDuration: 10
-  _stopStep: 3
+  _cycleDuration: 0.5
+  _stopDuration: 5
+  _stopStep: 1
   _animationEase: 1
 --- !u!114 &409087723
 MonoBehaviour:
@@ -2686,7 +2686,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.9631015, b: 0.7122642, a: 1}
+  m_Color: {r: 1, g: 0.93661153, b: 0.48584908, a: 1}
   m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
@@ -4311,10 +4311,10 @@ RectTransform:
   m_Father: {fileID: 814169859}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 206, y: -281}
+  m_SizeDelta: {x: 300, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &955151804
 MonoBehaviour:
@@ -4384,9 +4384,9 @@ MonoBehaviour:
   - {fileID: 2037138554}
   _step: 225
   _firstYpos: 225
-  _cycleDuration: 0.1
-  _stopDuration: 10
-  _stopStep: 3
+  _cycleDuration: 0.5
+  _stopDuration: 5
+  _stopStep: 1
   _animationEase: 1
 --- !u!1 &963194225
 GameObject:
@@ -5600,10 +5600,10 @@ RectTransform:
   m_Father: {fileID: 814169859}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 876, y: -281}
+  m_SizeDelta: {x: 300, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1152008992
 MonoBehaviour:
@@ -5623,9 +5623,9 @@ MonoBehaviour:
   - {fileID: 1110934128}
   _step: 225
   _firstYpos: 225
-  _cycleDuration: 0.1
-  _stopDuration: 10
-  _stopStep: 3
+  _cycleDuration: 0.5
+  _stopDuration: 5
+  _stopStep: 1
   _animationEase: 1
 --- !u!114 &1152008993
 MonoBehaviour:
@@ -7178,7 +7178,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1415317293
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10326,19 +10326,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levels:
   - {fileID: 16752766}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   _spawner: {fileID: 1514279031}
-  _testMode: 0
+  _testMode: 1
   _currentLevel: 0
 --- !u!1 &2037138552
 GameObject:

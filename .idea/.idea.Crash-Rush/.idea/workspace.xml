@@ -3,11 +3,29 @@
   <component name="ChangeListManager">
     <list default="true" id="19baa3f4-e448-4a80-9d9c-4ed235dcb4b4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Crash-Rush/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Crash-Rush/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CardAnimatorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CardAnimatorController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Fire.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Fire.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Star.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Star.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CardAnimatorController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CardAnimatorController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CardEntity.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CardEntity.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CardsController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CardsController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSettings/FirstLevelEntitys.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSettings/FirstLevelEntitys.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSettings/SecondLevelEntitys.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSettings/SecondLevelEntitys.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSettings/ThirdLevelEntitys.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSettings/ThirdLevelEntitys.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Entitys/PlayerEntityDefault.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Entitys/PlayerEntityDefault.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PreviewRotateAnimation.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PreviewRotateAnimation.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Forest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Forest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/New/Entity.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/New/Entity.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/New/EntityCollisionDetection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/New/EntityCollisionDetection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SoundButton.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/SoundButton.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/VbroButton.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/VbroButton.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,13 +44,15 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/CardsController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/PreviewRotateAnimation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/FireEntity.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="29KI2lWTwMaR7OsAuzHR3w1Oz7F" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -105,7 +125,7 @@
       <workItem from="1654068439941" duration="1066000" />
       <workItem from="1670077591545" duration="643000" />
       <workItem from="1670102901309" duration="5803000" />
-      <workItem from="1670169845842" duration="2184000" />
+      <workItem from="1670169845842" duration="5857000" />
     </task>
     <servers />
   </component>
