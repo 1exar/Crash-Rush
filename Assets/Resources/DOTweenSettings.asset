@@ -18,7 +18,7 @@ MonoBehaviour:
     nestedTweenFailureBehaviour: 0
   timeScale: 1
   useSmoothDeltaTime: 0
-  maxSmoothUnscaledTime: 0.15
+  maxSmoothUnscaledTime: 0.01
   rewindCallbackMode: 0
   showUnityEditorReport: 0
   logBehaviour: 0

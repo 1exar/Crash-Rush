@@ -1929,8 +1929,8 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_StartCorner: 0
-  m_StartAxis: 0
+  m_StartCorner: 1
+  m_StartAxis: 1
   m_CellSize: {x: 300, y: 450}
   m_Spacing: {x: 35, y: 0}
   m_Constraint: 0
@@ -2186,7 +2186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a73e58f04f6ce45a6198483ed7848e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rawImage: {fileID: 0}
+  canChoise: 0
 --- !u!1001 &861477561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3333,7 +3333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a73e58f04f6ce45a6198483ed7848e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rawImage: {fileID: 0}
+  canChoise: 0
 --- !u!114 &1112968713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4771,7 +4771,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _container: {fileID: 889965653}
-  _turnSwitcher: {fileID: 2146380275}
   _playerSpawnPos:
   - {fileID: 907105071}
   - {fileID: 1053392679}
@@ -7001,7 +7000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a73e58f04f6ce45a6198483ed7848e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rawImage: {fileID: 0}
+  canChoise: 0
 --- !u!114 &2037138555
 MonoBehaviour:
   m_ObjectHideFlags: 0

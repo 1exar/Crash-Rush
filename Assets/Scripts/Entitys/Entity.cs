@@ -92,8 +92,7 @@ public class Entity : MonoBehaviour, IEffectsApplicator
     {
         if (damage >= _health)
         {
-            if (_isMine) _container.PlayerEntities.Remove(this);
-            else _container.EnemyEntities.Remove(this);
+            _container.RemoveEntityFromList(this,_isMine);
             Instantiate(deathParticle, transform.position + Vector3.up, Quaternion.identity);
             Destroy(gameObject);
         }
@@ -119,6 +118,8 @@ public class Entity : MonoBehaviour, IEffectsApplicator
 
     public virtual void ApplyFireEffect(int dmg, int duration)
     {
+        if(_fireProcces != null)
+            StopCoroutine(_fireProcces);
         _fireProcces = StartCoroutine(FireProcces(dmg, duration));
     }
 

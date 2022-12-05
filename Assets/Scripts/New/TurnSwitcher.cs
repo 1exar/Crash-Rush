@@ -21,15 +21,26 @@ public class TurnSwitcher : MonoBehaviour
         get { return _currentEntity;  }
     }
 
-    public void Awake()
+    private void Awake()
     {
         EntitySpawner.OnChoiseNewBall += OnBallChosen;
+        EntityContainer.OnRemoveEntity += CheckOnEntityDead;
     }
 
-    public void OnBallChosen(EntityType a, bool b)
+    private void OnDisable()
+    {
+        EntityContainer.OnRemoveEntity -= CheckOnEntityDead;
+    }
+
+    private void OnBallChosen(EntityType a, bool b)
     {
         EntitySpawner.OnChoiseNewBall -= OnBallChosen;
         SwitchTurn();
+    }
+
+    private void CheckOnEntityDead(Entity entity)
+    {
+        
     }
     
     public void SwitchTurn()

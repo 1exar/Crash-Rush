@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class CardAnimatorController : MonoBehaviour
@@ -26,21 +27,42 @@ public class CardAnimatorController : MonoBehaviour
     {
         float a = _cycleDuration;
         DOVirtual.Float(a, _stopStep, _stopDuration, (value => _cycleDuration = value)).SetEase(Ease.Linear)
-            .OnComplete((() => StopCoroutine(_animationCycle)));
+            .OnComplete((() =>
+            {
+                StopCoroutine(_animationCycle);
+                _cards.ForEach(card => card.canChoise = true);
+            }));
     }
     
-    private void Start()
+    private void OnEnable()
     {
         SetRandomCard(0, _cards[0]);
+        Invoke(nameof(StartMove), .1f);
+    }
+
+    private void StartMove()
+    {
         _animationCycle = StartCoroutine(RoolCardsCycle());
     }
     
+    private void Update()
+    {
+        foreach (var card in _cards)
+        {
+          //  card.transform.localPosition = new Vector3(150, card.transform.position.y, card.transform.position.z);
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
+
     private IEnumerator RoolCardsCycle()
     {
         var _cardPos = _cards[0].transform.localPosition;
         SetRandomCard(1, _cards[1]);
         _cards[2].transform.DOKill();
-        _cards[2].transform.localPosition = new Vector3(_cardPos.x, _firstYpos * 2, _cardPos.z);
+        _cards[2].transform.localPosition = new Vector3(0, _firstYpos * 2, _cardPos.z);
         _cards[0].transform.DOLocalMoveY(_firstYpos - (_step * 3), _cycleDuration).SetEase(_animationEase);
         _cards[1].transform.DOLocalMoveY(_firstYpos - (_step * 1), _cycleDuration).SetEase(_animationEase);;
         yield return new WaitForSeconds(_cycleDuration);
@@ -48,11 +70,11 @@ public class CardAnimatorController : MonoBehaviour
         _cards[1].transform.DOLocalMoveY(_firstYpos - (_step * 3), _cycleDuration).SetEase(_animationEase);;
         _cards[2].transform.DOLocalMoveY(_firstYpos - (_step * 1), _cycleDuration).SetEase(_animationEase);;
         _cards[0].transform.DOKill();
-        _cards[0].transform.localPosition = new Vector3(_cardPos.x, _firstYpos * 2, _cardPos.z);
+        _cards[0].transform.localPosition = new Vector3(0, _firstYpos * 2, _cardPos.z);
         yield return new WaitForSeconds(_cycleDuration);
         _cards[1].transform.DOKill();
         SetRandomCard(0,_cards[0]);
-        _cards[1].transform.localPosition = new Vector3(_cardPos.x, _firstYpos * 2, _cardPos.z);
+        _cards[1].transform.localPosition = new Vector3(0, _firstYpos * 2, _cardPos.z);
         _cards[2].transform.DOLocalMoveY(_firstYpos - (_step * 3), _cycleDuration).SetEase(_animationEase);;
         _cards[0].transform.DOLocalMoveY(_firstYpos - (_step * 1), _cycleDuration).SetEase(_animationEase);; 
         yield return new WaitForSeconds(_cycleDuration);
