@@ -24,10 +24,10 @@ public class Entity : MonoBehaviour, IEffectsApplicator
     
     private EntityContainer _container;
 
-    private float _health;
-    private float _minDamage;
-    private float _maxDamage;
-    private bool _isMine;
+   [SerializeField] private float _health;
+   [SerializeField] private float _minDamage;
+   [SerializeField] private float _maxDamage;
+   [SerializeField] private bool _isMine;
 
     private Vector3 _startScale;
 
@@ -74,6 +74,8 @@ public class Entity : MonoBehaviour, IEffectsApplicator
         _rigidbody.mass = settings.weight;
         _rigidbody.drag = settings.drag;
         _movement.SpeedLimit = settings.maxSpeed;
+        if (isMine == false)
+            _movement.SpeedLimit = 1;
     }
     
     private void Start()

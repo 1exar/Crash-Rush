@@ -9,16 +9,9 @@ public class EntityDataBase : ScriptableObject
     [SerializeField] private List<EntityData> _playerEntitys = new List<EntityData>();
     [SerializeField] private List<EntityData> _enemyEntitys = new List<EntityData>();
 
-    public EntityData GetEntityByType(EntityType type, bool isPlayer)
+    public EntityData GetEntityByType(EntityType type)
     {
-        if (isPlayer)
-        {
-            return _playerEntitys.Where(entity => entity.type == type).ToArray()[0];
-        }
-        else
-        {
-            return _enemyEntitys.Where(entity => entity.type == type).ToArray()[0];
-        }
+        return _playerEntitys.Where(entity => entity.type == type).ToArray()[0];
     }
     
 }

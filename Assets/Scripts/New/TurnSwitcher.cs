@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -14,12 +15,23 @@ public class TurnSwitcher : MonoBehaviour
     private Entity _currentEntity;
     private int _lastPlayerEntity;
     private int _lastEnemyEntity;
-
+    
     public Entity CurrentEntity
     {
         get { return _currentEntity;  }
     }
 
+    public void Awake()
+    {
+        EntitySpawner.OnChoiseNewBall += OnBallChosen;
+    }
+
+    public void OnBallChosen(EntityType a, bool b)
+    {
+        EntitySpawner.OnChoiseNewBall -= OnBallChosen;
+        SwitchTurn();
+    }
+    
     public void SwitchTurn()
     {
         if (_entityContainer.EnemyEntities.Count == 0)

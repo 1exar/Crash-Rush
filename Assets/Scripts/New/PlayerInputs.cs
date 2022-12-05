@@ -71,14 +71,14 @@ public class PlayerInputs : MonoBehaviour
         while (true)
         {
             distance = Vector3.Distance(_lastMousePos / Screen.width, Input.mousePosition / Screen.width);
-            if (distance <= 0.25f && _canCancelAiming)
+            if (distance <= 0.1f && _canCancelAiming)
             {
                 crossSign.transform.position = touchPreview.transform.position;
                 crossSign.DOFade(1, 0.1f);
                 crossSign.transform.DOScale(1f, 0.2f);
                 _canCancelAiming = false;
             }
-            else if (distance > 0.25f)
+            else if (distance > 0.1f)
             {
                 if (_canCancelAiming == false)
                 {
@@ -88,7 +88,7 @@ public class PlayerInputs : MonoBehaviour
                 _canCancelAiming = true;
             }
             touchPreview.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -_currentEntityAim.transform.eulerAngles.y + 90));
-            aimPreview.sizeDelta = new Vector2(distance * 300, 50);
+            aimPreview.sizeDelta = new Vector2(distance * 150, 50);
             yield return new WaitForFixedUpdate();
         }
     }
@@ -99,13 +99,14 @@ public class PlayerInputs : MonoBehaviour
 
         if (_currentEntityAim != null)
         {
-            if (distance > 0.18f)
+            if (distance > 0.1f)
             {
                 _currentEntityAim.ProcessAiming();
                 _canAim = false;
             }
             else
             {
+                print(distance);
                 crossSign.transform.DOScale(0.5f, 0.2f);
                 crossSign.DOFade(0, 0.1f);
                 _currentEntityAim.CancelAiming();

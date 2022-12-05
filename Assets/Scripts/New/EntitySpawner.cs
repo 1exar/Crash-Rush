@@ -7,13 +7,14 @@ using UnityEngine.Events;
 public class EntitySpawner : MonoBehaviour
 {
     [SerializeField] private EntityContainer _container;
-    [SerializeField] private TurnSwitcher _turnSwitcher;
 
     [SerializeField] private List<Transform> _playerSpawnPos;
+    [SerializeField] private List<Transform> _enemySpawnPos;
 
     [SerializeField] private EntityDataBase _entityDataBase;
 
-    private Dictionary<Transform, bool> _isPosChoise = new Dictionary<Transform, bool>();
+    private Dictionary<Transform, bool> _isPosChoisePlayer = new Dictionary<Transform, bool>();
+    private Dictionary<Transform, bool> _isPosChoiseEnemy = new Dictionary<Transform, bool>();
 
     public static UnityAction<EntityType, bool> OnChoiseNewBall;
 
@@ -32,20 +33,37 @@ public class EntitySpawner : MonoBehaviour
         OnChoiseNewBall?.Invoke(type, isMine);
     }
 
+    private void Start()
+    {
+        SpawnNewBallFromCard(EntityType.fire, false);
+        SpawnNewBallFromCard(EntityType.ice, false);
+    }
+
     private void SpawnNewBallFromCard(EntityType type, bool isMine)
     {
         if (isMine)
         {
             for (int i = 0; i < _playerSpawnPos.Count; i++)
             {
-                if(_isPosChoise.ContainsKey(_playerSpawnPos[i]))
+                if(_isPosChoisePlayer.ContainsKey(_playerSpawnPos[i]))
                     continue;
                 
-                SpawnEntity(true, _playerSpawnPos[i], _entityDataBase.GetEntityByType(type, true).prefab, _entityDataBase.GetEntityByType(type, true).settings);
-                _isPosChoise.Add(_playerSpawnPos[i], true);
+                SpawnEntity(true, _playerSpawnPos[i], _entityDataBase.GetEntityByType(type).prefab, _entityDataBase.GetEntityByType(type).settings);
+                _isPosChoisePlayer.Add(_playerSpawnPos[i], true);
                 break;
             }
-            _turnSwitcher.SwitchTurn();
+        }
+        else
+        {
+            for (int i = 0; i < _enemySpawnPos.Count; i++)
+            {
+                if(_isPosChoiseEnemy.ContainsKey(_enemySpawnPos[i]))
+                    continue;
+                
+                SpawnEntity(false, _enemySpawnPos[i], _entityDataBase.GetEntityByType(type).prefab, _entityDataBase.GetEntityByType(type).settings);
+                _isPosChoiseEnemy.Add(_enemySpawnPos[i], true);
+                break;
+            }
         }
     }
 
