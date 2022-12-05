@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,33 @@ public class GameUI : MonoBehaviour
     [SerializeField] private GameObject settingsButton;
     [SerializeField] private GameObject settingsPanel;
 
+    [SerializeField] private GameObject newCardPanel;
+
+    private void Awake()
+    {
+        EntitySpawner.OnChoiseNewBall += CloseNewCardPanel;
+    }
+
+    private void OnDisable()
+    {
+        EntitySpawner.OnChoiseNewBall -= CloseNewCardPanel;
+    }
+
+    private void ShowNewCardPanel()
+    {
+        newCardPanel.SetActive(true);
+    }
+
+    private void CloseNewCardPanel()
+    {
+        newCardPanel.SetActive(false);
+    }
+    
+    private void CloseNewCardPanel(EntityType a, bool b)
+    {
+        newCardPanel.SetActive(false);
+    }
+    
     public void ShowLosePanel()
     {
         losePanel.SetActive(true);

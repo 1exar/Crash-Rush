@@ -1,56 +1,60 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EntitySpawner : MonoBehaviour
 {
     [SerializeField] private EntityContainer _container;
     [SerializeField] private TurnSwitcher _turnSwitcher;
 
-    [SerializeField] private GameObject _enemyEntityPrefab;
-    [SerializeField] private GameObject _playerEntityPrefab;
-    
-    [SerializeField] private EntityDataBase _entitys;
+    [SerializeField] private List<Transform> _playerSpawnPos;
 
-    public void PrepareSpawn(LevelSettings level)
+    [SerializeField] private EntityDataBase _entityDataBase;
+
+    private Dictionary<Transform, bool> _isPosChoise = new Dictionary<Transform, bool>();
+
+    public static UnityAction<EntityType, bool> OnChoiseNewBall;
+
+    private void Awake()
     {
-        foreach (var spawnPos in level.mySpawnPos)
-        {
-            SpawnEntity(true, spawnPos, _playerEntityPrefab, level.EntityOnLevel.Entitys[0].settings);
-        }
-        foreach (var spawnPos in level.enemySpawnPos)
-        {
-            SpawnEntity(false, spawnPos, _enemyEntityPrefab, level.EntityOnLevel.Entitys[1].settings);
-        }
-        
-        _turnSwitcher.SwitchTurn();
-
-    }
-    
-    public void SpawnEntity(List<Transform> _playerSpawnPositions, List<Transform> _enemySpawnPositions)
-    {
-        foreach (Transform spawnPos in _playerSpawnPositions)
-        {
-            Entity entity = Instantiate(_playerEntityPrefab, spawnPos.position, Quaternion.identity).GetComponent<Entity>();
-            entity.Init(_entitys.Entitys[0].settings, true);
-            _container.AddEntityToList(entity);
-        }
-
-        foreach (Transform spawnPos in _enemySpawnPositions)
-        {
-            Entity entity = Instantiate(_enemyEntityPrefab, spawnPos.position, Quaternion.identity).GetComponent<Entity>();
-            entity.Init(_entitys.Entitys[1].settings, false);
-            _container.AddEntityToList(entity);
-        }
-
-        _turnSwitcher.SwitchTurn();
+        OnChoiseNewBall += SpawnNewBallFromCard;
     }
 
-    public void SpawnEntity(bool isMine, Transform _transform,GameObject prefab, EntitySettings settings)
+    private void OnDestroy()
+    {
+        OnChoiseNewBall -= SpawnNewBallFromCard;
+    }
+
+    public static void InvokeChoiseBallEvent(EntityType type, bool isMine)
+    {
+        OnChoiseNewBall?.Invoke(type, isMine);
+    }
+
+    private void SpawnNewBallFromCard(EntityType type, bool isMine)
+    {
+        if (isMine)
+        {
+            for (int i = 0; i < _playerSpawnPos.Count; i++)
+            {
+                if(_isPosChoise.ContainsKey(_playerSpawnPos[i]))
+                    continue;
+                
+                SpawnEntity(true, _playerSpawnPos[i], _entityDataBase.GetEntityByType(type, true).prefab, _entityDataBase.GetEntityByType(type, true).settings);
+                _isPosChoise.Add(_playerSpawnPos[i], true);
+                break;
+            }
+            _turnSwitcher.SwitchTurn();
+        }
+    }
+
+    private void SpawnEntity(bool isMine, Transform _transform,GameObject prefab, EntitySettings settings)
     {
         Entity _entity = Instantiate(prefab, _transform.position, Quaternion.identity).GetComponent<Entity>();
         _entity.Init(settings, isMine);
         
         _container.AddEntityToList(_entity);
     }
+
 }

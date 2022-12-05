@@ -13,9 +13,12 @@ public class Entity : MonoBehaviour, IEffectsApplicator
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private EntityMovement _movement;
 
+    [SerializeField] private EntityType _currentType;
+    
     #region EffectCoroutines
 
     private Coroutine _fireProcces;
+    private Coroutine _freezeProcces;
 
     #endregion
     
@@ -27,6 +30,13 @@ public class Entity : MonoBehaviour, IEffectsApplicator
     private bool _isMine;
 
     private Vector3 _startScale;
+
+
+    public EntityType CurrentType
+    {
+        private set{}
+        get { return _currentType; }
+    }
     
     public Transform Model
     {
@@ -108,6 +118,18 @@ public class Entity : MonoBehaviour, IEffectsApplicator
     public virtual void ApplyFireEffect(int dmg, int duration)
     {
         _fireProcces = StartCoroutine(FireProcces(dmg, duration));
+    }
+
+    public virtual void ApplyFrezzeEffect(int duration, float strength)
+    {
+        _freezeProcces = StartCoroutine(FreezeProcces(duration, strength));
+    }
+
+    private IEnumerator FreezeProcces(int duration,float strength)
+    {
+        _movement.SpeedLimit -= _movement.SpeedLimit / 100 * strength;
+        yield return new WaitForSeconds(duration);
+        _movement.SpeedLimit = _movement.StartSpeedLimit;
     }
     
     private IEnumerator FireProcces(int dmg, int duration)

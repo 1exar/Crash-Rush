@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EntityContainer : MonoBehaviour
 {
-    private List<Entity> _playerEntities = new List<Entity>();
-    private List<Entity> _enemyEntities = new List<Entity>();
+    [SerializeField] private List<Entity> _playerEntities = new List<Entity>();
+    [SerializeField] private List<Entity> _enemyEntities = new List<Entity>();
 
     public List<Entity> PlayerEntities
     {

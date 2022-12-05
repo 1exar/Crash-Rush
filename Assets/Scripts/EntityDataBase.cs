@@ -1,16 +1,24 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Entitys/Database")]
 public class EntityDataBase : ScriptableObject
 {
-    [SerializeField] private List<EntityData> entitys = new List<EntityData>();
+    [SerializeField] private List<EntityData> _playerEntitys = new List<EntityData>();
+    [SerializeField] private List<EntityData> _enemyEntitys = new List<EntityData>();
 
-    public List<EntityData> Entitys
+    public EntityData GetEntityByType(EntityType type, bool isPlayer)
     {
-        get { return entitys; }
-        protected set { }
+        if (isPlayer)
+        {
+            return _playerEntitys.Where(entity => entity.type == type).ToArray()[0];
+        }
+        else
+        {
+            return _enemyEntitys.Where(entity => entity.type == type).ToArray()[0];
+        }
     }
     
 }
@@ -21,8 +29,9 @@ public class EntityData
 
     public string name;
     public GameObject prefab;
+    public EntityType type;
     public EntitySettings settings;
-
+    
 }
 [Serializable]
 public struct EntitySettings

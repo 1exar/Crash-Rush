@@ -13,6 +13,8 @@ public class EntityMovement : MonoBehaviour
     private Transform _thisObjectTransform;
     private Vector3 _canvasMainPos;
 
+    private float _startSpeedLimit;
+    
     private Vector3 _dir = new Vector3();
     
     public float SpeedLimit
@@ -30,13 +32,20 @@ public class EntityMovement : MonoBehaviour
             }
         }
     }
+
+    public float StartSpeedLimit
+    {
+        private set {}
+        get { return _startSpeedLimit; }
+    }
     
     private void Start()
     {
+        _startSpeedLimit = _speedLimit;
         _canvasMainPos = _canvasTransform.localPosition;
         _thisObjectTransform = transform;
     }
-
+    
     private void Update()
     {
         _canvasTransform.rotation = Quaternion.Euler(new Vector3(-90, 0, 0));
