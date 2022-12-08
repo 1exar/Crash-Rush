@@ -10,7 +10,7 @@ public class CardsController : MonoBehaviour
 
     [SerializeField] private float _spinDuration;
     
-    private IEnumerator Start()
+    private IEnumerator StopRoll()
     {
         for (int i = 0; i < _animatorControllers.Count; i++)
         {
@@ -18,5 +18,10 @@ public class CardsController : MonoBehaviour
             _animatorControllers[i].StartStop();
             yield return new WaitForSeconds(_spinDuration);
         }
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(StopRoll());
     }
 }

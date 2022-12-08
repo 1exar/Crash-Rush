@@ -14,8 +14,11 @@ public class GameUI : MonoBehaviour
 
     [SerializeField] private GameObject newCardPanel;
 
+    public static GameUI Instance;
+
     private void Awake()
     {
+        Instance = this;
         EntitySpawner.OnChoiseNewBall += CloseNewCardPanel;
     }
 
@@ -24,7 +27,7 @@ public class GameUI : MonoBehaviour
         EntitySpawner.OnChoiseNewBall -= CloseNewCardPanel;
     }
 
-    private void ShowNewCardPanel()
+    public void ShowNewCardPanel()
     {
         newCardPanel.SetActive(true);
     }

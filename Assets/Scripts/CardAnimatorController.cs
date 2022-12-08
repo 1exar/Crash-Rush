@@ -44,18 +44,6 @@ public class CardAnimatorController : MonoBehaviour
     {
         _animationCycle = StartCoroutine(RoolCardsCycle());
     }
-    
-    private void Update()
-    {
-        foreach (var card in _cards)
-        {
-          //  card.transform.localPosition = new Vector3(150, card.transform.position.y, card.transform.position.z);
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SceneManager.LoadScene(0);
-        }
-    }
 
     private IEnumerator RoolCardsCycle()
     {

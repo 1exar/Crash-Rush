@@ -39,6 +39,8 @@ public class ExpEntity : MonoBehaviour
         {
             isAlive = false;
             _mesh.enabled = false;
+
+            ExpController.CallPickUpEvent(entity.IsMine);
         }
     }
 }
