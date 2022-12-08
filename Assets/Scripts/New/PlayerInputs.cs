@@ -61,7 +61,12 @@ public class PlayerInputs : MonoBehaviour
         touchPreview.SetActive(true);
         touchPreview.transform.position = _lastMousePos;
 
-        _currentEntityAim = _turnSwitcher.CurrentEntity.GetComponent<PlayerEntityAiming>();
+        if(_turnSwitcher.CurrentEntity) 
+            _currentEntityAim = _turnSwitcher.CurrentEntity.GetComponent<PlayerEntityAiming>();
+        else
+        {
+            return;
+        }
         _currentEntityAim.StartAiming(_lastMousePos);
         _aimPreviewCoroutine = StartCoroutine(AimPreview());
     }
@@ -87,7 +92,12 @@ public class PlayerInputs : MonoBehaviour
                 }
                 _canCancelAiming = true;
             }
-            touchPreview.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -_currentEntityAim.transform.eulerAngles.y + 90));
+            if(_currentEntityAim)
+                touchPreview.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -_currentEntityAim.transform.eulerAngles.y + 90));
+            else
+            {
+                break;
+            }
             aimPreview.sizeDelta = new Vector2(distance * 150, 50);
             yield return new WaitForFixedUpdate();
         }

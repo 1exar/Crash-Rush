@@ -49,7 +49,7 @@ public class EnemyEntityAiming : MonoBehaviour
         _pathGenerator.DrawPath(path);
 
         float attackPower = 0;
-        float finalAttackPower = pathLength * 2;
+        float finalAttackPower = pathLength * 3;
         DOTween.To(() => attackPower, x => attackPower = x, finalAttackPower, 1f);
         attackPowerViewer.EnablePreview();
         while (attackPower != finalAttackPower)

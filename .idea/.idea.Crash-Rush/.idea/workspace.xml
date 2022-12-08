@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="19baa3f4-e448-4a80-9d9c-4ed235dcb4b4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Crash-Rush/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Crash-Rush/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Forest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Forest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardAnimatorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CardAnimatorController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CardEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entitys/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entitys/Entity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/New/EntityContainer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/New/EntityContainer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/New/EnemyEntityAiming.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/New/EnemyEntityAiming.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/New/PlayerInputs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/New/PlayerInputs.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/New/TurnSwitcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/New/TurnSwitcher.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +25,7 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/ExpEntity.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PreviewBallsAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -111,6 +109,7 @@
       <workItem from="1670102901309" duration="5803000" />
       <workItem from="1670169845842" duration="5857000" />
       <workItem from="1670251293277" duration="10176000" />
+      <workItem from="1670459384219" duration="1278000" />
     </task>
     <servers />
   </component>

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Events;
 
 public class TurnSwitcher : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class TurnSwitcher : MonoBehaviour
     private Entity _currentEntity;
     private int _lastPlayerEntity;
     private int _lastEnemyEntity;
+
+    public static UnityAction OnSwitchTurn;
     
     public Entity CurrentEntity
     {
@@ -40,7 +43,10 @@ public class TurnSwitcher : MonoBehaviour
 
     private void CheckOnEntityDead(Entity entity)
     {
-        
+        if (entity == _currentEntity || _currentEntity == null)
+        {
+            SwitchTurn();
+        }
     }
     
     public void SwitchTurn()
@@ -57,6 +63,8 @@ public class TurnSwitcher : MonoBehaviour
             print("no players");
             return;
         }
+
+        OnSwitchTurn?.Invoke();
 
         foreach (var entity in _entityContainer.EnemyEntities)
         {
