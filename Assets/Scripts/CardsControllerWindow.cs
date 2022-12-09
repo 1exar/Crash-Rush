@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Windows;
 using UnityEngine;
 
-public class CardsController : MonoBehaviour
+public class CardsControllerWindow : BaseWindow
 {
 
     [SerializeField] private List<CardAnimatorController> _animatorControllers;

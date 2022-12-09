@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Windows;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -26,7 +27,7 @@ public class ExpController : MonoBehaviour
     {
         if (isMine)
         {
-            _playerData.OnOrbPickup(() => GameUI.Instance.ShowNewCardPanel());
+            _playerData.OnOrbPickup(() => WindowController.ShowWindow(typeof(CardsControllerWindow)));
         }
         else
         {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Windows;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -31,6 +32,7 @@ public class EntitySpawner : MonoBehaviour
     public static void InvokeChoiseBallEvent(EntityType type, bool isMine)
     {
         OnChoiseNewBall?.Invoke(type, isMine);
+        WindowController.CloseWindow(typeof(CardsControllerWindow));
     }
 
     private void Start()

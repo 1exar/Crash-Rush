@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Windows;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Events;
@@ -10,7 +11,6 @@ public class TurnSwitcher : MonoBehaviour
     [SerializeField] private EntityContainer _entityContainer;
     [SerializeField] private PlayerInputs _playerInputs;
     [SerializeField] private CurrentTurnLabel _currentTurnLabel;
-    [SerializeField] private GameUI gameUI;
     [SerializeField] private ConfettiBlast confettiBlast;
 
     private Entity _currentEntity;
@@ -54,12 +54,12 @@ public class TurnSwitcher : MonoBehaviour
         if (_entityContainer.EnemyEntities.Count == 0)
         {
             confettiBlast.Blast();
-            gameUI.ShowWinPanel();
+            WindowController.ShowWindow(typeof(WinWindow));
             return;
         }
         else if (_entityContainer.PlayerEntities.Count == 0)
         {
-            gameUI.ShowLosePanel();
+            WindowController.ShowWindow(typeof(FailWindow));
             print("no players");
             return;
         }
