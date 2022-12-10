@@ -32,11 +32,11 @@ public class TurnSwitcher : MonoBehaviour
     private void OnDisable()
     {
         NewEventSystem.OnContainerRemoveEntity.UnSubscribe(CheckOnEntityDead);
+        NewEventSystem.OnChooseNewBallEvent.UnSubscribe(OnBallChosen);
     }
 
     private void OnBallChosen(EntityType a, bool b)
     {
-        NewEventSystem.OnChooseNewBallEvent.UnSubscribe(OnBallChosen);
         SwitchTurn();
     }
 
