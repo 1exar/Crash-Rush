@@ -18,11 +18,11 @@ public class ExpEntity : MonoBehaviour
         NewEventSystem.OnTurnSwitch.Subscribe(OnTurnSwith);
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         NewEventSystem.OnTurnSwitch.Subscribe(OnTurnSwith);
     }
-
+    
     private void OnTurnSwith()
     {
         if(isAlive) return;
@@ -30,7 +30,8 @@ public class ExpEntity : MonoBehaviour
         if (_turnCount >= _needToRespawn)
         {
             _turnCount = 0;
-            _mesh.enabled = true;
+            if(_mesh)
+                _mesh.enabled = true;
         }
     }
 

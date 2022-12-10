@@ -17,6 +17,8 @@ public class TurnSwitcher : MonoBehaviour
     private Entity _currentEntity;
     private int _lastPlayerEntity;
     private int _lastEnemyEntity;
+
+    private bool _canTurn = true;
     
     public Entity CurrentEntity
     {
@@ -27,16 +29,24 @@ public class TurnSwitcher : MonoBehaviour
     {
         NewEventSystem.OnChooseNewBallEvent.Subscribe(OnBallChosen);
         NewEventSystem.OnContainerRemoveEntity.Subscribe(CheckOnEntityDead);
+        NewEventSystem.OnPlayerLevelUp.Subscribe(OnPlayerLevelUp);
     }
 
     private void OnDisable()
     {
         NewEventSystem.OnContainerRemoveEntity.UnSubscribe(CheckOnEntityDead);
         NewEventSystem.OnChooseNewBallEvent.UnSubscribe(OnBallChosen);
+        NewEventSystem.OnPlayerLevelUp.UnSubscribe(OnPlayerLevelUp);
     }
 
+    private void OnPlayerLevelUp()
+    {
+        _canTurn = false;
+    }
+    
     private void OnBallChosen(EntityType a, bool b)
     {
+        _canTurn = true;
         SwitchTurn();
     }
 
@@ -50,6 +60,8 @@ public class TurnSwitcher : MonoBehaviour
     
     public void SwitchTurn()
     {
+        if(_canTurn == false) return;
+        
         if (_entityContainer.EnemyEntities.Count == 0)
         {
             confettiBlast.Blast();
