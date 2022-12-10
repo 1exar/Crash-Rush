@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44032922, g: 0.48889565, b: 0.5690649, a: 1}
+  m_IndirectSpecularColor: {r: 0.44032857, g: 0.48889488, b: 0.5690628, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -563,11 +563,13 @@ MonoBehaviour:
     currentXp: 0
     getPerOrb: 1
     needToNextLevel: 030000000300000003000000
+    isPlayer: 1
   _enemyData:
     currentLevel: 0
     currentXp: 0
-    getPerOrb: 0
-    needToNextLevel: 630000006300000063000000
+    getPerOrb: 1
+    needToNextLevel: 01000000010000000100000001000000010000000100000001000000010000000100000001000000
+    isPlayer: 0
 --- !u!1 &137142551
 GameObject:
   m_ObjectHideFlags: 0
@@ -2972,11 +2974,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _container: {fileID: 889965653}
   _playerSpawnPos:
-  - {fileID: 907105071}
-  - {fileID: 1053392679}
+  - transform: {fileID: 907105071}
+    entity: {fileID: 0}
+    isOccuped: 0
+  - transform: {fileID: 1053392679}
+    entity: {fileID: 0}
+    isOccuped: 0
   _enemySpawnPos:
-  - {fileID: 1239875563}
-  - {fileID: 74179989}
+  - transform: {fileID: 1239875563}
+    entity: {fileID: 0}
+    isOccuped: 0
+  - transform: {fileID: 74179989}
+    entity: {fileID: 0}
+    isOccuped: 0
   _entityDataBase: {fileID: 11400000, guid: eea779a0849bf4e89961429f692c46b7, type: 2}
 --- !u!1 &1538311113
 GameObject:

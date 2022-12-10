@@ -1,6 +1,6 @@
 ﻿namespace Events
 {
-    public class PlayerLevelUpEvent : Event
+    public class PlayerLevelUpEvent : Event<bool>
     {
         
     }

@@ -36,9 +36,10 @@ public class ExpController : MonoBehaviour
         }
     }
 
-    private void OnPlayerLevelUp()
+    private void OnPlayerLevelUp(bool isPlayer)
     {
-        WindowController.ShowWindow(typeof(CardsControllerWindow));
+        if(isPlayer)
+            WindowController.ShowWindow(typeof(CardsControllerWindow));
     }
     
 }
@@ -50,15 +51,16 @@ public class ExpData
     public float currentXp;
     public float getPerOrb;
     public List<int> needToNextLevel = new List<int>();
-
+    public bool isPlayer;
+    
     public void OnOrbPickup()
     {
         currentXp += getPerOrb;
-        if (currentXp >= needToNextLevel[currentLevel])
+        if (currentXp >= needToNextLevel[0])
         {
             currentXp -= needToNextLevel[currentLevel];
             currentLevel++;
-            NewEventSystem.OnPlayerLevelUp.InvokeEvent();
+            NewEventSystem.OnPlayerLevelUp.InvokeEvent(isPlayer);
         }
     }
 }

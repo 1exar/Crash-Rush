@@ -10,41 +10,79 @@ public class EntitySpawner : MonoBehaviour
 {
     [SerializeField] private EntityContainer _container;
 
-    [SerializeField] private List<Transform> _playerSpawnPos;
-    [SerializeField] private List<Transform> _enemySpawnPos;
+    [SerializeField] private List<PosData> _playerSpawnPos;
+    [SerializeField] private List<PosData> _enemySpawnPos;
 
     [SerializeField] private EntityDataBase _entityDataBase;
 
-    private Dictionary<Transform, bool> _isPosChoisePlayer = new Dictionary<Transform, bool>();
-    private Dictionary<Transform, bool> _isPosChoiseEnemy = new Dictionary<Transform, bool>();
-    
     private void Awake()
     {
         NewEventSystem.OnChooseNewBallEvent.Subscribe(SpawnNewBallFromCard);
+        NewEventSystem.OnContainerRemoveEntity.Subscribe(OnEntityDead);
+        NewEventSystem.OnPlayerLevelUp.Subscribe(OnEnemyLevelUp);
     }
 
     private void OnDestroy()
     {
         NewEventSystem.OnChooseNewBallEvent.UnSubscribe(SpawnNewBallFromCard);
+        NewEventSystem.OnContainerRemoveEntity.UnSubscribe(OnEntityDead);
+        NewEventSystem.OnPlayerLevelUp.UnSubscribe(OnEnemyLevelUp);
     }
 
     private void Start()
     {
+
         SpawnNewBallFromCard(EntityType.fire, false);
         SpawnNewBallFromCard(EntityType.ice, false);
     }
 
+    private void OnEnemyLevelUp(bool isPlayer)
+    {
+        if (isPlayer == false)
+        {
+            SpawnNewBallFromCard(EntityType.ice, false);
+        }
+    }
+    
+    private void OnEntityDead(Entity dead)
+    {
+        if (dead.IsMine)
+        {
+            foreach (var data in _playerSpawnPos)
+            {
+                var _posData = data;
+                if (_posData.entity == dead)
+                {
+                    _posData.isOccuped = false;
+                }
+            }
+        }
+        else
+        {
+            foreach (var data in _enemySpawnPos)
+            {
+                var _posData = data;
+                if (_posData.entity == dead)
+                {
+                    _posData.isOccuped = false;
+                }
+            }
+        }
+    }
+    
     private void SpawnNewBallFromCard(EntityType type, bool isMine)
     {
         if (isMine)
         {
             for (int i = 0; i < _playerSpawnPos.Count; i++)
             {
-                if(_isPosChoisePlayer.ContainsKey(_playerSpawnPos[i]))
+                var _playerSpawnPo = _playerSpawnPos[i];
+                if (_playerSpawnPo.isOccuped)
                     continue;
-                
-                SpawnEntity(true, _playerSpawnPos[i], _entityDataBase.GetEntityByType(type).prefab, _entityDataBase.GetEntityByType(type).settings);
-                _isPosChoisePlayer.Add(_playerSpawnPos[i], true);
+
+                var _entity = GetSpawnEntity(true, _playerSpawnPo.transform, _entityDataBase.GetEntityByType(type).prefab, _entityDataBase.GetEntityByType(type).settings);
+                _playerSpawnPo.entity = _entity;
+                _playerSpawnPo.isOccuped = true;
                 break;
             }
         }
@@ -52,11 +90,13 @@ public class EntitySpawner : MonoBehaviour
         {
             for (int i = 0; i < _enemySpawnPos.Count; i++)
             {
-                if(_isPosChoiseEnemy.ContainsKey(_enemySpawnPos[i]))
+                if(_enemySpawnPos[i].isOccuped)
                     continue;
-                
-                SpawnEntity(false, _enemySpawnPos[i], _entityDataBase.GetEntityByType(type).prefab, _entityDataBase.GetEntityByType(type).settings);
-                _isPosChoiseEnemy.Add(_enemySpawnPos[i], true);
+                _enemySpawnPos[i].SetOccuped(true);
+                print(_enemySpawnPos[i].transform.position);
+                var _entity = GetSpawnEntity(false, _enemySpawnPos[i].transform, _entityDataBase.GetEntityByType(type).prefab, _entityDataBase.GetEntityByType(type).settings);
+
+                _enemySpawnPos[i].SetEntity(_entity);
                 break;
             }
         }
@@ -69,5 +109,32 @@ public class EntitySpawner : MonoBehaviour
         
         _container.AddEntityToList(_entity);
     }
+    
+    private Entity GetSpawnEntity(bool isMine, Transform _transform,GameObject prefab, EntitySettings settings)
+    {
+        Entity _entity = Instantiate(prefab, _transform.position, Quaternion.identity).GetComponent<Entity>();
+        _entity.Init(settings, isMine);
+        
+        _container.AddEntityToList(_entity);
 
+        return _entity;
+    }
+    
+}
+[Serializable]
+class PosData
+{
+    public Transform transform;
+    public Entity entity;
+    public bool isOccuped;
+
+    public void SetEntity(Entity entity)
+    {
+        this.entity = entity;
+    }
+
+    public void SetOccuped(bool b)
+    {
+        isOccuped = b;
+    }
 }

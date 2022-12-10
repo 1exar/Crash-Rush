@@ -39,9 +39,10 @@ public class TurnSwitcher : MonoBehaviour
         NewEventSystem.OnPlayerLevelUp.UnSubscribe(OnPlayerLevelUp);
     }
 
-    private void OnPlayerLevelUp()
+    private void OnPlayerLevelUp(bool isPlayer)
     {
-        _canTurn = false;
+        if(isPlayer)
+            _canTurn = false;
     }
     
     private void OnBallChosen(EntityType a, bool b)
