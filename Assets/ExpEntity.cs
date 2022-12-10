@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Events;
 using UnityEngine;
 
 public class ExpEntity : MonoBehaviour
@@ -14,12 +15,12 @@ public class ExpEntity : MonoBehaviour
     
     private void Awake()
     {
-        TurnSwitcher.OnSwitchTurn += OnTurnSwith;
+        NewEventSystem.OnTurnSwitch.Subscribe(OnTurnSwith);
     }
 
     private void OnDisable()
     {
-        TurnSwitcher.OnSwitchTurn -= OnTurnSwith;
+        NewEventSystem.OnTurnSwitch.Subscribe(OnTurnSwith);
     }
 
     private void OnTurnSwith()
@@ -40,7 +41,7 @@ public class ExpEntity : MonoBehaviour
             isAlive = false;
             _mesh.enabled = false;
 
-            ExpController.CallPickUpEvent(entity.IsMine);
+            NewEventSystem.OnExpOrbPickup.InvokeEvent(entity.IsMine);
         }
     }
 }

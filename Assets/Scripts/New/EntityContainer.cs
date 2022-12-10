@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Events;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,9 +8,7 @@ public class EntityContainer : MonoBehaviour
 {
     [SerializeField] private List<Entity> _playerEntities = new List<Entity>();
     [SerializeField] private List<Entity> _enemyEntities = new List<Entity>();
-
-    public static UnityAction<Entity> OnRemoveEntity;
-
+    
     public List<Entity> PlayerEntities
     {
         get { return _playerEntities; }
@@ -37,6 +36,6 @@ public class EntityContainer : MonoBehaviour
             _enemyEntities.Remove(entity);
         }
 
-        OnRemoveEntity?.Invoke(entity);
+        NewEventSystem.OnContainerRemoveEntity.InvokeEvent(entity);
     }
 }

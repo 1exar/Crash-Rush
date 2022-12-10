@@ -5,6 +5,28 @@ using UnityEngine.Events;
 
 namespace Events
 {
+    
+    public class Event
+    {
+        private List<Action> actions = new List<Action>();
+
+        public void InvokeEvent()
+        {
+            actions.ForEach(act => act.Invoke());
+        }
+        
+        public void Subscribe(Action action)
+        {
+            actions.Add(action);
+        }
+
+        public void UnSubscribe(Action action)
+        {
+            actions.Remove(action);
+        }
+        
+    }
+    
     public class Event<T>
     {
         private List<Action<T>> actions = new List<Action<T>>();
@@ -39,6 +61,11 @@ namespace Events
         {
             actions.Add(action);
         }
+        
+        public void UnSubscribe(Action<T, TT> action)
+        {
+            actions.Remove(action);
+        }
     }
     
     public class Event<T, TT, TTt>
@@ -53,6 +80,11 @@ namespace Events
         public void Subscribe(Action<T,TT,TTt> action)
         {
             actions.Add(action);
+        }
+        
+        public void UnSubscribe(Action<T, TT, TTt> action)
+        {
+            actions.Remove(action);
         }
     }
     

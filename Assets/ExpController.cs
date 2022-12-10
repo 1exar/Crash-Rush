@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Windows;
+using Events;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,34 +11,34 @@ public class ExpController : MonoBehaviour
 
     [SerializeField] private ExpData _playerData;
     [SerializeField] private ExpData _enemyData;
-
-    private static UnityAction<bool> OnPickup;
-
+    
     private void Awake()
     {
-        OnPickup += PickUpOrb;
+        NewEventSystem.OnExpOrbPickup.Subscribe(PickUpOrb);
+        NewEventSystem.OnPlayerLevelUp.Subscribe(OnPlayerLevelUp);
     }
 
     private void OnDisable()
     {
-        OnPickup -= PickUpOrb;
+        NewEventSystem.OnExpOrbPickup.UnSubscribe(PickUpOrb);
+        NewEventSystem.OnPlayerLevelUp.UnSubscribe(OnPlayerLevelUp);
     }
 
     private void PickUpOrb(bool isMine)
     {
         if (isMine)
         {
-            _playerData.OnOrbPickup(() => WindowController.ShowWindow(typeof(CardsControllerWindow)));
+            _playerData.OnOrbPickup();
         }
         else
         {
-          //  _enemyData.OnOrbPickup();
+            _enemyData.OnOrbPickup();
         }
     }
 
-    public static void CallPickUpEvent(bool isMine)
+    private void OnPlayerLevelUp()
     {
-        OnPickup?.Invoke(isMine);
+        WindowController.ShowWindow(typeof(CardsControllerWindow));
     }
     
 }
@@ -50,14 +51,14 @@ public class ExpData
     public float getPerOrb;
     public List<int> needToNextLevel = new List<int>();
 
-    public void OnOrbPickup(UnityAction OnLevelUp)
+    public void OnOrbPickup()
     {
         currentXp += getPerOrb;
         if (currentXp >= needToNextLevel[currentLevel])
         {
             currentXp -= needToNextLevel[currentLevel];
             currentLevel++;
-            OnLevelUp?.Invoke();
+            NewEventSystem.OnPlayerLevelUp.InvokeEvent();
         }
     }
 }

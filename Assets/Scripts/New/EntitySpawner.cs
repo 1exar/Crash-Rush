@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Windows;
+using Events;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -16,23 +17,15 @@ public class EntitySpawner : MonoBehaviour
 
     private Dictionary<Transform, bool> _isPosChoisePlayer = new Dictionary<Transform, bool>();
     private Dictionary<Transform, bool> _isPosChoiseEnemy = new Dictionary<Transform, bool>();
-
-    public static UnityAction<EntityType, bool> OnChoiseNewBall;
-
+    
     private void Awake()
     {
-        OnChoiseNewBall += SpawnNewBallFromCard;
+        NewEventSystem.OnChooseNewBallEvent.Subscribe(SpawnNewBallFromCard);
     }
 
     private void OnDestroy()
     {
-        OnChoiseNewBall -= SpawnNewBallFromCard;
-    }
-
-    public static void InvokeChoiseBallEvent(EntityType type, bool isMine)
-    {
-        OnChoiseNewBall?.Invoke(type, isMine);
-        WindowController.CloseWindow(typeof(CardsControllerWindow));
+        NewEventSystem.OnChooseNewBallEvent.UnSubscribe(SpawnNewBallFromCard);
     }
 
     private void Start()

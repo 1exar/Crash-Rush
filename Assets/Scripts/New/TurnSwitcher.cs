@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Windows;
 using UnityEngine;
 using DG.Tweening;
+using Events;
 using UnityEngine.Events;
 
 public class TurnSwitcher : MonoBehaviour
@@ -16,8 +17,6 @@ public class TurnSwitcher : MonoBehaviour
     private Entity _currentEntity;
     private int _lastPlayerEntity;
     private int _lastEnemyEntity;
-
-    public static UnityAction OnSwitchTurn;
     
     public Entity CurrentEntity
     {
@@ -26,18 +25,18 @@ public class TurnSwitcher : MonoBehaviour
 
     private void Awake()
     {
-        EntitySpawner.OnChoiseNewBall += OnBallChosen;
-        EntityContainer.OnRemoveEntity += CheckOnEntityDead;
+        NewEventSystem.OnChooseNewBallEvent.Subscribe(OnBallChosen);
+        NewEventSystem.OnContainerRemoveEntity.Subscribe(CheckOnEntityDead);
     }
 
     private void OnDisable()
     {
-        EntityContainer.OnRemoveEntity -= CheckOnEntityDead;
+        NewEventSystem.OnContainerRemoveEntity.UnSubscribe(CheckOnEntityDead);
     }
 
     private void OnBallChosen(EntityType a, bool b)
     {
-        EntitySpawner.OnChoiseNewBall -= OnBallChosen;
+        NewEventSystem.OnChooseNewBallEvent.UnSubscribe(OnBallChosen);
         SwitchTurn();
     }
 
@@ -64,7 +63,7 @@ public class TurnSwitcher : MonoBehaviour
             return;
         }
 
-        OnSwitchTurn?.Invoke();
+        NewEventSystem.OnTurnSwitch.InvokeEvent();
 
         foreach (var entity in _entityContainer.EnemyEntities)
         {

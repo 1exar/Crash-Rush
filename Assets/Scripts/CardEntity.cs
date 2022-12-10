@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Windows;
 using DG.Tweening;
+using Events;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -35,7 +37,10 @@ public class CardEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(canChoise)
-            EntitySpawner.InvokeChoiseBallEvent(_currentTYpe, true);
+        if (canChoise)
+        {
+            NewEventSystem.OnChooseNewBallEvent.InvokeEvent(_currentTYpe,true);
+            WindowController.CloseWindow(typeof(CardsControllerWindow));
+        }
     }
 }
