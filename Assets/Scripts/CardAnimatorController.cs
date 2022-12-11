@@ -23,6 +23,10 @@ public class CardAnimatorController : MonoBehaviour
     
     private Coroutine _animationCycle;
 
+    [Header("TEST MODE")] 
+    [SerializeField] private bool _testMode;
+    [SerializeField] private EntityType _winType;
+    
     public void StartStop()
     {
         float a = _cycleDuration;
@@ -36,8 +40,18 @@ public class CardAnimatorController : MonoBehaviour
     
     private void OnEnable()
     {
-        SetRandomCard(0, _cards[0]);
-        Invoke(nameof(StartMove), .1f);
+        if (_testMode == false)
+        {
+            SetRandomCard(0, _cards[0]);
+            Invoke(nameof(StartMove), .1f);
+        }
+        else
+        {
+            _cardAnimator.ShowBall(0, _winType);
+            _cards[0].SetEntityType(_winType);
+            _cards[0].canChoise = true;
+        }
+
     }
 
     private void StartMove()
@@ -71,7 +85,7 @@ public class CardAnimatorController : MonoBehaviour
 
     private void SetRandomCard(int index, CardEntity card)
     {
-        EntityType randCard = (EntityType) Random.Range(1, 3);
+        EntityType randCard = (EntityType) Random.Range(1, 4);
         _cardAnimator.ShowBall(index, randCard);
         card.SetEntityType(randCard);
     }

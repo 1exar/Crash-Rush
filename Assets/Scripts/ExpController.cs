@@ -58,7 +58,7 @@ public class ExpData
         currentXp += getPerOrb;
         if (currentXp >= needToNextLevel[0])
         {
-            currentXp -= needToNextLevel[currentLevel];
+            currentXp -= needToNextLevel[0];
             currentLevel++;
             NewEventSystem.OnPlayerLevelUp.InvokeEvent(isPlayer);
         }

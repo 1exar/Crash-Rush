@@ -2,5 +2,6 @@
 {
     none = 0,
     fire = 1,
-    ice = 2
+    ice = 2,
+    healt = 3
 }

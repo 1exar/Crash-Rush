@@ -14,11 +14,13 @@ public class TurnSwitcher : MonoBehaviour
     [SerializeField] private CurrentTurnLabel _currentTurnLabel;
     [SerializeField] private ConfettiBlast confettiBlast;
 
-    private Entity _currentEntity;
+    [SerializeField] private Entity _currentEntity;
     private int _lastPlayerEntity;
     private int _lastEnemyEntity;
 
-    private bool _canTurn = true;
+    [SerializeField] private bool _canTurn = true;
+
+    private Coroutine _prepareCoroutine;
     
     public Entity CurrentEntity
     {
@@ -41,14 +43,17 @@ public class TurnSwitcher : MonoBehaviour
 
     private void OnPlayerLevelUp(bool isPlayer)
     {
-        if(isPlayer)
+        if (isPlayer)
+        {
             _canTurn = false;
+        }
     }
     
     private void OnBallChosen(EntityType a, bool b)
     {
         _canTurn = true;
-        SwitchTurn();
+        print("BALL CHOISEN");
+        PrepareToSwitch();
     }
 
     private void CheckOnEntityDead(Entity entity)
@@ -124,14 +129,16 @@ public class TurnSwitcher : MonoBehaviour
 
     public void PrepareToSwitch()
     {
-        StartCoroutine(CheckIfReadyToSwitch());
+        if(_prepareCoroutine != null)
+            StopCoroutine(_prepareCoroutine);
+        _prepareCoroutine = StartCoroutine(CheckIfReadyToSwitch());
     }
 
     private IEnumerator CheckIfReadyToSwitch()
     {
-        yield return new WaitForSeconds(0.5f);
         while (true)
         {
+            yield return new WaitForSeconds(0.5f);
             bool ready = true;
             foreach (Entity entity in _entityContainer.PlayerEntities)
             {

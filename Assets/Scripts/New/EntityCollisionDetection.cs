@@ -62,7 +62,8 @@ public class EntityCollisionDetection : MonoBehaviour
 
         else if (obj.TryGetComponent(out Entity entity))
         {
-            if (_turnSwitcher.CurrentEntity.IsMine != entity.IsMine)
+            if(_turnSwitcher.CurrentEntity.IsMine != _thisEntity.IsMine) return;
+            if (_thisEntity.IsMine != entity.IsMine)
             {
                 _thisEntity.AttackEntity(entity,damage);
             }

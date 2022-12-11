@@ -80,7 +80,7 @@ public class EntitySpawner : MonoBehaviour
                 if (_playerSpawnPo.isOccuped)
                     continue;
 
-                var _entity = GetSpawnEntity(true, _playerSpawnPo.transform, _entityDataBase.GetEntityByType(type).prefab, _entityDataBase.GetEntityByType(type).settings);
+                var _entity = GetSpawnEntity(true, _playerSpawnPo.transform, _entityDataBase.GetPlayerEntityByType(type).prefab, _entityDataBase.GetPlayerEntityByType(type).settings);
                 _playerSpawnPo.entity = _entity;
                 _playerSpawnPo.isOccuped = true;
                 break;
@@ -94,7 +94,7 @@ public class EntitySpawner : MonoBehaviour
                     continue;
                 _enemySpawnPos[i].SetOccuped(true);
                 print(_enemySpawnPos[i].transform.position);
-                var _entity = GetSpawnEntity(false, _enemySpawnPos[i].transform, _entityDataBase.GetEntityByType(type).prefab, _entityDataBase.GetEntityByType(type).settings);
+                var _entity = GetSpawnEntity(false, _enemySpawnPos[i].transform, _entityDataBase.GetEnemyEntityByType(type).prefab, _entityDataBase.GetEnemyEntityByType(type).settings);
 
                 _enemySpawnPos[i].SetEntity(_entity);
                 break;

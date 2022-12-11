@@ -257,6 +257,8 @@ MonoBehaviour:
   _stopStep: 1
   _animationEase: 1
   _cardAnimator: {fileID: 6310089602269945631}
+  _testMode: 0
+  _winType: 3
 --- !u!1 &6310089602546311198
 GameObject:
   m_ObjectHideFlags: 0

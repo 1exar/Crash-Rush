@@ -28,6 +28,7 @@ public class Entity : MonoBehaviour, IEffectsApplicator
    [SerializeField] private float _minDamage;
    [SerializeField] private float _maxDamage;
    [SerializeField] private bool _isMine;
+   [SerializeField] private int _maxHealth;
 
     private Vector3 _startScale;
 
@@ -71,6 +72,7 @@ public class Entity : MonoBehaviour, IEffectsApplicator
         _minDamage = settings.minDamage;
         _maxDamage = settings.maxDamage;
         _health = settings.health;
+        _maxHealth = settings.health;
         _rigidbody.mass = settings.weight;
         _rigidbody.drag = settings.drag;
         _movement.SpeedLimit = settings.maxSpeed;
@@ -126,6 +128,14 @@ public class Entity : MonoBehaviour, IEffectsApplicator
     public virtual void ApplyFrezzeEffect(int duration, float strength)
     {
         _freezeProcces = StartCoroutine(FreezeProcces(duration, strength));
+    }
+
+    public virtual void ApplyHealEffect(int hp)
+    {
+        _health += hp;
+        if (_health > _maxHealth)
+            _health = _maxHealth;
+        healthSlider.value = _health;
     }
 
     private IEnumerator FreezeProcces(int duration,float strength)

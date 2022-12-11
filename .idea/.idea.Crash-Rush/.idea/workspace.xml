@@ -3,10 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="19baa3f4-e448-4a80-9d9c-4ed235dcb4b4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Crash-Rush/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Crash-Rush/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ExpController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ExpController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Forest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Forest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CardEntity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Events/PlayerLevelUpEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Events/PlayerLevelUpEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LevelSettings/FirstLevelEntitys.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LevelSettings/FirstLevelEntitys.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PreviewBalls.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PreviewBalls.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Windows/NewCardsPanelAnimation.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Windows/NewCardsPanelAnimation.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardAnimatorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CardAnimatorController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityDataBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EntityDataBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entitys/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entitys/Entity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entitys/EntityType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entitys/EntityType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ExpController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ExpController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Iterfaces/IEffectsApplicator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Iterfaces/IEffectsApplicator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/New/EntityCollisionDetection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/New/EntityCollisionDetection.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/New/EntitySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/New/EntitySpawner.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/New/TurnSwitcher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/New/TurnSwitcher.cs" afterDir="false" />
     </list>
@@ -27,9 +34,7 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/ExpController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/ExpEntity.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/PreviewBallsAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/HealCollisionDetection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Events/NewEventSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Windows/WindowController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -53,7 +58,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2019.4.40f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\lexar\UnityProjects\Crash-Rush -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
@@ -119,6 +124,7 @@
       <workItem from="1670543683470" duration="348000" />
       <workItem from="1670585581688" duration="782000" />
       <workItem from="1670679909135" duration="3876000" />
+      <workItem from="1670775747036" duration="3163000" />
     </task>
     <servers />
   </component>
