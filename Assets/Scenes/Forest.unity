@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44032857, g: 0.48889488, b: 0.5690628, a: 1}
+  m_IndirectSpecularColor: {r: 0.44032922, g: 0.48889565, b: 0.5690649, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2176,7 +2176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1103464752}
   m_Layer: 0
-  m_Name: ExpObjects
+  m_Name: ExpObjectsPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4708,6 +4708,8 @@ MonoBehaviour:
   _playerInputs: {fileID: 316595848}
   _currentTurnLabel: {fileID: 1763609242}
   confettiBlast: {fileID: 1937709156}
+  _currentEntity: {fileID: 0}
+  _canTurn: 1
 --- !u!222 &442657286790737083
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -184,9 +184,9 @@ MonoBehaviour:
   deathParticle: {fileID: 136450, guid: 75f06efdf4dffb64196a8a771986c0b8, type: 3}
   damageStar: {fileID: 109542, guid: 2ed06ab528b7c474eb9246421cd7c791, type: 3}
   model: {fileID: 3049152717035326955}
-  healthSlider: {fileID: 4081817186491046093}
   _rigidbody: {fileID: 6304281749289878499}
   _movement: {fileID: 4332947006016787899}
+  _canvasController: {fileID: 3692616343754992767}
   _currentType: 2
   _health: 0
   _minDamage: 0
@@ -527,7 +527,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 332
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 5993912c2f56e44499cc7860283cbe64, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -775,16 +775,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76bacfe0645834fada850ccb4d61005d, type: 3}
---- !u!114 &4081817186491046093 stripped
+--- !u!114 &3692616343754992767 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3274445033604077446, guid: 76bacfe0645834fada850ccb4d61005d,
+  m_CorrespondingSourceObject: {fileID: 2804161960079270708, guid: 76bacfe0645834fada850ccb4d61005d,
     type: 3}
   m_PrefabInstance: {fileID: 1573072875104063307}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Script: {fileID: 11500000, guid: ffc3d1057ea8d8f4faf1f8fd629fdb53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &8036938816503938972 stripped

@@ -1,7 +1,6 @@
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Entity : MonoBehaviour, IEffectsApplicator
 {
@@ -9,10 +8,9 @@ public class Entity : MonoBehaviour, IEffectsApplicator
     [SerializeField] private GameObject deathParticle;
     [SerializeField] private GameObject damageStar;
     [SerializeField] private Transform model;
-    [SerializeField] private Slider healthSlider;
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private EntityMovement _movement;
-
+    [SerializeField] private EntityCanvasController _canvasController;
     [SerializeField] private EntityType _currentType;
     
     #region EffectCoroutines
@@ -86,12 +84,13 @@ public class Entity : MonoBehaviour, IEffectsApplicator
         
         _container = FindObjectOfType<EntityContainer>();
 
-        healthSlider.maxValue = _health;
-        healthSlider.value = _health;
+        _canvasController.SetHealthMax(_health);
     }
 
     public void TakeDamage(float damage)
     {
+        _canvasController.ShowDamage(damage);
+        
         if (damage >= _health)
         {
             _container.RemoveEntityFromList(this,_isMine);
@@ -103,7 +102,7 @@ public class Entity : MonoBehaviour, IEffectsApplicator
         star.SetParent(transform);
         transform.DOShakeScale(.2f, .4f, 1);
         _health -= damage;
-        healthSlider.value = _health;
+        _canvasController.SetHealth(_health);
         
         Invoke(nameof(ResetScaleToStart), .2f);
     }
@@ -135,7 +134,7 @@ public class Entity : MonoBehaviour, IEffectsApplicator
         _health += hp;
         if (_health > _maxHealth)
             _health = _maxHealth;
-        healthSlider.value = _health;
+        _canvasController.SetHealth(_health);
     }
 
     private IEnumerator FreezeProcces(int duration,float strength)
