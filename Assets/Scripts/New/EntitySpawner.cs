@@ -31,11 +31,27 @@ public class EntitySpawner : MonoBehaviour
 
     private void Start()
     {
-
         SpawnNewBallFromCard(EntityType.fire, false);
         SpawnNewBallFromCard(EntityType.ice, false);
+        SpawnNewBallFromCard(EntityType.ice, true);
     }
 
+    public bool isPlayerHasFreePos()
+    {
+        var isHas = false;
+
+        foreach (var data in _playerSpawnPos)
+        {
+            if (data.isOccuped == false)
+            {
+                isHas = true;
+                break;
+            }
+        }
+
+        return isHas;
+    }
+    
     private void OnEnemyLevelUp(bool isPlayer)
     {
         if (isPlayer == false)

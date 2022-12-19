@@ -76,6 +76,8 @@ public class Entity : MonoBehaviour, IEffectsApplicator
         _movement.SpeedLimit = settings.maxSpeed;
         if (isMine == false)
             _movement.SpeedLimit = 1;
+        
+        _canvasController.SetIsMineIndicator(isMine);
     }
     
     private void Start()
