@@ -11,8 +11,7 @@ public class ExpController : MonoBehaviour
 
     [SerializeField] private ExpData _playerData;
     [SerializeField] private ExpData _enemyData;
-    [SerializeField] private EntitySpawner _spawner;
-
+    
     private void Awake()
     {
         NewEventSystem.OnExpOrbPickup.Subscribe(PickUpOrb);
@@ -40,8 +39,7 @@ public class ExpController : MonoBehaviour
     private void OnPlayerLevelUp(bool isPlayer)
     {
         if(isPlayer)
-            if(_spawner.isPlayerHasFreePos())
-                WindowController.ShowWindow(typeof(CardsControllerWindow));
+            WindowController.ShowWindow(typeof(CardsControllerWindow));
     }
     
 }

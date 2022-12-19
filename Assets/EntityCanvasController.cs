@@ -9,7 +9,6 @@ using UnityEngine.UI;
 public class EntityCanvasController : MonoBehaviour
 {
 
-    [SerializeField] private Image _isMineIndicator;
     [SerializeField] private Slider _health;
     [Header("Damage Text Animation")]
     [SerializeField] private TMP_Text _damageIndicator;
@@ -22,18 +21,6 @@ public class EntityCanvasController : MonoBehaviour
         _startY = _damageIndicator.rectTransform.localPosition.y;
     }
 
-    public void SetIsMineIndicator(bool isMine)
-    {
-        if (isMine)
-        {
-            _isMineIndicator.color = Color.green;
-        }
-        else
-        {
-            _isMineIndicator.color = Color.red;
-        }
-    }
-    
     public void SetHealthMax(float max)
     {
         _health.maxValue = max;

@@ -14,8 +14,6 @@ public class TurnSwitcher : MonoBehaviour
     [SerializeField] private CurrentTurnLabel _currentTurnLabel;
     [SerializeField] private ConfettiBlast confettiBlast;
 
-    [SerializeField] private EntitySpawner _spawner;
-    
     [SerializeField] private Entity _currentEntity;
     private int _lastPlayerEntity;
     private int _lastEnemyEntity;
@@ -45,7 +43,7 @@ public class TurnSwitcher : MonoBehaviour
 
     private void OnPlayerLevelUp(bool isPlayer)
     {
-        if (isPlayer && _spawner.isPlayerHasFreePos())
+        if (isPlayer)
         {
             _canTurn = false;
         }
