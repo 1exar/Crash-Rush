@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DefaultEntitysSettings
   m_EditorClassIdentifier: 
   _playerEntitys:
-  - name: fire
+  - name: Fire
     description: Burns enemies
     prefab: {fileID: 3387689592711736686, guid: 61d32228958ac944f9dea706db47420b,
       type: 3}
@@ -25,7 +25,7 @@ MonoBehaviour:
       maxSpeed: 10
       maxDamage: 9
       minDamage: 1
-  - name: ice
+  - name: Ice
     description: Slowdown enemies
     prefab: {fileID: 3387689592711736686, guid: b88c464825cb1b044b4467bc28ee417b,
       type: 3}
@@ -37,7 +37,7 @@ MonoBehaviour:
       maxSpeed: 10
       maxDamage: 9
       minDamage: 1
-  - name: heal
+  - name: Heal
     description: Heal player spheres
     prefab: {fileID: 3387689592711736686, guid: c3b5487a51a9d7549a008711ffbb8843,
       type: 3}
@@ -49,7 +49,7 @@ MonoBehaviour:
       maxSpeed: 10
       maxDamage: 9
       minDamage: 1
-  - name: thunder
+  - name: Thunder
     description: Attack all enemies
     prefab: {fileID: 3387689592711736686, guid: 6db037f75d32d0843b12dd8c1a9ca491,
       type: 3}
@@ -61,7 +61,7 @@ MonoBehaviour:
       maxSpeed: 10
       maxDamage: 9
       minDamage: 1
-  - name: vampire
+  - name: Vampire
     description: Grab hp from enemies
     prefab: {fileID: 3387689592711736686, guid: ca57e5d1e8483984088dd6b5338e2ff1,
       type: 3}

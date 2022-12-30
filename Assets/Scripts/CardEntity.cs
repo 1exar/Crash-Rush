@@ -16,7 +16,7 @@ public class CardEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public bool canChoise = false;
 
     public RawImage image;
-    public TMP_Text _text;
+    public TMP_Text _text, _name;
     public EntityDataBase _data;
     
     public void SetEntityType(EntityType type, RenderTexture img)
@@ -24,6 +24,7 @@ public class CardEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         image.texture = img;
         _currentTYpe = type;
         _text.text = _data.GetPlayerEntityByType(type).description;
+        _name.text = _data.GetPlayerEntityByType(type).name;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

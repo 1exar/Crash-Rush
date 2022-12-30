@@ -208,8 +208,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290559164
-  m_fontColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -593,8 +593,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290559164
-  m_fontColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -727,8 +727,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290559164
-  m_fontColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -861,8 +861,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290559164
-  m_fontColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1014,6 +1014,7 @@ MonoBehaviour:
   canChoise: 0
   image: {fileID: 2224173789863132918}
   _text: {fileID: 4547575382038735713}
+  _name: {fileID: 7441761899004301480}
   _data: {fileID: 11400000, guid: eea779a0849bf4e89961429f692c46b7, type: 2}
 --- !u!1 &2340397958066241993
 GameObject:
@@ -1108,6 +1109,7 @@ MonoBehaviour:
   canChoise: 0
   image: {fileID: 645446221300303523}
   _text: {fileID: 274307972908662501}
+  _name: {fileID: 1367813770631745594}
   _data: {fileID: 11400000, guid: eea779a0849bf4e89961429f692c46b7, type: 2}
 --- !u!1 &2709620638844108785
 GameObject:
@@ -1254,8 +1256,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290559164
-  m_fontColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1407,6 +1409,7 @@ MonoBehaviour:
   canChoise: 0
   image: {fileID: 3215399157694289557}
   _text: {fileID: 6221709275693166649}
+  _name: {fileID: 6904987166022945176}
   _data: {fileID: 11400000, guid: eea779a0849bf4e89961429f692c46b7, type: 2}
 --- !u!1 &4396023614404533228
 GameObject:
@@ -1624,8 +1627,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290559164
-  m_fontColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1777,6 +1780,7 @@ MonoBehaviour:
   canChoise: 0
   image: {fileID: 7476259778816488289}
   _text: {fileID: 6203364982031660701}
+  _name: {fileID: 4880003661332751919}
   _data: {fileID: 11400000, guid: eea779a0849bf4e89961429f692c46b7, type: 2}
 --- !u!1 &5170685028076459909
 GameObject:
@@ -2571,6 +2575,7 @@ MonoBehaviour:
   canChoise: 0
   image: {fileID: 6310089602239580362}
   _text: {fileID: 6310089603624669900}
+  _name: {fileID: 6310089603765609965}
   _data: {fileID: 11400000, guid: eea779a0849bf4e89961429f692c46b7, type: 2}
 --- !u!1 &6310089602728796216
 GameObject:
@@ -2874,8 +2879,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290559164
-  m_fontColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3098,6 +3103,7 @@ MonoBehaviour:
   canChoise: 0
   image: {fileID: 6310089602020562430}
   _text: {fileID: 6310089603772904731}
+  _name: {fileID: 6310089603470924526}
   _data: {fileID: 11400000, guid: eea779a0849bf4e89961429f692c46b7, type: 2}
 --- !u!1 &6310089603470924524
 GameObject:
@@ -3173,8 +3179,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290559164
-  m_fontColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3326,6 +3332,7 @@ MonoBehaviour:
   canChoise: 0
   image: {fileID: 6310089603207473256}
   _text: {fileID: 6310089602728796218}
+  _name: {fileID: 6310089603170646666}
   _data: {fileID: 11400000, guid: eea779a0849bf4e89961429f692c46b7, type: 2}
 --- !u!1 &6310089603624669906
 GameObject:
@@ -3535,8 +3542,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290559164
-  m_fontColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3956,6 +3963,7 @@ MonoBehaviour:
   canChoise: 0
   image: {fileID: 6709042882537296087}
   _text: {fileID: 1931114683888901522}
+  _name: {fileID: 8653684082104612596}
   _data: {fileID: 11400000, guid: eea779a0849bf4e89961429f692c46b7, type: 2}
 --- !u!1 &6982692302422694454
 GameObject:
@@ -4372,6 +4380,7 @@ MonoBehaviour:
   canChoise: 0
   image: {fileID: 3633331580376738113}
   _text: {fileID: 5725886761992118579}
+  _name: {fileID: 8922437254247070022}
   _data: {fileID: 11400000, guid: eea779a0849bf4e89961429f692c46b7, type: 2}
 --- !u!1 &9222480199253393386
 GameObject:
