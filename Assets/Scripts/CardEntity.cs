@@ -14,8 +14,11 @@ public class CardEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private EntityType _currentTYpe;
     public bool canChoise = false;
 
-    public void SetEntityType(EntityType type)
+    public RawImage image;
+    
+    public void SetEntityType(EntityType type, RenderTexture img)
     {
+        image.texture = img;
         _currentTYpe = type;
     }
 

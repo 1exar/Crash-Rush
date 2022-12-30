@@ -47,8 +47,7 @@ public class CardAnimatorController : MonoBehaviour
         }
         else
         {
-            _cardAnimator.ShowBall(0, _winType);
-            _cards[0].SetEntityType(_winType);
+            _cards[0].SetEntityType(_winType,_cardAnimator.GetRawImage(_winType));
             _cards[0].canChoise = true;
         }
 
@@ -86,8 +85,7 @@ public class CardAnimatorController : MonoBehaviour
     private void SetRandomCard(int index, CardEntity card)
     {
         EntityType randCard = (EntityType) Random.Range(1, 4);
-        _cardAnimator.ShowBall(index, randCard);
-        card.SetEntityType(randCard);
+        card.SetEntityType(randCard,_cardAnimator.GetRawImage(randCard));
     }
     
 }
