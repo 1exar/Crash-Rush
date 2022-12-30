@@ -20,7 +20,7 @@ public class Entity : MonoBehaviour, IEffectsApplicator
 
     #endregion
     
-    private EntityContainer _container;
+    internal EntityContainer _container;
 
    [SerializeField] private float _health;
    [SerializeField] private float _minDamage;

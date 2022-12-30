@@ -201,7 +201,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Thunder
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2987499598249477467, guid: 3651aac6b47602e44845a34c2266c437, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3651aac6b47602e44845a34c2266c437, type: 3}
 --- !u!4 &4173727842075166355 stripped
 Transform:
@@ -302,7 +303,8 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2987499598249477467, guid: 3651aac6b47602e44845a34c2266c437, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3651aac6b47602e44845a34c2266c437, type: 3}
 --- !u!4 &1204049192469652428 stripped
 Transform:
@@ -438,7 +440,8 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2987499598249477467, guid: 3651aac6b47602e44845a34c2266c437, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3651aac6b47602e44845a34c2266c437, type: 3}
 --- !u!4 &5445717569373292869 stripped
 Transform:
@@ -579,7 +582,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2987499598249477467, guid: 3651aac6b47602e44845a34c2266c437, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3651aac6b47602e44845a34c2266c437, type: 3}
 --- !u!4 &6330624684648437808 stripped
 Transform:
@@ -705,7 +709,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2987499598249477467, guid: 3651aac6b47602e44845a34c2266c437, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3651aac6b47602e44845a34c2266c437, type: 3}
 --- !u!4 &6217183794655679521 stripped
 Transform:

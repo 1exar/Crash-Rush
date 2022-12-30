@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Windows;
 using DG.Tweening;
 using Events;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -15,11 +16,14 @@ public class CardEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public bool canChoise = false;
 
     public RawImage image;
+    public TMP_Text _text;
+    public EntityDataBase _data;
     
     public void SetEntityType(EntityType type, RenderTexture img)
     {
         image.texture = img;
         _currentTYpe = type;
+        _text.text = _data.GetPlayerEntityByType(type).description;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

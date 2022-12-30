@@ -26,6 +26,7 @@ public class EntityData
 {
 
     public string name;
+    public string description;
     public GameObject prefab;
     public EntityType type;
     public EntitySettings settings;

@@ -3,16 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="19baa3f4-e448-4a80-9d9c-4ed235dcb4b4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Crash-Rush/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Crash-Rush/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Blood/Red/BloodDripping.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Blood/Red/BloodDripping.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Blood/Red/BloodPoolGrowing.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Blood/Red/BloodPoolGrowing.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Blood/Red/BloodShowerLoop.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Blood/Red/BloodShowerLoop.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Blood/Red/BloodSplatDirectional.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Blood/Red/BloodSplatDirectional.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PreviewBalls.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PreviewBalls.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Entitys/PlayerThunderEntity.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Entitys/PlayerThunderEntity.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Windows/NewCardsPanelAnimation.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Windows/NewCardsPanelAnimation.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardAnimatorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CardAnimatorController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entitys/EntityType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entitys/EntityType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/entittySettings/DefaultEntitysSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/entittySettings/DefaultEntitysSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CardEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntityDataBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EntityDataBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entitys/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entitys/Entity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ThunderEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ThunderEntity.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/VampireEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VampireEntity.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,6 +127,7 @@
       <workItem from="1671219875388" duration="1679000" />
       <workItem from="1671925278086" duration="432000" />
       <workItem from="1672343542881" duration="5147000" />
+      <workItem from="1672433542130" duration="2938000" />
     </task>
     <servers />
   </component>

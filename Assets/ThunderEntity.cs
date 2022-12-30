@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class ThunderEntity : Entity
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private int _thunderDmg;
+    
+    public override void AttackEntity(Entity _enemy, float dmg)
     {
-        
+        base.AttackEntity(_enemy, dmg);
+        print("thunder attack");
+        AttackAllEnemy();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void AttackAllEnemy()
     {
-        
+        if (IsMine)
+        {
+            _container.EnemyEntities.ForEach(entity => entity.TakeDamage(_thunderDmg));
+        }
+        else
+        {
+            _container.PlayerEntities.ForEach(entity => entity.TakeDamage(_thunderDmg));
+        }
     }
+    
 }
