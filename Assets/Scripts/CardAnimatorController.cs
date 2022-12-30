@@ -84,7 +84,7 @@ public class CardAnimatorController : MonoBehaviour
 
     private void SetRandomCard(int index, CardEntity card)
     {
-        EntityType randCard = (EntityType) Random.Range(1, 4);
+        EntityType randCard = (EntityType) Random.Range(1, 6);
         card.SetEntityType(randCard,_cardAnimator.GetRawImage(randCard));
     }
     

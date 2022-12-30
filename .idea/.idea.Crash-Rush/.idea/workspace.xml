@@ -4,32 +4,15 @@
     <list default="true" id="19baa3f4-e448-4a80-9d9c-4ed235dcb4b4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Crash-Rush/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Crash-Rush/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/HealCollisionDetection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/HealCollisionDetection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Blood/Red/BloodDripping.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Blood/Red/BloodDripping.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Blood/Red/BloodPoolGrowing.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Blood/Red/BloodPoolGrowing.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Blood/Red/BloodShowerLoop.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Blood/Red/BloodShowerLoop.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Blood/Red/BloodSplatDirectional.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Epic Toon FX/Prefabs/Combat/Blood/Red/BloodSplatDirectional.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PreviewBalls.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PreviewBalls.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Windows/NewCardsPanelAnimation.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Windows/NewCardsPanelAnimation.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardAnimatorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CardAnimatorController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CardEntity.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Entitys/EntityType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Entitys/EntityType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PreviewBallsAnimationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PreviewBallsAnimationController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/RenderTextures/render 1_1.renderTexture" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/RenderTextures/render 1_1.renderTexture.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/RenderTextures/render 1_2.renderTexture" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/RenderTextures/render 1_2.renderTexture.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/RenderTextures/render 1_3.renderTexture" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/RenderTextures/render 1_3.renderTexture.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/RenderTextures/render 2_1.renderTexture" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/RenderTextures/render 2_1.renderTexture.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/RenderTextures/render 2_2.renderTexture" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/RenderTextures/render 2_2.renderTexture.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/RenderTextures/render 2_3.renderTexture" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/RenderTextures/render 2_3.renderTexture.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/RenderTextures/render 3_1.renderTexture" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/RenderTextures/render 3_1.renderTexture.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/RenderTextures/render 3_2.renderTexture" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/RenderTextures/render 3_2.renderTexture.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/RenderTextures/render 3_3.renderTexture" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/RenderTextures/render 3_3.renderTexture.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/entittySettings/DefaultEntitysSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/entittySettings/DefaultEntitysSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +35,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Events/NewEventSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Windows/WindowController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ThunderEntity.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/VampireEntity.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -144,7 +128,7 @@
       <workItem from="1671065059197" duration="2858000" />
       <workItem from="1671219875388" duration="1679000" />
       <workItem from="1671925278086" duration="432000" />
-      <workItem from="1672343542881" duration="3464000" />
+      <workItem from="1672343542881" duration="5147000" />
     </task>
     <servers />
   </component>

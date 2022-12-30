@@ -57,6 +57,17 @@ MonoBehaviour:
       maxSpeed: 10
       maxDamage: 9
       minDamage: 1
+  - name: vampire
+    prefab: {fileID: 3387689592711736686, guid: ca57e5d1e8483984088dd6b5338e2ff1,
+      type: 3}
+    type: 5
+    settings:
+      health: 15
+      weight: 1
+      drag: 0.7
+      maxSpeed: 10
+      maxDamage: 9
+      minDamage: 1
   _enemyEntitys:
   - name: fire
     prefab: {fileID: 3387689592711736686, guid: 61d32228958ac944f9dea706db47420b,
@@ -84,6 +95,17 @@ MonoBehaviour:
     prefab: {fileID: 3387689592711736686, guid: c3b5487a51a9d7549a008711ffbb8843,
       type: 3}
     type: 3
+    settings:
+      health: 20
+      weight: 1
+      drag: 0.7
+      maxSpeed: 10
+      maxDamage: 13
+      minDamage: 3
+  - name: vampire
+    prefab: {fileID: 3387689592711736686, guid: ca57e5d1e8483984088dd6b5338e2ff1,
+      type: 3}
+    type: 5
     settings:
       health: 20
       weight: 1

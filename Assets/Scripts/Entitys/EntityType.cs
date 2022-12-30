@@ -4,5 +4,6 @@
     fire = 1,
     ice = 2,
     healt = 3,
-    thunder = 4
+    thunder = 4,
+    vampire = 5
 }
