@@ -68,6 +68,7 @@ GameObject:
   - component: {fileID: 6929548870831967504}
   - component: {fileID: 1024656891109348143}
   - component: {fileID: 3909987655623534103}
+  - component: {fileID: 845353722800649619}
   m_Layer: 7
   m_Name: PlayerHealEntity
   m_TagString: Untagged
@@ -476,6 +477,18 @@ MonoBehaviour:
   _currentEntity: {fileID: 699127325848793814}
   _healEffect: {fileID: 8304514396908543190}
   _healEffectDuration: 1
+--- !u!114 &845353722800649619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3387689592711736686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde9d18c0f4bfc04fb0aee8317947ef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8110106438289546882
 GameObject:
   m_ObjectHideFlags: 0

@@ -68,6 +68,7 @@ GameObject:
   - component: {fileID: 6929548870831967504}
   - component: {fileID: 1024656891109348143}
   - component: {fileID: 7637161730977571648}
+  - component: {fileID: 6602627658343654466}
   m_Layer: 7
   m_Name: vampireEntity
   m_TagString: Untagged
@@ -469,6 +470,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ed379c00532d434885452fa812bfacb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6602627658343654466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3387689592711736686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde9d18c0f4bfc04fb0aee8317947ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8110106438289546882

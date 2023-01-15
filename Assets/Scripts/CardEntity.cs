@@ -18,6 +18,8 @@ public class CardEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public RawImage image;
     public TMP_Text _text, _name;
     public EntityDataBase _data;
+
+    public bool forAds;
     
     public void SetEntityType(EntityType type, RenderTexture img)
     {

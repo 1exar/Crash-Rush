@@ -7,6 +7,7 @@
         public static TurnSwitchEvent OnTurnSwitch = new TurnSwitchEvent();
         public static EntityContainerRemoveEntity OnContainerRemoveEntity = new EntityContainerRemoveEntity();
         public static ChooseNewBallEvent OnChooseNewBallEvent = new ChooseNewBallEvent();
+        public static ChangeSoundEvent onChangeSoundEvent = new ChangeSoundEvent();
     }
 }
 
