@@ -24,23 +24,20 @@ public class EntityDataBase : ScriptableObject
 [Serializable]
 public class EntityData
 {
-
     public string name;
     public string description;
     public GameObject prefab;
     public EntityType type;
     public EntitySettings settings;
-    
 }
+
 [Serializable]
 public struct EntitySettings
 {
-
     public int health;
     public float weight;
     public float drag;
     public float maxSpeed;
     public float maxDamage;
     public float minDamage;
-
 }

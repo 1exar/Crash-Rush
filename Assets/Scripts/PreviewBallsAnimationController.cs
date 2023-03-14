@@ -1,28 +1,25 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PreviewBallsAnimationController : MonoBehaviour
 {
+    public List<CardTypesData> types = new List<CardTypesData>();
 
-    public List<RawImageData> images = new List<RawImageData>();
-
-    public RenderTexture GetRawImage(EntityType type)
+    public Color GetCardColor(EntityType type)
     {
-        RenderTexture result = null;
+        Color resultColor = new Color();
 
-        result = images.First(i => i.type == type).image;
+        resultColor = types.First(i => i.type == type).color;
         
-        return result;
+        return resultColor;
     }
 }
 
 [Serializable]
-public struct RawImageData
+public struct CardTypesData
 {
     public EntityType type;
-    public RenderTexture image;
+    public Color color;
 }

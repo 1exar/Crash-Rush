@@ -42,12 +42,12 @@ public class CardAnimatorController : MonoBehaviour
     {
         if (_testMode == false)
         {
-            SetRandomCard(0, _cards[0]);
+            //SetRandomCard(_cards[0]);
             Invoke(nameof(StartMove), .1f);
         }
         else
         {
-            _cards[0].SetEntityType(_winType,_cardAnimator.GetRawImage(_winType));
+            _cards[0].SetEntityType(_winType,_cardAnimator.GetCardColor(_winType));
             _cards[0].canChoise = true;
         }
 
@@ -61,31 +61,33 @@ public class CardAnimatorController : MonoBehaviour
     private IEnumerator RoolCardsCycle()
     {
         var _cardPos = _cards[0].transform.localPosition;
-        SetRandomCard(1, _cards[1]);
-        _cards[2].transform.DOKill();
-        _cards[2].transform.localPosition = new Vector3(0, _firstYpos * 2, _cardPos.z);
-        _cards[0].transform.DOLocalMoveY(_firstYpos - (_step * 3), _cycleDuration).SetEase(_animationEase);
-        _cards[1].transform.DOLocalMoveY(_firstYpos - (_step * 1), _cycleDuration).SetEase(_animationEase);;
-        yield return new WaitForSeconds(_cycleDuration);
-        SetRandomCard(2,_cards[2]);
-        _cards[1].transform.DOLocalMoveY(_firstYpos - (_step * 3), _cycleDuration).SetEase(_animationEase);;
-        _cards[2].transform.DOLocalMoveY(_firstYpos - (_step * 1), _cycleDuration).SetEase(_animationEase);;
-        _cards[0].transform.DOKill();
-        _cards[0].transform.localPosition = new Vector3(0, _firstYpos * 2, _cardPos.z);
-        yield return new WaitForSeconds(_cycleDuration);
-        _cards[1].transform.DOKill();
-        SetRandomCard(0,_cards[0]);
-        _cards[1].transform.localPosition = new Vector3(0, _firstYpos * 2, _cardPos.z);
-        _cards[2].transform.DOLocalMoveY(_firstYpos - (_step * 3), _cycleDuration).SetEase(_animationEase);;
-        _cards[0].transform.DOLocalMoveY(_firstYpos - (_step * 1), _cycleDuration).SetEase(_animationEase);; 
-        yield return new WaitForSeconds(_cycleDuration);
-        _animationCycle = StartCoroutine(RoolCardsCycle());
-    }
 
-    private void SetRandomCard(int index, CardEntity card)
-    {
-        EntityType randCard = (EntityType) Random.Range(1, 6);
-        card.SetEntityType(randCard,_cardAnimator.GetRawImage(randCard));
+        //SetRandomCard(_cards[1]);
+
+        //_cards[2].transform.DOKill();
+        //_cards[2].transform.localPosition = new Vector3(0, _firstYpos * 2, _cardPos.z);
+        //_cards[0].transform.DOLocalMoveY(_firstYpos - (_step * 3), _cycleDuration).SetEase(_animationEase);
+        //_cards[1].transform.DOLocalMoveY(_firstYpos - (_step * 1), _cycleDuration).SetEase(_animationEase);;
+        //yield return new WaitForSeconds(_cycleDuration);
+
+        //SetRandomCard(_cards[2]);
+
+        //_cards[1].transform.DOLocalMoveY(_firstYpos - (_step * 3), _cycleDuration).SetEase(_animationEase);;
+        //_cards[2].transform.DOLocalMoveY(_firstYpos - (_step * 1), _cycleDuration).SetEase(_animationEase);;
+        //_cards[0].transform.DOKill();
+        //_cards[0].transform.localPosition = new Vector3(0, _firstYpos * 2, _cardPos.z);
+        //yield return new WaitForSeconds(_cycleDuration);
+
+        //_cards[1].transform.DOKill();
+
+        //SetRandomCard(_cards[0]);
+
+        //_cards[1].transform.localPosition = new Vector3(0, _firstYpos * 2, _cardPos.z);
+        //_cards[2].transform.DOLocalMoveY(_firstYpos - (_step * 3), _cycleDuration).SetEase(_animationEase);;
+        //_cards[0].transform.DOLocalMoveY(_firstYpos - (_step * 1), _cycleDuration).SetEase(_animationEase);; 
+        yield return new WaitForSeconds(_cycleDuration);
+
+        //_animationCycle = StartCoroutine(RoolCardsCycle());
     }
     
 }

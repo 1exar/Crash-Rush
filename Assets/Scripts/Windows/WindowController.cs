@@ -7,7 +7,6 @@ namespace Windows
 {
     public class WindowController : MonoBehaviour
     {
-
         [SerializeField] private List<BaseWindow> _windowsPrefabs = new List<BaseWindow>();
         [SerializeField] private RectTransform _canvasParent;
         

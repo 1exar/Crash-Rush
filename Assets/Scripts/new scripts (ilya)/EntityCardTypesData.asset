@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bb4a260515ed4f3786480cbd1fa277f, type: 3}
+  m_Name: EntityCardTypesData
+  m_EditorClassIdentifier: 
+  EntityCardTypes:
+  - EntityType: 0
+    EntityPreviewColor: {r: 0, g: 0, b: 0, a: 0}
+  - EntityType: 1
+    EntityPreviewColor: {r: 1, g: 0.6213611, b: 0, a: 1}
+  - EntityType: 2
+    EntityPreviewColor: {r: 0, g: 0.9500499, b: 1, a: 1}
+  - EntityType: 3
+    EntityPreviewColor: {r: 0, g: 1, b: 0.10449934, a: 1}
+  - EntityType: 4
+    EntityPreviewColor: {r: 1, g: 0.92855203, b: 0, a: 1}
+  - EntityType: 5
+    EntityPreviewColor: {r: 1, g: 0, b: 0, a: 1}

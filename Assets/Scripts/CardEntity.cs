@@ -12,19 +12,20 @@ using Random = UnityEngine.Random;
 
 public class CardEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    private EntityType _currentTYpe;
+    private EntityType _currentType;
     public bool canChoise = false;
 
-    public RawImage image;
+    public RawImage entityPreviewImage;
     public TMP_Text _text, _name;
     public EntityDataBase _data;
 
     public bool forAds;
     
-    public void SetEntityType(EntityType type, RenderTexture img)
+    public void SetEntityType(EntityType type, Color color)
     {
-        image.texture = img;
-        _currentTYpe = type;
+        entityPreviewImage.color = color;
+        _currentType = type;
+
         _text.text = _data.GetPlayerEntityByType(type).description;
         _name.text = _data.GetPlayerEntityByType(type).name;
     }
@@ -43,7 +44,7 @@ public class CardEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         if (canChoise)
         {
-            NewEventSystem.OnChooseNewBallEvent.InvokeEvent(_currentTYpe,true);
+            NewEventSystem.OnChooseNewBallEvent.InvokeEvent(_currentType,true);
             WindowController.CloseWindow(typeof(CardsControllerWindow));
         }
     }
