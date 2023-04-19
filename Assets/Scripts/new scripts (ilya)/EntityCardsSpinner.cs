@@ -52,7 +52,7 @@ public class EntityCardsSpinner : MonoBehaviour
     private void ShowSpinResult(CardsSpinnersData spinner)
     {
         Transform finalCard = spinner.RectTransform.GetChild(spinner.CardsAmount - 1);
-        finalCard.parent = spinner.RectTransform.parent.parent; //get over the mask
+        finalCard.SetParent(spinner.RectTransform.parent.parent); //get over the mask
         Destroy(spinner.RectTransform.gameObject);
 
         finalCard.DOScale(scaleAnimationValue, scaleAnimationDuration).SetLoops(2, LoopType.Yoyo);

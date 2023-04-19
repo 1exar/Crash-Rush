@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b5b1df9aaa04f51bf59eb1e219259f, type: 3}
+  m_Name: MapDatas
+  m_EditorClassIdentifier: 
+  MapDatas:
+  - MapName: kurmi
+    MapInfo: gamedev center
+    MapPreviewSprite: {fileID: 21300000, guid: 5993912c2f56e44499cc7860283cbe64, type: 3}
+  - MapName: kyiv
+    MapInfo: asfasg
+    MapPreviewSprite: {fileID: 21300000, guid: 4a276d2a497be46b4bb460710eb88568, type: 3}
+  - MapName: chechna
+    MapInfo: lesgoo
+    MapPreviewSprite: {fileID: 21300000, guid: ed93d07e1af61c64a901ecad469f25a6, type: 3}
