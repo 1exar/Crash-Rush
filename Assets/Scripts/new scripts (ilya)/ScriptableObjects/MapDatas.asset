@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: MapDatas
   m_EditorClassIdentifier: 
   MapDatas:
-  - MapName: kurmi
-    MapInfo: gamedev center
+  - MapName: forest
+    MapInfo: random info
     MapPreviewSprite: {fileID: 21300000, guid: 5993912c2f56e44499cc7860283cbe64, type: 3}
-  - MapName: kyiv
-    MapInfo: asfasg
+  - MapName: farm
+    MapInfo: idk sunny here
     MapPreviewSprite: {fileID: 21300000, guid: 4a276d2a497be46b4bb460710eb88568, type: 3}
-  - MapName: chechna
-    MapInfo: lesgoo
+  - MapName: egypt
+    MapInfo: pharaon
     MapPreviewSprite: {fileID: 21300000, guid: ed93d07e1af61c64a901ecad469f25a6, type: 3}

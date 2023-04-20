@@ -17,12 +17,7 @@ public class EntityCardsSpinner : MonoBehaviour
 
     [SerializeField] private List<CardsSpinnersData> cardsSpinnersData = new List<CardsSpinnersData>();
 
-    private void OnEnable()
-    {
-        Spin();
-    }
-
-    private void Spin()
+    public void Spin()
     {
         foreach (CardsSpinnersData spinner in cardsSpinnersData)
         {
@@ -59,11 +54,11 @@ public class EntityCardsSpinner : MonoBehaviour
 
         finalCard.gameObject.GetComponent<CardEntity>().canChoise = true;
     }
+}
 
-    [Serializable]
-    public struct CardsSpinnersData
-    {
-        public RectTransform RectTransform;
-        public int CardsAmount;
-    }
+[Serializable]
+public struct CardsSpinnersData
+{
+    public RectTransform RectTransform;
+    public int CardsAmount;
 }

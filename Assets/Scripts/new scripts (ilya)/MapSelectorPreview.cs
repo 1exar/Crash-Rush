@@ -8,11 +8,12 @@ using TMPro;
 public class MapSelectorPreview : MonoBehaviour
 {
     [SerializeField] private MapDatasScriptableObject mapDatasScriptableObject;
+    [SerializeField] private EntityCardsSpinner cardsSpinner;
 
     [SerializeField] private TextMeshProUGUI mapPreviewName;
     [SerializeField] private TextMeshProUGUI mapPreviewInfo;
 
-    [SerializeField] private Animation anim;
+    [SerializeField] private MapSelectorPreviewAnimator showCardsAnim;
     [SerializeField] private RectTransform spinner;
     [SerializeField] private RectTransform mapListObject;
     [SerializeField] private GameObject mapPreviewObjectPrefab;
@@ -20,6 +21,7 @@ public class MapSelectorPreview : MonoBehaviour
     [SerializeField] private float height;
     [SerializeField] private int amount;
     [SerializeField] private float duration;
+    [SerializeField] private float timeBeforeShowCards;
 
     private MapSelector _mapSelector;
     private MapData[] _mapDatas;
@@ -91,7 +93,15 @@ public class MapSelectorPreview : MonoBehaviour
         mapPreviewName.text = _mapDatas[_selectedMapIndex].MapName;
         mapPreviewInfo.text = _mapDatas[_selectedMapIndex].MapInfo;
 
-        anim.Play();
         _mapSelector.SelectMap(_selectedMapIndex);
+        showCardsAnim.ShowMapPreviewInfo();
+
+        Invoke(nameof(ShowCards), timeBeforeShowCards);
+    }
+
+    private void ShowCards()
+    {
+        showCardsAnim.ShowCards();
+        cardsSpinner.Spin();
     }
 }
